@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda constants.inc.php,1.3,1.4 defines.inc.php,1.3,1.4 timecontrol.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda%20constants.inc.php%2C1.3%2C1.4%20defines.inc.php%2C1.3%2C1.4%20timecontrol.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5V628978%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda constants.inc.php,1.3,1.4 defines.inc.php,1.3,1.4 timecontrol.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda%20constants.inc.php%2C1.3%2C1.4%20defines.inc.php%2C1.3%2C1.4%20timecontrol.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5V628978%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda constants.inc.php,1.3,1.4 defines.inc.php,1.3,1.4 timecontrol.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:31 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[Migueloo-cvs] migueloo/modules/alumnPage/control/classes miguel_calumnpage.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000028.html">[Migueloo-cvs] migueloo/modules/alumnPage/model/classes miguel_malumnpage.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda
+In directory sheep:/tmp/cvs-serv22200/modules/andromeda
+
+Modified Files:
+	constants.inc.php defines.inc.php timecontrol.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: constants.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/constants.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** constants.inc.php	6 Aug 2004 10:31:12 -0000	1.3
+--- constants.inc.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 28,32 ****
+  */
+  /**
+!  * Errores para errorHandler
+   */
+  define ('FATAL', E_USER_ERROR);
+--- 28,32 ----
+  */
+  /**
+!  * Errors for errorHandler
+   */
+  define ('FATAL', E_USER_ERROR);
+***************
+*** 35,46 ****
+  
+  /**
+!  * Clase de Error
+   */
+! define(&quot;USER_ERROR&quot;, 1);
+! define(&quot;BASE_ERROR&quot;, 2);
+! define(&quot;APP_ERROR&quot;, 3);
+  
+  /**
+!  * Severidad del Error
+   */
+  define('LOG_EMERG',    0);     /** System is unusable */
+--- 35,46 ----
+  
+  /**
+!  * Class of Error
+   */
+! define('USER_ERROR', 1);
+! define('BASE_ERROR', 2);
+! define('APP_ERROR', 3);
+  
+  /**
+!  * Error severity
+   */
+  define('LOG_EMERG',    0);     /** System is unusable */
+***************
+*** 54,68 ****
+  
+  /**
+!  * Tipo de Error
+   */
+! define(&quot;UNKNOWN&quot;, 0);
+! define(&quot;COULD_NOT_OPEN_FILE&quot;, 1);
+! define(&quot;COULD_NOT_CREATE_FILE&quot;, 2);
+! define(&quot;FILE_DOES_NOT_EXIST&quot;, 3);
+! //define(&quot;&quot;, &quot;&quot;);
+! //define(&quot;&quot;, &quot;&quot;);
+  
+  
+! //define(&quot;&quot;, &quot;&quot;);
+  
+  
+--- 54,68 ----
+  
+  /**
+!  * Type of Error
+   */
+! define('UNKNOWN', 0);
+! define('COULD_NOT_OPEN_FILE', 1);
+! define('COULD_NOT_CREATE_FILE', 2);
+! define('FILE_DOES_NOT_EXIST', 3);
+! //define('', '');
+! //define('', '');
+  
+  
+! //define('', '');
+  
+  
+
+Index: defines.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/defines.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** defines.inc.php	6 Aug 2004 10:31:12 -0000	1.3
+--- defines.inc.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 103,111 ****
+  }
+  
+! define(&quot;MIGUEL_GETTEXT_DEBUG&quot;, 0);
+  
+  /**
+!  * Encapsula el uso de gettext. Si no existe la traducci&#243;n, presenta un valor por defecto
+!  * @param string $char Cadena a traducir
+   */
+  function agt($char)
+--- 103,111 ----
+  }
+  
+! define('MIGUEL_GETTEXT_DEBUG', 0);
+  
+  /**
+!  * Encapsulates gettext use. If there isn't translation, shows a default value
+!  * @param string $char String to translate
+   */
+  function agt($char)
+
+Index: timecontrol.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/timecontrol.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** timecontrol.class.php	6 Aug 2004 10:31:12 -0000	1.3
+--- timecontrol.class.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 39,43 ****
+      function getInterval()
+  	{ 
+! 		$micro_time = explode(&quot; &quot;, microtime()); 
+  		$this-&gt;arr_time[] = $micro_time[1] + $micro_time[0]; 
+      } 
+--- 39,43 ----
+      function getInterval()
+  	{ 
+! 		$micro_time = explode(' ', microtime()); 
+  		$this-&gt;arr_time[] = $micro_time[1] + $micro_time[0]; 
+      } 
+***************
+*** 50,54 ****
+  		for($i=1; $i &lt; $int_total; $i++){
+  			$int_time = $this-&gt;arr_time[$i] - $this-&gt;arr_time[$i - 1];
+! 			$ret_val[] = &quot;Intervalo &quot;.$i.&quot; en &quot;.substr($int_time,0,5).&quot; segundos.\n&quot;;
+  		}
+  		
+--- 50,54 ----
+  		for($i=1; $i &lt; $int_total; $i++){
+  			$int_time = $this-&gt;arr_time[$i] - $this-&gt;arr_time[$i - 1];
+! 			$ret_val[] = 'Intervalo '.$i.' en '.substr($int_time,0,5).&quot; segundos.\n&quot;;
+  		}
+  		
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[Migueloo-cvs] migueloo/modules/alumnPage/control/classes miguel_calumnpage.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000028.html">[Migueloo-cvs] migueloo/modules/alumnPage/model/classes miguel_malumnpage.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

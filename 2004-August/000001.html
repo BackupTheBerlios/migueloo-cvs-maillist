@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/control/classes%20miguel_cfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630961%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   <LINK REL="Next"  HREF="000002.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/control/classes%20miguel_cfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630961%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 13:33:57 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000002.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/filemanager/control/classes
+In directory sheep:/tmp/cvs-serv27819/control/classes
+
+Modified Files:
+	miguel_cfilemanager.class.php 
+Log Message:
+Added first version of Rename, Visible, Lock and Share operations
+
+
+Index: miguel_cfilemanager.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/filemanager/control/classes/miguel_cfilemanager.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** miguel_cfilemanager.class.php	9 Aug 2004 21:45:36 -0000	1.1
+--- miguel_cfilemanager.class.php	12 Aug 2004 11:33:54 -0000	1.2
+***************
+*** 108,119 ****
+  				}
+  	
+! 				/* ------------ OTRAS OPERACIONES ARCHIVOS Y DIRECTORIOS -------------- */
+  				/* Eliminar, Renombrar, Comentar, Mover, Hacer visible, Bloquear, Compartir, &#191;Actualizar y guardar un log de cambios o control de versiones? */
+! 	
+  				/* Deber&#237;a retornar un valor error o estado de la operaci&#243;n y notificarlo en la carga del m&#243;dulo */
+  			}
+! 			
+  			if ( $this-&gt;issetViewVariable('status') ) {
+! 				if($this-&gt;getViewVariable('status') == 'del'){
+  					if($this-&gt;getViewVariable('tp') == 'f'){
+  						$this-&gt;obj_data-&gt;deleteFolder($this-&gt;getViewVariable('id'));
+--- 108,135 ----
+  				}
+  	
+! 				/* ------------ OTRAS OPERACIONES ARCHIVOS Y DIRECTORIOS CON FORMULARIO INTERMEDIO-------------- */
+  				/* Eliminar, Renombrar, Comentar, Mover, Hacer visible, Bloquear, Compartir, &#191;Actualizar y guardar un log de cambios o control de versiones? */
+!                                 if ( $this-&gt;issetViewVariable('status') ) {
+!                                     $status = $this-&gt;getViewVariable('status');
+!                                     switch ( $status ) {
+!                                         case 'rename':
+!                                             if($this-&gt;getViewVariable('tp') == 'f'){
+!                                                     $this-&gt;obj_data-&gt;renameFolder($this-&gt;getViewVariable('id'), $this-&gt;getViewVariable('newname'));
+!                                             } else {
+!                                                     $this-&gt;obj_data-&gt;renameFile($this-&gt;getViewVariable('id'), $this-&gt;getViewVariable('newname'));
+!                                             }
+!                                             break;
+!                                     }
+!                                     $status = null;
+!                                     unset( $status );
+!                                 }
+  				/* Deber&#237;a retornar un valor error o estado de la operaci&#243;n y notificarlo en la carga del m&#243;dulo */
+  			}
+! 
+! 			/* ------------------ OPERACIONES REALIZADAS DIRECTAMENTE ---------*/
+  			if ( $this-&gt;issetViewVariable('status') ) {
+!                             $status = $this-&gt;getViewVariable('status');
+!                             switch ( $status ) {
+! 				case 'del':
+  					if($this-&gt;getViewVariable('tp') == 'f'){
+  						$this-&gt;obj_data-&gt;deleteFolder($this-&gt;getViewVariable('id'));
+***************
+*** 121,138 ****
+  						$this-&gt;obj_data-&gt;deleteFile($this-&gt;getViewVariable('id'));
+  					}
+! 				}
+! 			}
+! 	
+! 			/* -------------------- CARGA EL MODULO Y LO MUESTRA POR PANTALLA -------------------- */
+! 			$this-&gt;setViewClass(&quot;miguel_VMain&quot;);                    
+! 			$this-&gt;setPageTitle(&quot;miguel_institutionList&quot;);
+! 			//$this-&gt;addNavElement(Util::format_URLPath('main/index.php','id=institution'), agt(&quot;miguel_Center&quot;) );
+! 
+  			if ( $this-&gt;issetViewVariable(&quot;folder_id&quot;) != &quot;&quot; ) {
+  				$current_folder_id = $this-&gt;getViewVariable(&quot;folder_id&quot;);
+  			} else {
+! 				$current_folder_id = $this-&gt;obj_data-&gt;getFolderId($course_id);//0;
+  			}
+- 			
+  			$current_folder_info = $this-&gt;obj_data-&gt;getFolderName( $current_folder_id );
+  				
+--- 137,175 ----
+  						$this-&gt;obj_data-&gt;deleteFile($this-&gt;getViewVariable('id'));
+  					}
+!                                         break;
+!                                 case 'visible':
+!                                         if($this-&gt;getViewVariable('tp') == 'f'){
+!                                                 $this-&gt;obj_data-&gt;visibleElement($this-&gt;getViewVariable('id'), 1, 'folder');
+!                                         } else {
+!                                                 $this-&gt;obj_data-&gt;visibleElement($this-&gt;getViewVariable('id'), 1, 'document');
+!                                         }
+!                                         break;
+!                                 case 'invisible':
+!                                         if($this-&gt;getViewVariable('tp') == 'f'){
+!                                                 $this-&gt;obj_data-&gt;visibleElement($this-&gt;getViewVariable('id'), 0, 'folder');
+!                                         } else {
+!                                                 $this-&gt;obj_data-&gt;visibleElement($this-&gt;getViewVariable('id'), 0, 'document');
+!                                         }       
+!                                         break;
+!                                 case 'lock':
+!                                         $this-&gt;obj_data-&gt;lockDocument($this-&gt;getViewVariable('id'), 1);
+!                                         break;
+!                                 case 'unlock':
+!                                         $this-&gt;obj_data-&gt;lockDocument($this-&gt;getViewVariable('id'), 0);
+!                                         break;
+!                                 case 'share':
+!                                         $this-&gt;obj_data-&gt;shareDocument($this-&gt;getViewVariable('id'), 1);
+!                                         break;
+!                                 case 'unshare':
+!                                         $this-&gt;obj_data-&gt;shareDocument($this-&gt;getViewVariable('id'), 0);
+!                                         break;
+!                             }
+!                         }
+  			if ( $this-&gt;issetViewVariable(&quot;folder_id&quot;) != &quot;&quot; ) {
+  				$current_folder_id = $this-&gt;getViewVariable(&quot;folder_id&quot;);
+  			} else {
+! 				//$current_folder_id = $this-&gt;obj_data-&gt;getFolderId($course_id);//0;
+!                                 $current_folder_id = 0;
+  			}
+  			$current_folder_info = $this-&gt;obj_data-&gt;getFolderName( $current_folder_id );
+  				
+***************
+*** 158,160 ****
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 195,197 ----
+      }
+  }
+! ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000002.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

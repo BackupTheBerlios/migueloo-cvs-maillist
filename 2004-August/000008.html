@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/doc/scripts andro_xgettext.php,1.1.1.1,1.2 miguel_HTMLParser.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/doc/scripts%20andro_xgettext.php%2C1.1.1.1%2C1.2%20miguel_HTMLParser.php%2C1.1%2C1.2&In-Reply-To=%3C200408121520.i7CFK5604952%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/doc/scripts andro_xgettext.php,1.1.1.1,1.2 miguel_HTMLParser.php,1.1,1.2</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/doc/scripts%20andro_xgettext.php%2C1.1.1.1%2C1.2%20miguel_HTMLParser.php%2C1.1%2C1.2&In-Reply-To=%3C200408121520.i7CFK5604952%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/doc/scripts andro_xgettext.php,1.1.1.1,1.2 miguel_HTMLParser.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 17:20:05 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Migueloo-cvs] migueloo index.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Migueloo-cvs] migueloo/modules/admin index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/doc/scripts
+In directory sheep:/tmp/cvs-serv6513/doc/scripts
+
+Modified Files:
+	andro_xgettext.php miguel_HTMLParser.php 
+Log Message:
+Optimizaci&#243;n con el uso correcto de las comillas simples y dobles
+
+Index: andro_xgettext.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/doc/scripts/andro_xgettext.php,v
+retrieving revision 1.1.1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1.1.1 -r1.2
+*** andro_xgettext.php	13 Jun 2004 15:05:25 -0000	1.1.1.1
+--- andro_xgettext.php	12 Aug 2004 15:20:03 -0000	1.2
+***************
+*** 161,165 ****
+  		}
+  		//Writes file into $folder
+! 		$fp = fopen($filename,&quot;wb&quot;);
+  		fwrite($fp,$file_content);
+  		fclose($fp);
+--- 161,165 ----
+  		}
+  		//Writes file into $folder
+! 		$fp = fopen($filename,'wb');
+  		fwrite($fp,$file_content);
+  		fclose($fp);
+***************
+*** 174,178 ****
+  		$numLin = 0;
+  		// Read in the file's contents
+! 		$fp = fopen($filename,&quot;rb&quot;);
+  		while($reg = fgets($fp)) {
+  			$file_content[$numLin] =$reg;
+--- 174,178 ----
+  		$numLin = 0;
+  		// Read in the file's contents
+! 		$fp = fopen($filename,'rb');
+  		while($reg = fgets($fp)) {
+  			$file_content[$numLin] =$reg;
+***************
+*** 218,222 ****
+  	$gen = new andro_xgettext();
+  	for($i = 1; $i &lt; $argc; $i++){
+! 		if($argv[$i] == &quot;-o&quot;) {
+  			$gen-&gt;setFileName($argv[$i+1]);
+  			$i = $i+1;
+--- 218,222 ----
+  	$gen = new andro_xgettext();
+  	for($i = 1; $i &lt; $argc; $i++){
+! 		if($argv[$i] == '-o') {
+  			$gen-&gt;setFileName($argv[$i+1]);
+  			$i = $i+1;
+***************
+*** 228,230 ****
+  	$gen-&gt;generateFile();
+  } 
+! ?&gt;
+\ No newline at end of file
+--- 228,230 ----
+  	$gen-&gt;generateFile();
+  } 
+! ?&gt;
+
+Index: miguel_HTMLParser.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/doc/scripts/miguel_HTMLParser.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** miguel_HTMLParser.php	5 Aug 2004 00:44:54 -0000	1.1
+--- miguel_HTMLParser.php	12 Aug 2004 15:20:03 -0000	1.2
+***************
+*** 119,123 ****
+  		}
+  		//Writes file into $folder
+! 		$fp = fopen($filename,&quot;wb&quot;);
+  		fwrite($fp,$file_content);
+  		fclose($fp);
+--- 119,123 ----
+  		}
+  		//Writes file into $folder
+! 		$fp = fopen($filename,'wb');
+  		fwrite($fp,$file_content);
+  		fclose($fp);
+***************
+*** 129,135 ****
+  		$numLin = 0;
+  		// Read in the file's contents
+! 		$fp = fopen($filename,&quot;rb&quot;);
+  		while($reg = fgets($fp)) {
+! 			$file_content[$numLin] =$reg;
+  			$numLin++;
+  		}
+--- 129,135 ----
+  		$numLin = 0;
+  		// Read in the file's contents
+! 		$fp = fopen($filename,'rb');
+  		while($reg = fgets($fp)) {
+! 			$file_content[$numLin] = $reg;
+  			$numLin++;
+  		}
+***************
+*** 163,181 ****
+  	
+  	for($i = 1; $i &lt; $argc; $i++)	{
+! 		if($argv[$i] == &quot;-p&quot;){
+  			$gen-&gt;setParam($argv[$i+1], $argv[$i+2]);
+  			$i = $i +3;
+  		}
+  		
+! 		if($argv[$i] == &quot;-d&quot;) {
+  			$dirname = getcwd();
+  			$dir = opendir($dirname);
+  
+  			while($file = @readdir($dir)) {
+! 				if($file == &quot;.&quot; || $file == &quot;..&quot;) {
+  					continue;
+! 				} else if(@is_dir($dirname.&quot;/&quot;.$file)) {
+  					continue;
+! 				} else if(@file_exists($dirname.&quot;/&quot;.$file)) {
+  					if($file != 'miguel_HTMLParser.php'){
+  						echo &quot;Procesado fichero: $file\n&quot;;
+--- 163,181 ----
+  	
+  	for($i = 1; $i &lt; $argc; $i++)	{
+! 		if($argv[$i] == '-p'){
+  			$gen-&gt;setParam($argv[$i+1], $argv[$i+2]);
+  			$i = $i +3;
+  		}
+  		
+! 		if($argv[$i] == '-d') {
+  			$dirname = getcwd();
+  			$dir = opendir($dirname);
+  
+  			while($file = @readdir($dir)) {
+! 				if($file == '.' || $file == '..') {
+  					continue;
+! 				} else if(@is_dir($dirname.'/'.$file)) {
+  					continue;
+! 				} else if(@file_exists($dirname.'/'.$file)) {
+  					if($file != 'miguel_HTMLParser.php'){
+  						echo &quot;Procesado fichero: $file\n&quot;;
+***************
+*** 191,193 ****
+  	}
+  }
+! ?&gt;
+\ No newline at end of file
+--- 191,193 ----
+  	}
+  }
+! ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Migueloo-cvs] migueloo index.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Migueloo-cvs] migueloo/modules/admin index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

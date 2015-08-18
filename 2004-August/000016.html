@@ -1,0 +1,540 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/include/classes debug.class.php,1.3,1.4 errorhandler.class.php,1.3,1.4 file.class.php,1.3,1.4 loghandler.class.php,1.3,1.4 mailer.class.php,1.3,1.4 nls.class.php,1.3,1.4 nls.inc.php,1.3,1.4 theme.class.php,1.3,1.4 theme_20040426.class.php,1.1,1.2 theme_changeit.class.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/include/classes%20debug.class.php%2C1.3%2C1.4%20errorhandler.class.php%2C1.3%2C1.4%20file.class.php%2C1.3%2C1.4%20loghandler.class.php%2C1.3%2C1.4%20mailer.class.php%2C1.3%2C1.4%20nls.class.php%2C1.3%2C1.4%20nls.inc.php%2C1.3%2C1.4%20theme.class.php%2C1.3%2C1.4%20theme_20040426.class.php%2C1.1%2C1.2%20theme_changeit.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408211905.i7LJ52628935%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/include/classes debug.class.php,1.3,1.4 errorhandler.class.php,1.3,1.4 file.class.php,1.3,1.4 loghandler.class.php,1.3,1.4 mailer.class.php,1.3,1.4 nls.class.php,1.3,1.4 nls.inc.php,1.3,1.4 theme.class.php,1.3,1.4 theme_20040426.class.php,1.1,1.2 theme_changeit.class.php,1.1,1.2</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/include/classes%20debug.class.php%2C1.3%2C1.4%20errorhandler.class.php%2C1.3%2C1.4%20file.class.php%2C1.3%2C1.4%20loghandler.class.php%2C1.3%2C1.4%20mailer.class.php%2C1.3%2C1.4%20nls.class.php%2C1.3%2C1.4%20nls.inc.php%2C1.3%2C1.4%20theme.class.php%2C1.3%2C1.4%20theme_20040426.class.php%2C1.1%2C1.2%20theme_changeit.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408211905.i7LJ52628935%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/include/classes debug.class.php,1.3,1.4 errorhandler.class.php,1.3,1.4 file.class.php,1.3,1.4 loghandler.class.php,1.3,1.4 mailer.class.php,1.3,1.4 nls.class.php,1.3,1.4 nls.inc.php,1.3,1.4 theme.class.php,1.3,1.4 theme_20040426.class.php,1.1,1.2 theme_changeit.class.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:02 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/include/classes
+In directory sheep:/tmp/cvs-serv22200/modules/andromeda/include/classes
+
+Modified Files:
+	debug.class.php errorhandler.class.php file.class.php 
+	loghandler.class.php mailer.class.php nls.class.php 
+	nls.inc.php theme.class.php theme_20040426.class.php 
+	theme_changeit.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: debug.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/debug.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** debug.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- debug.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 31,35 ****
+       Modo de uso
+       
+!      Debug::msg(&quot;Hola&quot;, __FILE__, __LINE__);
+  */
+  include_once(Util::base_Path('include/classes/lensdebug.class.php'));
+--- 31,35 ----
+       Modo de uso
+       
+!      Debug::msg('Hola', __FILE__, __LINE__);
+  */
+  include_once(Util::base_Path('include/classes/lensdebug.class.php'));
+
+Index: errorhandler.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/errorhandler.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** errorhandler.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- errorhandler.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 55,59 ****
+  		error_reporting(E_ALL);
+  		//error_reporting  (FATAL + ERROR + WARNING);
+! 		set_error_handler(array($this, &quot;processError&quot;));
+  	}
+  
+--- 55,59 ----
+  		error_reporting(E_ALL);
+  		//error_reporting  (FATAL + ERROR + WARNING);
+! 		set_error_handler(array($this, 'processError'));
+  	}
+  
+***************
+*** 66,70 ****
+  		if (in_array($num_err, $errores_de_usuario)){
+  		    // marca de fecha/hora para el registro de error
+!     		$dt = date(&quot;Y-m-d H:i:s (T)&quot;);
+  
+      		// definir una matriz asociativa de cadenas de error
+--- 66,70 ----
+  		if (in_array($num_err, $errores_de_usuario)){
+  		    // marca de fecha/hora para el registro de error
+!     		$dt = date('Y-m-d H:i:s (T)');
+  
+      		// definir una matriz asociativa de cadenas de error
+***************
+*** 74,90 ****
+  
+      		$tipo_error = array (
+! 				E_ERROR          =&gt; &quot;Error&quot;,
+! 				E_WARNING        =&gt; &quot;Advertencia&quot;,
+! 				E_PARSE          =&gt; &quot;Error de Int&#233;rprete&quot;,
+! 				E_NOTICE          =&gt; &quot;Anotaci&#243;n&quot;,
+! 				E_CORE_ERROR      =&gt; &quot;Error de N&#250;cleo&quot;,
+! 				E_CORE_WARNING    =&gt; &quot;Advertencia de N&#250;cleo&quot;,
+! 				E_COMPILE_ERROR  =&gt; &quot;Error de Compilaci&#243;n&quot;,
+! 				E_COMPILE_WARNING =&gt; &quot;Advertencia de Compilac&#243;n&quot;,
+! 				E_USER_ERROR      =&gt; &quot;Error de Usuario&quot;,
+! 				E_USER_WARNING    =&gt; &quot;Advertencia de Usuario&quot;,
+! 				E_USER_NOTICE    =&gt; &quot;Anotaci&#243;n de Usuario&quot;
+  				//,
+! 				//E_STRICT          =&gt; &quot;Anotaci&oacute;n de tiempo de ejecuci&oacute;n&quot;
+      		);
+  
+--- 74,90 ----
+  
+      		$tipo_error = array (
+! 				E_ERROR          =&gt; 'Error',
+! 				E_WARNING        =&gt; 'Advertencia',
+! 				E_PARSE          =&gt; 'Error de Int&#233;rprete',
+! 				E_NOTICE          =&gt; 'Anotaci&#243;n',
+! 				E_CORE_ERROR      =&gt; 'Error de N&#250;cleo',
+! 				E_CORE_WARNING    =&gt; 'Advertencia de N&#250;cleo',
+! 				E_COMPILE_ERROR  =&gt; 'Error de Compilaci&#243;n',
+! 				E_COMPILE_WARNING =&gt; 'Advertencia de Compilac&#243;n',
+! 				E_USER_ERROR      =&gt; 'Error de Usuario',
+! 				E_USER_WARNING    =&gt; 'Advertencia de Usuario',
+! 				E_USER_NOTICE    =&gt; 'Anotaci&#243;n de Usuario'
+  				//,
+! 				//E_STRICT          =&gt; 'Anotaci&oacute;n de tiempo de ejecuci&oacute;n'
+      		);
+  
+
+Index: file.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/file.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** file.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- file.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 119,133 ****
+     if ($dh = opendir($dir)) {
+         while (false !== ($file = readdir($dh))){
+!            if ($file != &quot;.&quot; &amp;&amp; $file != &quot;..&quot;) {
+                 $files[] = $file;
+             }
+         }
+         closedir($dh);
+!        if(strpos($pattern,&quot;.&quot;)) {
+!            $baseexp=substr($pattern,0,strpos($pattern,&quot;.&quot;));
+!            $typeexp=substr($pattern,strpos($pattern,&quot;.&quot;)+1,strlen($pattern));
+         }else{
+             $baseexp=$pattern;
+!            $typeexp=&quot;&quot;;
+         }
+         $baseexp=preg_quote($baseexp);
+--- 119,133 ----
+     if ($dh = opendir($dir)) {
+         while (false !== ($file = readdir($dh))){
+!            if ($file != '.' &amp;&amp; $file != '..') {
+                 $files[] = $file;
+             }
+         }
+         closedir($dh);
+!        if(strpos($pattern,'.')) {
+!            $baseexp=substr($pattern,0,strpos($pattern,'.'));
+!            $typeexp=substr($pattern,strpos($pattern,'.')+1,strlen($pattern));
+         }else{
+             $baseexp=$pattern;
+!            $typeexp='';
+         }
+         $baseexp=preg_quote($baseexp);
+***************
+*** 138,147 ****
+         foreach($files as $file) {
+             $filename=basename($file);
+!            if(strpos($filename,&quot;.&quot;)) {
+!                $base=substr($filename,0,strpos($filename,&quot;.&quot;));
+!                $type=substr($filename,strpos($filename,&quot;.&quot;)+1,strlen($filename));
+             }else{
+                 $base=$filename;
+!                $type=&quot;&quot;;
+             }
+             if(preg_match(&quot;/^&quot;.$baseexp.&quot;$/i&quot;,$base) &amp;&amp; preg_match(&quot;/^&quot;.$typeexp.&quot;$/i&quot;,$type))  {
+--- 138,147 ----
+         foreach($files as $file) {
+             $filename=basename($file);
+!            if(strpos($filename,'.')) {
+!                $base=substr($filename,0,strpos($filename,'.'));
+!                $type=substr($filename,strpos($filename,'.')+1,strlen($filename));
+             }else{
+                 $base=$filename;
+!                $type='';
+             }
+             if(preg_match(&quot;/^&quot;.$baseexp.&quot;$/i&quot;,$base) &amp;&amp; preg_match(&quot;/^&quot;.$typeexp.&quot;$/i&quot;,$type))  {
+***************
+*** 152,159 ****
+         if (count($matches) &gt; 0){
+                 while(list($idx,$val) = each($matches)){
+!                    if (substr($dir,-1) == &quot;/&quot;){
+                         unlink($dir.$val);
+                     }else{
+!                        unlink($dir.&quot;/&quot;.$val);
+                     }
+                 }
+--- 152,159 ----
+         if (count($matches) &gt; 0){
+                 while(list($idx,$val) = each($matches)){
+!                    if (substr($dir,-1) == '/'){
+                         unlink($dir.$val);
+                     }else{
+!                        unlink($dir.'/'.$val);
+                     }
+                 }
+***************
+*** 163,167 ****
+  }
+  
+! unlink_wc(&quot;/path/to/folder/&quot;,&quot;*.*&quot;);
+  */
+  }
+--- 163,167 ----
+  }
+  
+! unlink_wc('/path/to/folder/','*.*');
+  */
+  }
+
+Index: loghandler.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/loghandler.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** loghandler.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- loghandler.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 65,73 ****
+                		break;
+        	      	case 'adodb':
+!            	 		$db_conf = array('ddbbSgbd' =&gt;Session::getContextValue(&quot;ddbbSgbd&quot;),
+!         	    					 'ddbbServer' =&gt; Session::getContextValue(&quot;ddbbServer&quot;),
+! 						    		 'ddbbUser' =&gt; Session::getContextValue(&quot;ddbbUser&quot;),
+! 						    		 'ddbbPassword' =&gt; Session::getContextValue(&quot;ddbbPassword&quot;),
+! 						    		 'ddbbMainDb' =&gt; Session::getContextValue(&quot;ddbbMainDb&quot;));
+          	    	$conf = array('dsn' =&gt; $db_conf);
+  					$logger = &amp;Log::singleton('adodb', MIGUELBASE_LOG_TABLE, 'miguelOO_'.$ident, $conf);
+--- 65,73 ----
+                		break;
+        	      	case 'adodb':
+!            	 		$db_conf = array('ddbbSgbd' =&gt;Session::getContextValue('ddbbSgbd'),
+!         	    					 'ddbbServer' =&gt; Session::getContextValue('ddbbServer'),
+! 						    		 'ddbbUser' =&gt; Session::getContextValue('ddbbUser'),
+! 						    		 'ddbbPassword' =&gt; Session::getContextValue('ddbbPassword'),
+! 						    		 'ddbbMainDb' =&gt; Session::getContextValue('ddbbMainDb'));
+          	    	$conf = array('dsn' =&gt; $db_conf);
+  					$logger = &amp;Log::singleton('adodb', MIGUELBASE_LOG_TABLE, 'miguelOO_'.$ident, $conf);
+
+Index: mailer.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/mailer.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** mailer.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- mailer.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 50,60 ****
+  
+  class miguel_mailer extends phpmailer {
+!     var $Host     = &quot;smtp.telefonica.net&quot;;
+!     var $Mailer   = &quot;smtp&quot;;                         // Alternative to IsSMTP()
+      var $WordWrap = 75;
+  
+      var $SMTPAuth = true;     // turn on SMTP authentication
+!     var $Username = &quot;&quot;;  // SMTP username
+!     var $Password = &quot;&quot;; // SMTP password
+      
+      // Replace the default error_handler
+--- 50,60 ----
+  
+  class miguel_mailer extends phpmailer {
+!     var $Host     = 'smtp.telefonica.net';
+!     var $Mailer   = 'smtp';                         // Alternative to IsSMTP()
+      var $WordWrap = 75;
+  
+      var $SMTPAuth = true;     // turn on SMTP authentication
+!     var $Username = '';  // SMTP username
+!     var $Password = ''; // SMTP password
+      
+      // Replace the default error_handler
+***************
+*** 65,67 ****
+  }
+  
+! ?&gt;
+\ No newline at end of file
+--- 65,67 ----
+  }
+  
+! ?&gt;
+
+Index: nls.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/nls.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** nls.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- nls.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 66,73 ****
+          //Debug::oneVar($lang, __FILE__, __LINE__);
+          if(empty($lang) || !NLS::isValid($lang)) {
+!         	if(Session::getValue(&quot;lang&quot;) != null) {
+! 				$lang = Session::getValue(&quot;lang&quot;);
+! 			} else if(Session::getContextValue(&quot;gettext_lang&quot;) != null) {
+! 				$lang = Session::getContextValue(&quot;gettext_lang&quot;);
+  			} else {
+  				$lang = 'es_ES';
+--- 66,73 ----
+          //Debug::oneVar($lang, __FILE__, __LINE__);
+          if(empty($lang) || !NLS::isValid($lang)) {
+!         	if(Session::getValue('lang') != null) {
+! 				$lang = Session::getValue('lang');
+! 			} else if(Session::getContextValue('gettext_lang') != null) {
+! 				$lang = Session::getContextValue('gettext_lang');
+  			} else {
+  				$lang = 'es_ES';
+***************
+*** 189,196 ****
+  	{
+  		//$datetime tiene el formato aaaa-mm-dd HH:MM:SS
+! 		list($date, $time) = explode(&quot; &quot;, $datetime, 2);
+  		
+! 		list($year, $month, $day) = explode(&quot;-&quot;, $date, 3);
+! 		list($hour, $minute, $second) = explode(&quot;:&quot;, $time, 3);
+  		
+  		return strftime($format, mktime($hour, $minute, $second, $day, $month,$year));
+--- 189,196 ----
+  	{
+  		//$datetime tiene el formato aaaa-mm-dd HH:MM:SS
+! 		list($date, $time) = explode(' ', $datetime, 2);
+  		
+! 		list($year, $month, $day) = explode('-', $date, 3);
+! 		list($hour, $minute, $second) = explode(':', $time, 3);
+  		
+  		return strftime($format, mktime($hour, $minute, $second, $day, $month,$year));
+
+Index: nls.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/nls.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** nls.inc.php	6 Aug 2004 10:31:13 -0000	1.3
+--- nls.inc.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 206,231 ****
+   **/
+  
+! $nls['encodings']['windows-1256'] = _(&quot;Arabic (Windows-1256)&quot;);
+! $nls['encodings']['ARMSCII-8'] = _(&quot;Armenian (ARMSCII-8)&quot;);
+! $nls['encodings']['ISO-8859-13'] = _(&quot;Baltic (ISO-8859-13)&quot;);
+! $nls['encodings']['ISO-8859-14'] = _(&quot;Celtic (ISO-8859-14)&quot;);
+! $nls['encodings']['ISO-8859-2'] = _(&quot;Central European (ISO-8859-2)&quot;);
+! $nls['encodings']['GB2312'] = _(&quot;Chinese Simplified (GB2312)&quot;);
+! $nls['encodings']['BIG5'] = _(&quot;Chinese Traditional (Big5)&quot;);
+! $nls['encodings']['KOI8-R'] = _(&quot;Cyrillic (KOI8-R)&quot;);
+! $nls['encodings']['windows-1251'] = _(&quot;Cyrillic (Windows-1251)&quot;);
+! $nls['encodings']['KOI8-U'] = _(&quot;Cyrillic/Ukrainian (KOI8-U)&quot;);
+! $nls['encodings']['ISO-8859-7'] = _(&quot;Greek (ISO-8859-7)&quot;);
+! $nls['encodings']['ISO-8859-8-I'] = _(&quot;Hebrew (ISO-8859-8-I)&quot;);
+! $nls['encodings']['ISO-2022-JP'] = _(&quot;Japanese (ISO-2022-JP)&quot;);
+! $nls['encodings']['EUC-KR'] = _(&quot;Korean (EUC-KR)&quot;);
+! $nls['encodings']['ISO-8859-10'] = _(&quot;Nordic (ISO-8859-10)&quot;);
+! $nls['encodings']['ISO-8859-3'] = _(&quot;South European (ISO-8859-3)&quot;);
+! $nls['encodings']['TIS-620'] = _(&quot;Thai (TIS-620)&quot;);
+! $nls['encodings']['ISO-8859-9'] = _(&quot;Turkish (ISO-8859-9)&quot;);
+! $nls['encodings']['UTF-8'] = _(&quot;Unicode (UTF-8)&quot;);
+! $nls['encodings']['VISCII'] = _(&quot;Vietnamese (VISCII)&quot;);
+! $nls['encodings']['ISO-8859-1'] = _(&quot;Western (ISO-8859-1)&quot;);
+! $nls['encodings']['ISO-8859-15'] = _(&quot;Western (ISO-8859-15)&quot;);
+  asort($nls['encodings']);
+  
+--- 206,231 ----
+   **/
+  
+! $nls['encodings']['windows-1256'] = _('Arabic (Windows-1256)');
+! $nls['encodings']['ARMSCII-8'] = _('Armenian (ARMSCII-8)');
+! $nls['encodings']['ISO-8859-13'] = _('Baltic (ISO-8859-13)');
+! $nls['encodings']['ISO-8859-14'] = _('Celtic (ISO-8859-14)');
+! $nls['encodings']['ISO-8859-2'] = _('Central European (ISO-8859-2)');
+! $nls['encodings']['GB2312'] = _('Chinese Simplified (GB2312)');
+! $nls['encodings']['BIG5'] = _('Chinese Traditional (Big5)');
+! $nls['encodings']['KOI8-R'] = _('Cyrillic (KOI8-R)');
+! $nls['encodings']['windows-1251'] = _('Cyrillic (Windows-1251)');
+! $nls['encodings']['KOI8-U'] = _('Cyrillic/Ukrainian (KOI8-U)');
+! $nls['encodings']['ISO-8859-7'] = _('Greek (ISO-8859-7)');
+! $nls['encodings']['ISO-8859-8-I'] = _('Hebrew (ISO-8859-8-I)');
+! $nls['encodings']['ISO-2022-JP'] = _('Japanese (ISO-2022-JP)');
+! $nls['encodings']['EUC-KR'] = _('Korean (EUC-KR)');
+! $nls['encodings']['ISO-8859-10'] = _('Nordic (ISO-8859-10)');
+! $nls['encodings']['ISO-8859-3'] = _('South European (ISO-8859-3)');
+! $nls['encodings']['TIS-620'] = _('Thai (TIS-620)');
+! $nls['encodings']['ISO-8859-9'] = _('Turkish (ISO-8859-9)');
+! $nls['encodings']['UTF-8'] = _('Unicode (UTF-8)');
+! $nls['encodings']['VISCII'] = _('Vietnamese (VISCII)');
+! $nls['encodings']['ISO-8859-1'] = _('Western (ISO-8859-1)');
+! $nls['encodings']['ISO-8859-15'] = _('Western (ISO-8859-15)');
+  asort($nls['encodings']);
+  
+
+Index: theme.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/theme.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** theme.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- theme.class.php	21 Aug 2004 19:05:00 -0000	1.4
+***************
+*** 97,101 ****
+  		
+  		if(!Theme::existTheme($theme)){
+!      		$theme = Session::getContextValue(&quot;theme&quot;);
+       	} 
+  		
+--- 97,101 ----
+  		
+  		if(!Theme::existTheme($theme)){
+!      		$theme = Session::getContextValue('theme');
+       	} 
+  		
+***************
+*** 113,117 ****
+  
+       	if(!Theme::existTheme($theme)){
+!      		$theme = Session::getContextValue(&quot;theme&quot;);
+       	}
+  		
+--- 113,117 ----
+  
+       	if(!Theme::existTheme($theme)){
+!      		$theme = Session::getContextValue('theme');
+       	}
+  		
+***************
+*** 199,203 ****
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query(&quot;SELECT theme FROM &quot; . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+--- 199,203 ----
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query('SELECT theme FROM ' . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+
+Index: theme_20040426.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/theme_20040426.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** theme_20040426.class.php	6 Aug 2004 10:31:13 -0000	1.1
+--- theme_20040426.class.php	21 Aug 2004 19:05:00 -0000	1.2
+***************
+*** 198,202 ****
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query(&quot;SELECT theme FROM &quot; . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+--- 198,202 ----
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query('SELECT theme FROM ' . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+
+Index: theme_changeit.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/classes/theme_changeit.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** theme_changeit.class.php	6 Aug 2004 10:31:13 -0000	1.1
+--- theme_changeit.class.php	21 Aug 2004 19:05:00 -0000	1.2
+***************
+*** 187,191 ****
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query(&quot;SELECT theme FROM &quot; . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+--- 187,191 ----
+  //          */
+  //        function getThemeUser($_uid){
+! //                $getTheme = mysql_query('SELECT theme FROM ' . $GLOBALS['mysqlMainDb'] . &quot;.user WHERE user_id='$_uid'&quot;);
+  //                while ($mythemeuser = mysql_fetch_array($getTheme)){
+  //                        $ThemeUser=$mythemeuser[0];
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

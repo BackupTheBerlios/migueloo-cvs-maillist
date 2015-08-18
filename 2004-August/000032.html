@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/view%20includes.inc.php%2C1.3%2C1.4&In-Reply-To=%3C200408212006.i7LK6b630018%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/view%20includes.inc.php%2C1.3%2C1.4&In-Reply-To=%3C200408212006.i7LK6b630018%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 22:06:37 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[Migueloo-cvs] migueloo/modules/andromeda/view/classes base_FEImgRadioGroup.class.php,1.1,1.2 base_FERadioGroup.class.php,1.1,1.2 base_FETime.class.php,1.3,1.4 base_calendar.class.php,1.1,1.2 base_formcontent.class.php,1.3,1.4 base_layoutpage.class.php,1.3,1.4 base_submitbutton.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/view
+In directory sheep:/tmp/cvs-serv23939/andromeda/view
+
+Modified Files:
+	includes.inc.php 
+Log Message:
+Uso correcto de las comillas dobles
+
+Index: includes.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/includes.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** includes.inc.php	6 Aug 2004 10:23:10 -0000	1.3
+--- includes.inc.php	21 Aug 2004 20:06:35 -0000	1.4
+***************
+*** 32,55 ****
+  //This variable is necessary. Don`t delete next line. 
+  $phphtmllib = MIGUELBASE_PHPHTMLLIB; 
+! include_once($phphtmllib.&quot;/includes.inc&quot;);
+! include_once($phphtmllib.&quot;/form/includes.inc&quot;);
+  
+  /**
+   * Include the control libraries
+   */
+! $viewlib = MIGUELBASE_DIR.&quot;view/classes/&quot;;
+! $includelib = MIGUELBASE_DIR.&quot;include/classes/&quot;;
+  
+! //include($viewlib.&quot;base_element.class.php&quot;);
+! //include($viewlib.&quot;base_header.class.php&quot;);
+! //include($viewlib.&quot;base_footer.class.php&quot;);
+! //include($viewlib.&quot;base_layoutpage.class.php&quot;);
+! include($viewlib.&quot;base_formcontent.class.php&quot;);
+! include($viewlib.&quot;base_submitbutton.class.php&quot;);
+! include($viewlib.&quot;base_FETime.class.php&quot;);
+! include($viewlib.&quot;base_FEImgRadioGroup.class.php&quot;);
+! include($viewlib.&quot;base_FERadioGroup.class.php&quot;);
+  
+! include_once($includelib.&quot;theme.class.php&quot;);
+  
+  //Para tener la versi&#243;n de phpHtmlLib usar la funci&#243;n
+--- 32,55 ----
+  //This variable is necessary. Don`t delete next line. 
+  $phphtmllib = MIGUELBASE_PHPHTMLLIB; 
+! include_once($phphtmllib.'/includes.inc');
+! include_once($phphtmllib.'/form/includes.inc');
+  
+  /**
+   * Include the control libraries
+   */
+! $viewlib = MIGUELBASE_DIR.'view/classes/';
+! $includelib = MIGUELBASE_DIR.'include/classes/';
+  
+! //include($viewlib.'base_element.class.php');
+! //include($viewlib.'base_header.class.php');
+! //include($viewlib.'base_footer.class.php');
+! //include($viewlib.'base_layoutpage.class.php');
+! include($viewlib.'base_formcontent.class.php');
+! include($viewlib.'base_submitbutton.class.php');
+! include($viewlib.'base_FETime.class.php');
+! include($viewlib.'base_FEImgRadioGroup.class.php');
+! include($viewlib.'base_FERadioGroup.class.php');
+  
+! include_once($includelib.'theme.class.php');
+  
+  //Para tener la versi&#243;n de phpHtmlLib usar la funci&#243;n
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[Migueloo-cvs] migueloo/modules/andromeda/view/classes base_FEImgRadioGroup.class.php,1.1,1.2 base_FERadioGroup.class.php,1.1,1.2 base_FETime.class.php,1.3,1.4 base_calendar.class.php,1.1,1.2 base_formcontent.class.php,1.3,1.4 base_layoutpage.class.php,1.3,1.4 base_submitbutton.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

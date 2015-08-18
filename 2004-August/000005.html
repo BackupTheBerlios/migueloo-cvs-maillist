@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/admin index.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/admin%20index.php%2C1.3%2C1.4&In-Reply-To=%3C200408121520.i7CFK6604956%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000008.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/admin index.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/admin%20index.php%2C1.3%2C1.4&In-Reply-To=%3C200408121520.i7CFK6604956%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/admin index.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 17:20:06 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000008.html">[Migueloo-cvs] migueloo/doc/scripts andro_xgettext.php,1.1.1.1,1.2 miguel_HTMLParser.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[Migueloo-cvs] migueloo/modules/admin/control/classes miguel_cadmin.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/admin
+In directory sheep:/tmp/cvs-serv6513/modules/admin
+
+Modified Files:
+	index.php 
+Log Message:
+Optimizaci&#243;n con el uso correcto de las comillas simples y dobles
+
+Index: index.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/admin/index.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** index.php	6 Aug 2004 08:07:47 -0000	1.3
+--- index.php	12 Aug 2004 15:20:03 -0000	1.4
+***************
+*** 29,34 ****
+  */
+  
+! include_once (&quot;../common/miguel_base.inc.php&quot;);
+! include_once (Util::app_Path(&quot;admin/control/classes/miguel_cadmin.class.php&quot;));
+  
+  $miguel = new miguel_CAdmin();
+--- 29,34 ----
+  */
+  
+! include_once ('../common/miguel_base.inc.php');
+! include_once (Util::app_Path('admin/control/classes/miguel_cadmin.class.php'));
+  
+  $miguel = new miguel_CAdmin();
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000008.html">[Migueloo-cvs] migueloo/doc/scripts andro_xgettext.php,1.1.1.1,1.2 miguel_HTMLParser.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[Migueloo-cvs] migueloo/modules/admin/control/classes miguel_cadmin.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

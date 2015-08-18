@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/doc/sql filemanager.sql,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/doc/sql%20filemanager.sql%2CNONE%2C1.1&In-Reply-To=%3C200408121136.i7CBad631079%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/doc/sql filemanager.sql,NONE,1.1</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/doc/sql%20filemanager.sql%2CNONE%2C1.1&In-Reply-To=%3C200408121136.i7CBad631079%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/doc/sql filemanager.sql,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 13:36:39 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[Migueloo-cvs] migueloo index.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/doc/sql
+In directory sheep:/tmp/cvs-serv28553
+
+Added Files:
+	filemanager.sql 
+Log Message:
+Add filemanager SQL structure
+
+
+--- NEW FILE: filemanager.sql ---
+-- phpMyAdmin SQL Dump
+-- version 2.6.0-beta1
+-- <A HREF="http://www.phpmyadmin.net">http://www.phpmyadmin.net</A>
+-- 
+-- Servidor: localhost
+-- Tiempo de generaci&#243;n: 12-08-2004 a las 13:35:40
+-- Versi&#243;n del servidor: 4.0.13
+-- Versi&#243;n de PHP: 4.3.4
+-- 
+-- Base de datos: `migueloo_desa`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `fm_course_document_folder`
+-- 
+
+DROP TABLE IF EXISTS `fm_course_document_folder`;
+CREATE TABLE `fm_course_document_folder` (
+  `COURSE_ID` int(11) NOT NULL default '0',
+  `DOCUMENT_ID` int(11) NOT NULL default '0',
+  `FOLDER_ID` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`COURSE_ID`,`DOCUMENT_ID`,`FOLDER_ID`)
+) TYPE=MyISAM;
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `fm_document`
+-- 
+
+DROP TABLE IF EXISTS `fm_document`;
+CREATE TABLE `fm_document` (
+  `DOCUMENT_ID` int(11) NOT NULL auto_increment,
+  `DOCUMENT_COMMENT` char(255) NOT NULL default '',
+  `DOCUMENT_VISIBLE` tinyint(1) NOT NULL default '0',
+  `DOCUMENT_MIME` char(30) NOT NULL default '',
+  `DATE_PUBLISH` date NOT NULL default '0000-00-00',
+  `DOCUMENT_LOCK` tinyint(1) NOT NULL default '0',
+  `DOCUMENT_SHARE` tinyint(4) NOT NULL default '0',
+  `USER_ID` int(11) NOT NULL default '0',
+  `DOCUMENT_NAME` char(100) NOT NULL default '',
+  `DOCUMENT_SIZE` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`DOCUMENT_ID`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `fm_folder`
+-- 
+
+DROP TABLE IF EXISTS `fm_folder`;
+CREATE TABLE `fm_folder` (
+  `FOLDER_ID` int(11) NOT NULL auto_increment,
+  `FOLDER_PARENT_ID` int(11) NOT NULL default '0',
+  `FOLDER_NAME` char(100) NOT NULL default '',
+  `FOLDER_COMMENT` char(255) NOT NULL default '',
+  `FOLDER_VISIBLE` tinyint(11) NOT NULL default '0',
+  `FOLDER_DATE` date NOT NULL default '0000-00-00',
+  `COURSE_ID` int(11) NOT NULL default '0',
+  `USER_ID` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`FOLDER_ID`)
+) TYPE=MyISAM AUTO_INCREMENT=3 ;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[Migueloo-cvs] migueloo index.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

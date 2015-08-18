@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/model/classes%20miguel_mfilemanager.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408151510.i7FFAL609613%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.3,1.4</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/model/classes%20miguel_mfilemanager.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408151510.i7FFAL609613%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug 15 17:10:21 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_moveform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Migueloo-cvs] migueloo/modules/andromeda/include/classes debug.class.php,1.3,1.4 errorhandler.class.php,1.3,1.4 file.class.php,1.3,1.4 loghandler.class.php,1.3,1.4 mailer.class.php,1.3,1.4 nls.class.php,1.3,1.4 nls.inc.php,1.3,1.4 theme.class.php,1.3,1.4 theme_20040426.class.php,1.1,1.2 theme_changeit.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/filemanager/model/classes
+In directory sheep:/tmp/cvs-serv22666/model/classes
+
+Modified Files:
+	miguel_mfilemanager.class.php 
+Log Message:
+Added Move (File &amp; Folder) and Delete file operations
+
+
+Index: miguel_mfilemanager.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/filemanager/model/classes/miguel_mfilemanager.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** miguel_mfilemanager.class.php	13 Aug 2004 18:04:54 -0000	1.3
+--- miguel_mfilemanager.class.php	15 Aug 2004 15:10:19 -0000	1.4
+***************
+*** 120,137 ****
+      }
+  
+!     function getFolderTree( $current_course, $current_folder_id = 0 )
+      {
+          $folderList = $this-&gt;getFolderList($current_course, $current_folder_id);
+  
+          // recursive operation if subdirectories exist
+!         $folderCount = sizeof($folderList);
+!         if ( $folderCount &gt; 0 ) {
+!             for ($i = 0 ; $i &lt; $folderCount ; $i++ ) {
+! //                $subFolderList = $this-&gt;getFolderTree( $current_course, $folderList[$i]['folder_id'] ) ;             // function recursivity
+! //                $folderList  =  array_merge( $folderList , $subFolderList ) ; // data merge
+!                   Debug::oneVar( $folderList[$i]['folder_id'] );
+              }
+          }
+-         return $folderList;
+      }
+  
+--- 120,138 ----
+      }
+  
+!     function getFolderTree( $current_course, &amp;$result, $profundidad = 0, $current_folder_id = 0 )
+      {
+          $folderList = $this-&gt;getFolderList($current_course, $current_folder_id);
+  
+          // recursive operation if subdirectories exist
+!         if ( $folderList[0]['folder_id'] != null ) {
+!             $folderCount = sizeof($folderList);
+!             $profundidad++;
+!             if ( $folderCount &gt; 0 ) {
+!                 for ($i = 0 ; $i &lt; $folderCount ; $i++ ) {
+!                       $result[]  =  array($folderList[$i], $profundidad);
+!                       $this-&gt;getFolderTree( $current_course, $result, $profundidad, $folderList[$i]['folder_id'] ) ;             // function recursivity
+!                 }
+              }
+          }
+      }
+  
+***************
+*** 290,332 ****
+      }
+  
+! 	function deleteFile($_id)
+! 	{
+! 		$show_sql = $this-&gt;Select('fm_document', 'document_name', &quot;document_id = $_id&quot;);
+! 				
+! 		if ($this-&gt;hasError()) {
+! 			$ret_val = null;
+! 		} else {
+! 			$sql_ret = $this-&gt;Delete('fm_document', &quot;document_id = $_id&quot;);
+! 	
+! 			if ($this-&gt;hasError()) {
+! 				$ret_val = null;
+! 			} else {
+! 				$file = Util::main_Path('var/data/'.$show_sql[0]['fm_document.document_name']);
+  
+! 				if(file_exists($file)){
+! 					unlink($file);
+! 				}
+! 			}
+! 		}
+  		
+! 		return ($ret_val);	
+! 	}
+! 	
+! 	function deleteFolder($_id)
+! 	{
+! 		$sql_ret = $this-&gt;Delete('fm_folder', &quot;folder_id = $_id&quot;);
+  	
+! 		if ($this-&gt;hasError()) {
+! 			$ret_val = null;
+! 		} else {
+! 			$sql2_ret = $this-&gt;Delete('fm_course_document_folder', &quot;folder_id = $_id&quot;);
+! 			
+! 			if ($this-&gt;hasError()) {
+! 				$ret_val = null;
+! 			}
+! 		}
+! 		
+! 		return ($ret_val);	
+! 	}
+  
+  
+--- 291,370 ----
+      }
+  
+!     function moveFolder( $_id, $_newParentId ) { 
+!         $ret_val = $this-&gt;Update('fm_folder', 'folder_parent_id', $_newParentId, 'folder_id = '.$_id);
+!       
+!         if ($this-&gt;hasError() ) {
+!             $ret_val = null;
+!         } 
+!       
+!         return ($ret_val);
+!     }
+  
+!     function moveFile( $_courseId, $_id, $_oldParentId, $_newParentId ) {
+!         $ret_val = $this-&gt;Update('fm_course_document_folder', 'folder_id', $_newParentId, 'folder_id = '.$_oldParentId.' AND document_id = '.$_id.' AND course_id = '.$_courseId);
+!       
+!         if ($this-&gt;hasError() ) {
+!             $ret_val = null;
+!         } 
+!       
+!         return ($ret_val);
+!     } 
+! 
+!     function getFileShareCount( $_id ) {
+!        $shareCount = $this-&gt;SelectCount('fm_course_document_folder', &quot;document_id = $_id&quot;);
+! 
+!        if ($this-&gt;hasError()) {
+!             $shareCount = 0;
+!        }
+!        return $shareCount;
+! 
+!     }
+!  
+!     function deleteFile($_id, $_folder_id, $_course_id) {
+!         $shareCount = $this-&gt;getFileShareCount( $_id );
+!  
+!         $sql_ret = $this-&gt;Delete('fm_course_document_folder',&quot;course_id = $_course_id AND folder_id = $_folder_id AND document_id = $_id&quot;);
+!  
+!         if ( $this-&gt;hasError() ) {
+!             $ret_val = null;
+!         } else {
+!             if ( $shareCount == 1 ) {
+!                 $show_sql = $this-&gt;Select('fm_document', 'document_name', 'document_id = ' . $_id);
+!                 $sql_ret = $this-&gt;Delete('fm_document', &quot;document_id = $_id&quot;);
+!  
+!                 if ($this-&gt;hasError()) {
+!                     $ret_val = null;
+!                 } else {
+!                     $file = Util::main_Path('var/data/'.$show_sql[0]['fm_document.document_name']);
+!                     if( file_exists($file) ){
+!                         unlink($file);
+!                     }
+!                 } 
+!              }
+!         } 
+  		
+!         return ($ret_val);	
+!     }
+  	
+!     function deleteFolder($_current_course, $_id) 
+!     {
+!         $folderList = $this-&gt;getFolderList($_current_course, $_id);
+! 
+!         // recursive operation if subdirectories exist
+!         if ( $folderList[0]['folder_id'] != null ) {
+!             $folderCount = sizeof($folderList);
+!             if ( $folderCount &gt; 0 ) {
+!                 for ($i = 0 ; $i &lt; $folderCount ; $i++ ) {
+!                       //Delete Contents
+!                       $sql_ret = $this-&gt;Delete('fm_course_document_folder', 'course_id = ' . $_current_course . ' AND folder_id = ' . $folderList[$i]['folder_id']);
+! 
+!                       //Delete Folder 
+!                       $sql_ret = $this-&gt;Delete('fm_folder', 'folder_id = ' . $folderList[$i]['folder_id']);
+! 
+!                       $this-&gt;deleteFolder( $_current_course, $folderList[$i]['folder_id'] ) ;             // function recursivity
+!                 }
+!             }
+!         }		
+!     }
+  
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_moveform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Migueloo-cvs] migueloo/modules/andromeda/include/classes debug.class.php,1.3,1.4 errorhandler.class.php,1.3,1.4 file.class.php,1.3,1.4 loghandler.class.php,1.3,1.4 mailer.class.php,1.3,1.4 nls.class.php,1.3,1.4 nls.inc.php,1.3,1.4 theme.class.php,1.3,1.4 theme_20040426.class.php,1.1,1.2 theme_changeit.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

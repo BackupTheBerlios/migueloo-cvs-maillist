@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/alumnPage/view/classes miguel_valumnpage.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/alumnPage/view/classes%20miguel_valumnpage.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5V628975%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000028.html">
+   <LINK REL="Next"  HREF="000027.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/alumnPage/view/classes miguel_valumnpage.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/alumnPage/view/classes%20miguel_valumnpage.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5V628975%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/alumnPage/view/classes miguel_valumnpage.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:31 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000028.html">[Migueloo-cvs] migueloo/modules/alumnPage/model/classes miguel_malumnpage.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000027.html">[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/alumnPage/view/classes
+In directory sheep:/tmp/cvs-serv22200/modules/alumnPage/view/classes
+
+Modified Files:
+	miguel_valumnpage.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: miguel_valumnpage.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/alumnPage/view/classes/miguel_valumnpage.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** miguel_valumnpage.class.php	6 Aug 2004 08:07:47 -0000	1.3
+--- miguel_valumnpage.class.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 31,35 ****
+   * Include classes library
+   */
+! include_once (Util::app_Path(&quot;common/view/classes/miguel_vmenu.class.php&quot;));
+  
+  class miguel_VAlumnPage extends miguel_VMenu
+--- 31,35 ----
+   * Include classes library
+   */
+! include_once (Util::app_Path('common/view/classes/miguel_vmenu.class.php'));
+  
+  class miguel_VAlumnPage extends miguel_VMenu
+***************
+*** 44,48 ****
+                  $table = &amp;html_table(Session::getContextValue('mainInterfaceWidth'),0,0,0);
+                  $row = html_tr();
+!                 $image = html_td('', '',  html_img(Theme::getThemeImagePath(&quot;invisible.gif&quot;), 20, 14));
+                  $image-&gt;set_tag_attribute('align', 'right');
+                  $progress = html_td('', '', 'Mi progreso');
+--- 44,48 ----
+                  $table = &amp;html_table(Session::getContextValue('mainInterfaceWidth'),0,0,0);
+                  $row = html_tr();
+!                 $image = html_td('', '',  html_img(Theme::getThemeImagePath('invisible.gif'), 20, 14));
+                  $image-&gt;set_tag_attribute('align', 'right');
+                  $progress = html_td('', '', 'Mi progreso');
+***************
+*** 79,89 ****
+              $row = html_tr();
+  
+!                 $from = html_td('ptabla01', &quot;&quot;, html_b($from_to));
+!                 $subject = html_td('ptabla01', &quot;&quot;, html_b('Asunto'));
+!                 $date = html_td('ptabla01', &quot;&quot;, html_b('Recibido'));
+  
+!                  $from-&gt;set_tag_attribute('width',&quot;30%&quot;);
+!                  $subject-&gt;set_tag_attribute('width',&quot;50%&quot;);
+!                  $date-&gt;set_tag_attribute('width',&quot;20%&quot;);
+  
+                  $row-&gt;add($from);
+--- 79,89 ----
+              $row = html_tr();
+  
+!                 $from = html_td('ptabla01', '', html_b($from_to));
+!                 $subject = html_td('ptabla01', '', html_b('Asunto'));
+!                 $date = html_td('ptabla01', '', html_b('Recibido'));
+  
+!                  $from-&gt;set_tag_attribute('width', '30%');
+!                  $subject-&gt;set_tag_attribute('width', '50%');
+!                  $date-&gt;set_tag_attribute('width', '20%');
+  
+                  $row-&gt;add($from);
+***************
+*** 204,210 ****
+              $row = html_tr();
+  
+!                 $name = html_td('ptabla02', &quot;&quot;, $strName);
+!                 $number = html_td('ptabla03', &quot;&quot;, $strNumber);
+!                 $name-&gt;set_tag_attribute('width','80%');
+                  $row-&gt;add($name);
+                  $row-&gt;add($number);
+--- 204,210 ----
+              $row = html_tr();
+  
+!                 $name = html_td('ptabla02', '', $strName);
+!                 $number = html_td('ptabla03', '', $strNumber);
+!                 $name-&gt;set_tag_attribute('width', '80%');
+                  $row-&gt;add($name);
+                  $row-&gt;add($number);
+***************
+*** 219,226 ****
+          $ret_val-&gt;add(html_br(2));
+  
+!                 $table = &amp;html_table(Session::getContextValue('mainInterfaceWidth'),0,2,2);
+  
+!                 $title = html_td('ptabla01', &quot;&quot;, 'Para hoy');
+!                 $title-&gt;set_tag_attribute('colspan',2);
+                  $table-&gt;add($title);
+  
+--- 219,226 ----
+          $ret_val-&gt;add(html_br(2));
+  
+!                 $table = &amp;html_table(Session::getContextValue('mainInterfaceWidth'), 0, 2, 2);
+  
+!                 $title = html_td('ptabla01', '', 'Para hoy');
+!                 $title-&gt;set_tag_attribute('colspan', 2);
+                  $table-&gt;add($title);
+  
+***************
+*** 269,273 ****
+                                  $div-&gt;add($this-&gt;add_inbox());
+  
+!                                 $div-&gt;add(html_img(Theme::getThemeImagePath(&quot;hr01.gif&quot;), 400, 15));
+                              $div-&gt;add(html_br());
+                              //$div-&gt;add(html_hr());
+--- 269,273 ----
+                                  $div-&gt;add($this-&gt;add_inbox());
+  
+!                                 $div-&gt;add(html_img(Theme::getThemeImagePath('hr01.gif'), 400, 15));
+                              $div-&gt;add(html_br());
+                              //$div-&gt;add(html_hr());
+***************
+*** 283,287 ****
+                                  $div_line = html_div();
+                                  $div_line-&gt;set_tag_attribute('align', 'right');
+!                                 $div_line-&gt;add(html_img(Theme::getThemeImagePath(&quot;hr02.gif&quot;), 400, 15));
+  
+                                  $div-&gt;add($div_line);
+--- 283,287 ----
+                                  $div_line = html_div();
+                                  $div_line-&gt;set_tag_attribute('align', 'right');
+!                                 $div_line-&gt;add(html_img(Theme::getThemeImagePath('hr02.gif'), 400, 15));
+  
+                                  $div-&gt;add($div_line);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000028.html">[Migueloo-cvs] migueloo/modules/alumnPage/model/classes miguel_malumnpage.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000027.html">[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

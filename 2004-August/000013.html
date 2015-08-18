@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/control/classes%20miguel_cfilemanager.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408151510.i7FFAL609609%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.3,1.4</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/control/classes%20miguel_cfilemanager.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408151510.i7FFAL609609%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug 15 17:10:21 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_moveform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/filemanager/control/classes
+In directory sheep:/tmp/cvs-serv22666/control/classes
+
+Modified Files:
+	miguel_cfilemanager.class.php 
+Log Message:
+Added Move (File &amp; Folder) and Delete file operations
+
+
+Index: miguel_cfilemanager.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/filemanager/control/classes/miguel_cfilemanager.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** miguel_cfilemanager.class.php	13 Aug 2004 18:04:54 -0000	1.3
+--- miguel_cfilemanager.class.php	15 Aug 2004 15:10:18 -0000	1.4
+***************
+*** 121,124 ****
+--- 121,137 ----
+                                              }
+                                              break;
++                                         case 'move':
++                                             if($this-&gt;getViewVariable('tp') == 'f'){
++                                                 $folder_id = $this-&gt;getViewVariable('id');
++                                                 $nuevo_destino = $this-&gt;getViewVariable('nuevo_destino');
++                                                 if ( $folder_id != $nuevo_destino ) {
++                                                     $this-&gt;obj_data-&gt;moveFolder($folder_id, $nuevo_destino);
++                                                 }
++                                                 $folder_id = null; unset( $folder_id );
++                                                 $nuevo_destino = null; unset( $nuevo_destino );
++                                             } else {
++                                                     $this-&gt;obj_data-&gt;moveFile($course_id, $this-&gt;getViewVariable('id'), $this-&gt;getViewVariable('folder_id'), $this-&gt;getViewVariable('nuevo_destino'));
++                                             }
++                                             break;
+                                      }
+                                      $status = null;
+***************
+*** 134,140 ****
+  				case 'del':
+  					if($this-&gt;getViewVariable('tp') == 'f'){
+! 						$this-&gt;obj_data-&gt;deleteFolder($this-&gt;getViewVariable('id'));
+  					} else {
+! 						$this-&gt;obj_data-&gt;deleteFile($this-&gt;getViewVariable('id'));
+  					}
+                                          break;
+--- 147,153 ----
+  				case 'del':
+  					if($this-&gt;getViewVariable('tp') == 'f'){
+! 						$this-&gt;obj_data-&gt;deleteFolder($course_id, $this-&gt;getViewVariable('id'));
+  					} else {
+! 						$this-&gt;obj_data-&gt;deleteFile($this-&gt;getViewVariable('id'), $this-&gt;getViewVariable('folder_id'), $course_id);
+  					}
+                                          break;
+***************
+*** 174,178 ****
+                                  $current_folder_id = 0;
+  			}
+- //Debug::oneVar( $this-&gt;obj_data-&gt;getFolderTree( $course_id,  0 ) );
+                          /* ----------- DISPLAY FOLDER CONTENT --------------- */
+  			$current_folder_info = $this-&gt;obj_data-&gt;getFolderName( $current_folder_id );
+--- 187,190 ----
+***************
+*** 185,189 ****
+  
+  			$this-&gt;setViewVariable('folder_id', $current_folder_id);
+! 			$this-&gt;setViewVariable('operation_id', $this-&gt;getViewVariable('operation_id') );
+  		
+                          $this-&gt;setViewVariable('user_id', $user_id);
+--- 197,208 ----
+  
+  			$this-&gt;setViewVariable('folder_id', $current_folder_id);
+! 
+!                         $operation_id = $this-&gt;getViewVariable('operation_id');
+! 			$this-&gt;setViewVariable('operation_id', $operation_id );
+! 
+!                         if ( $operation_id == 'move' ) {
+!                             $this-&gt;obj_data-&gt;getFolderTree( $course_id, $result, 0, 0 );
+!                             $this-&gt;setViewVariable( 'folderTree', $result ); 
+!                         }
+  		
+                          $this-&gt;setViewVariable('user_id', $user_id);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_moveform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

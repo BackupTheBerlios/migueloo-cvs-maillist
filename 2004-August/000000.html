@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/model/classes%20miguel_mfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630962%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.1,1.2</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/model/classes%20miguel_mfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630962%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/filemanager/model/classes miguel_mfilemanager.class.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 13:33:57 CEST 2004</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/filemanager/model/classes
+In directory sheep:/tmp/cvs-serv27819/model/classes
+
+Modified Files:
+	miguel_mfilemanager.class.php 
+Log Message:
+Added first version of Rename, Visible, Lock and Share operations
+
+
+Index: miguel_mfilemanager.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/filemanager/model/classes/miguel_mfilemanager.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** miguel_mfilemanager.class.php	9 Aug 2004 21:45:36 -0000	1.1
+--- miguel_mfilemanager.class.php	12 Aug 2004 11:33:55 -0000	1.2
+***************
+*** 47,51 ****
+      {
+          $document = $this-&gt;SelectMultiTable('fm_course_document_folder, fm_document',
+!                                            &quot;fm_course_document_folder.document_id, fm_document.document_name, fm_document.document_size, fm_document.user_id,  fm_document.date_publish&quot;,
+                                             'fm_course_document_folder.course_id = ' . $current_course . ' AND fm_course_document_folder.folder_id = ' . $current_folder_id . ' AND fm_course_document_folder.document_id = fm_document.document_id');
+              if ($this-&gt;hasError()) {
+--- 47,51 ----
+      {
+          $document = $this-&gt;SelectMultiTable('fm_course_document_folder, fm_document',
+!                                            &quot;fm_course_document_folder.document_id, fm_document.document_name, fm_document.document_size, fm_document.user_id,  fm_document.date_publish, fm_document.document_visible, fm_document.document_lock, fm_document.document_share&quot;,
+                                             'fm_course_document_folder.course_id = ' . $current_course . ' AND fm_course_document_folder.folder_id = ' . $current_folder_id . ' AND fm_course_document_folder.document_id = fm_document.document_id');
+              if ($this-&gt;hasError()) {
+***************
+*** 58,62 ****
+                                    'document_size' =&gt; $document[$i]['fm_document.document_size'],
+                                    'document_date' =&gt; $document[$i]['fm_document.date_publish'],
+!                                   'document_autor' =&gt; $this-&gt;_getNameFromUser($document[$i]['fm_document.user_id'])
+                                  );
+          }
+--- 58,65 ----
+                                    'document_size' =&gt; $document[$i]['fm_document.document_size'],
+                                    'document_date' =&gt; $document[$i]['fm_document.date_publish'],
+!                                   'document_autor' =&gt; $this-&gt;_getNameFromUser($document[$i]['fm_document.user_id']),
+!                                   'document_visible' =&gt; $document[$i]['fm_document.document_visible'],
+!                                   'document_lock' =&gt; $document[$i]['fm_document.document_lock'],
+!                                   'document_share' =&gt; $document[$i]['fm_document.document_share']
+                                  );
+          }
+***************
+*** 90,94 ****
+      {
+          //$current_course = 0;
+!         $folder = $this-&gt;Select(&quot;fm_folder&quot;, &quot;folder_id, folder_name, folder_parent_id, folder_date, user_id&quot;,
+                                  &quot;course_id = $current_course AND folder_parent_id = $current_folder_id&quot;);
+  
+--- 93,97 ----
+      {
+          //$current_course = 0;
+!         $folder = $this-&gt;Select(&quot;fm_folder&quot;, &quot;folder_id, folder_name, folder_parent_id, folder_date, user_id, folder_visible&quot;,
+                                  &quot;course_id = $current_course AND folder_parent_id = $current_folder_id&quot;);
+  
+***************
+*** 107,111 ****
+                                    'folder_date' =&gt; $folder[$i]['fm_folder.folder_date'],
+                                    'folder_count_element' =&gt; $fileCount + $currentFolderCount,
+!                                   'folder_autor' =&gt; $this-&gt;_getNameFromUser($folder[$i]['fm_folder.user_id'])
+                                  );
+          }
+--- 110,115 ----
+                                    'folder_date' =&gt; $folder[$i]['fm_folder.folder_date'],
+                                    'folder_count_element' =&gt; $fileCount + $currentFolderCount,
+!                                   'folder_autor' =&gt; $this-&gt;_getNameFromUser($folder[$i]['fm_folder.user_id']),
+!                                   'folder_visible' =&gt; $folder[$i]['fm_folder.folder_visible']
+                                  );
+          }
+***************
+*** 114,119 ****
+      }
+  
+!         //Maqueta
+!         function getFolderId( $course_id )
+      {
+          $folder = $this-&gt;Select(&quot;fm_folder&quot;, &quot;folder_id&quot;,
+--- 118,123 ----
+      }
+  
+!     //Maqueta
+!     function getFolderId( $course_id )
+      {
+          $folder = $this-&gt;Select(&quot;fm_folder&quot;, &quot;folder_id&quot;,
+***************
+*** 129,134 ****
+  
+      }
+-         //Maqueta
+  
+      function getFolderName( $folder_id )
+      {
+--- 133,138 ----
+  
+      }
+  
++     //Maqueta
+      function getFolderName( $folder_id )
+      {
+***************
+*** 155,160 ****
+  
+  		$ret_val = $this-&gt;Insert('fm_folder',
+! 									'folder_parent_id, course_id, folder_name, user_id, folder_date',
+! 									&quot;$parent_folder_id,$course_id,$folder_name, $user_id, $now&quot;);
+  		
+  		
+--- 159,164 ----
+  
+  		$ret_val = $this-&gt;Insert('fm_folder',
+! 					'folder_parent_id, course_id, folder_name, user_id, folder_date, folder_visible',
+! 					&quot;$parent_folder_id,$course_id,$folder_name, $user_id, $now, 1&quot;);
+  		
+  		
+***************
+*** 172,177 ****
+  
+          $documentID = $this-&gt;Insert('fm_document',
+!                                  'document_mime, document_name, user_id, document_size, date_publish',
+!                                  &quot;$document_mime, $document_name, $user_id, $size, $now&quot;);
+  
+          if ($this-&gt;hasError()) {
+--- 176,181 ----
+  
+          $documentID = $this-&gt;Insert('fm_document',
+!                                  'document_mime, document_name, user_id, document_size, date_publish, document_visible, document_lock, document_share',
+!                                  &quot;$document_mime, $document_name, $user_id, $size, $now,0,0,0&quot;);
+  
+          if ($this-&gt;hasError()) {
+***************
+*** 189,193 ****
+--- 193,275 ----
+  
+      }
++ 
++     function visibleElement($id, $status, $type='document') {
++         if ($type='document') {
++             $ret_val = $this-&gt;Update('fm_document', 'document_visible', $status, 'document_id = '.$id);
++         } else {
++             $ret_val = $this-&gt;Update('fm_folder', 'folder_visible', $status, 'folder_id = '.$id);
++         }
++         if ($this-&gt;hasError() ) {
++             $ret_val = null;
++         }
++         return ($ret_val);
++     }
+  	
++     function lockDocument($id, $status) {
++         $ret_val = $this-&gt;Update('fm_document', 'document_lock', $status, 'document_id = '.$id);
++         if ($this-&gt;hasError() ) {
++             $ret_val = null;
++         }
++ 
++         return ($ret_val);
++     }
++ 
++     function shareDocument($id, $status) {
++         $ret_val = $this-&gt;Update('fm_document', 'document_share', $status, 'document_id = '.$id);
++         
++         if ($this-&gt;hasError() ) {
++             $ret_val = null;
++         }
++         
++         return ($ret_val);
++     }
++ 
++     //Maqueta
++     function _getFileName( $document_id )
++     {
++         $document = $this-&gt;Select(&quot;fm_document&quot;, &quot;document_name&quot;,
++                                 &quot;document_id = $document_id&quot;);
++ 
++         if ($this-&gt;hasError()) {
++                 $ret_val = null;
++         }
++ 
++         $countDocument = count($document);
++         for ($i=0; $i &lt; $countDocument; $i++) {
++              $ret_val[] = array ( 'document_name' =&gt; $document[$i]['fm_document.document_name']);
++         }
++ 
++         return ($ret_val);
++ 
++     }
++ 
++     function renameFile( $_id, $_newName ) {
++         $oldName = $this-&gt;_getFileName( $_id ); 
++         $ret_val = $this-&gt;Update('fm_document', 'document_name', $_newName, 'document_id = '.$_id);
++         
++         if ($this-&gt;hasError() ) {
++             $ret_val = null;
++         } else {
++             //user can't give the old name for security reasons
++             $file = Util::main_Path('var/data/' . $oldName[0]['document_name']);
++             $newFile = Util::main_Path('var/data/' . $_newName);
++             if(file_exists($file)){
++                 rename($file, $newFile);
++             }
++         } 
++         
++         return ($ret_val);
++     }
++ 
++     function renameFolder( $_id, $_newName ) {
++         $ret_val = $this-&gt;Update('fm_folder', 'folder_name', $_newName, 'folder_id = '.$_id);
++   
++         if ($this-&gt;hasError() ) {
++             $ret_val = null;
++         }
++ 
++         return ($ret_val);
++     }
++ 
+  	function deleteFile($_id)
+  	{
+***************
+*** 246,248 ****
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 328,330 ----
+      }
+  }
+! ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

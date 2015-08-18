@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/login%20base_login.class.php%2C1.3%2C1.4%20base_loginldap.class.php%2C1.3%2C1.4%20base_loginmcrypt.class.php%2C1.3%2C1.4%20base_loginmd5.class.php%2C1.3%2C1.4%20base_loginplano.class.php%2C1.3%2C1.4%20base_userinfo.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211916.i7LJGX629190%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   <LINK REL="Next"  HREF="000032.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/login%20base_login.class.php%2C1.3%2C1.4%20base_loginldap.class.php%2C1.3%2C1.4%20base_loginmcrypt.class.php%2C1.3%2C1.4%20base_loginmd5.class.php%2C1.3%2C1.4%20base_loginplano.class.php%2C1.3%2C1.4%20base_userinfo.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211916.i7LJGX629190%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:16:33 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000032.html">[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login
+In directory sheep:/tmp/cvs-serv22454
+
+Modified Files:
+	base_login.class.php base_loginldap.class.php 
+	base_loginmcrypt.class.php base_loginmd5.class.php 
+	base_loginplano.class.php base_userinfo.class.php 
+Log Message:
+Uso correcto de comillas dobles
+
+Index: base_login.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_login.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_login.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_login.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 52,59 ****
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+  //include_once ('../../../common/miguel_base.inc.php');
+! include_once(&quot;./base_loginbase.php&quot;);
+! include_once(&quot;./base_loginmd5.php&quot;);
+! include_once(&quot;./base_loginplano.php&quot;);
+! include_once(&quot;./base_loginmcrypt.php&quot;);
+   
+  class base_login
+--- 52,59 ----
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+  //include_once ('../../../common/miguel_base.inc.php');
+! include_once('./base_loginbase.php');
+! include_once('./base_loginmd5.php');
+! include_once('./base_loginplano.php');
+! include_once('./base_loginmcrypt.php');
+   
+  class base_login
+
+Index: base_loginldap.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_loginldap.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_loginldap.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_loginldap.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 47,80 ****
+    function _encrypt($str_userpswd)
+    {
+!    echo &quot;&lt;h3&gt;Prueba de consulta LDAP&lt;/h3&gt;&quot;;
+!     echo &quot;Conectando ...&quot;;
+!     $ds=ldap_connect(&quot;localhost&quot;);  
+!     echo &quot;El resultado de la conexi&oacute;n es &quot;.$ds.&quot;&lt;p&gt;&quot;;
+      
+      if ($ds) 
+      {
+!       echo &quot;Autentificandose  ...&quot;;
+        $r=ldap_bind($ds);    
+                               
+!       echo &quot;El resultado de la autentificaci&oacute;n es &quot;.$r.&quot;&lt;p&gt;&quot;;
+        
+!       echo &quot;Buscando (sn=P*) ...&quot;;
+       
+!       $sr=ldap_search($ds,&quot;o=halys, c=halys&quot;, &quot;sn=h*&quot;); 
+!       echo &quot;El resultado de la b&uacute;squeda es &quot;.$sr.&quot;&lt;p&gt;&quot;;
+        
+!       echo &quot;El n&uacute;mero de entradas devueltas es &quot;.ldap_count_entries($ds,$sr).&quot;&lt;p&gt;&quot;;
+        
+!       echo &quot;Recuperando entradas ...&lt;p&gt;&quot;;
+        $info = ldap_get_entries($ds, $sr);
+!       echo &quot;Devueltos datos de &quot;.$info[&quot;count&quot;].&quot; entradas:&lt;p&gt;&quot;;
+        
+!       for ($i=0; $i&lt;$info[&quot;count&quot;]; $i++) 
+        {
+!         echo &quot;dn es: &quot;. $info[$i][&quot;dn&quot;] .&quot;&lt;br&gt;&quot;;
+!         echo &quot;La primera entrada cn es: &quot;. $info[$i][&quot;cn&quot;][0] .&quot;&lt;br&gt;&quot;;
+        }
+        
+!       echo &quot;Cerrando conexi&oacute;n&quot;;
+        ldap_close($ds);
+      
+--- 47,80 ----
+    function _encrypt($str_userpswd)
+    {
+!    echo '&lt;h3&gt;Prueba de consulta LDAP&lt;/h3&gt;';
+!     echo 'Conectando ...';
+!     $ds=ldap_connect('localhost');  
+!     echo 'El resultado de la conexi&oacute;n es '.$ds.'&lt;p&gt;';
+      
+      if ($ds) 
+      {
+!       echo 'Autentific&aacute;ndose  ...';
+        $r=ldap_bind($ds);    
+                               
+!       echo 'El resultado de la autentificaci&oacute;n es '.$r.'&lt;p&gt;';
+        
+!       echo 'Buscando (sn=P*) ...';
+       
+!       $sr=ldap_search($ds,'o=halys, c=halys', 'sn=h*'); 
+!       echo 'El resultado de la b&uacute;squeda es '.$sr.'&lt;p&gt;';
+        
+!       echo 'El n&uacute;mero de entradas devueltas es '.ldap_count_entries($ds,$sr).'&lt;p&gt;';
+        
+!       echo 'Recuperando entradas ...&lt;p&gt;';
+        $info = ldap_get_entries($ds, $sr);
+!       echo 'Devueltos datos de '.$info['count'].' entradas:&lt;p&gt;';
+        
+!       for ($i=0; $i&lt;$info['count']; $i++) 
+        {
+!         echo 'dn es: '. $info[$i]['dn'] .'&lt;br&gt;';
+!         echo 'La primera entrada cn es: '. $info[$i]['cn'][0] .'&lt;br&gt;';
+        }
+        
+!       echo 'Cerrando conexi&oacute;n';
+        ldap_close($ds);
+      
+***************
+*** 82,86 ****
+      else 
+      {
+!       echo &quot;&lt;h4&gt;Ha sido imposible conectar al servidor LDAP&lt;/h4&gt;&quot;;
+      }   
+    }
+--- 82,86 ----
+      else 
+      {
+!       echo '&lt;h4&gt;Ha sido imposible conectar al servidor LDAP&lt;/h4&gt;';
+      }   
+    }
+
+Index: base_loginmcrypt.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_loginmcrypt.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_loginmcrypt.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_loginmcrypt.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 51,55 ****
+   // IMPORTANTISIMO HAY QUE TENER ACTIVADA LA EXTENSION MCRYPT.DLL PARA TRABAJAR
+   // CON ESTE MODULO
+! include_once(Util::app_Path(&quot;common/control/classes/base_loginbase.php&quot;));
+   
+  class base_loginMCRYPT extends base_loginBase
+--- 51,55 ----
+   // IMPORTANTISIMO HAY QUE TENER ACTIVADA LA EXTENSION MCRYPT.DLL PARA TRABAJAR
+   // CON ESTE MODULO
+! include_once(Util::app_Path('common/control/classes/base_loginbase.php'));
+   
+  class base_loginMCRYPT extends base_loginBase
+***************
+*** 84,88 ****
+    	} else {
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!   	   if($ret_sql[0][&quot;password&quot;] == $this-&gt;_encrypt($str_username, $str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+--- 84,88 ----
+    	} else {
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!   	   if($ret_sql[0]['password'] == $this-&gt;_encrypt($str_username, $str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+
+Index: base_loginmd5.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_loginmd5.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_loginmd5.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_loginmd5.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 39,44 ****
+   
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+! //include_once (&quot;../../../common/miguel_base.inc.php&quot;);
+! include_once(Util::app_Path(&quot;common/control/classes/base_loginbase.php&quot;));
+   
+  class base_loginMD5 extends base_loginBase
+--- 39,44 ----
+   
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+! //include_once ('../../../common/miguel_base.inc.php');
+! include_once(Util::app_Path('common/control/classes/base_loginbase.php'));
+   
+  class base_loginMD5 extends base_loginBase
+***************
+*** 63,67 ****
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+        
+!   	   if($ret_sql[0][&quot;password&quot;] == $this-&gt;_encrypt($str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+--- 63,67 ----
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+        
+!   	   if($ret_sql[0]['password'] == $this-&gt;_encrypt($str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+
+Index: base_loginplano.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_loginplano.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_loginplano.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_loginplano.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 39,44 ****
+   
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+! //include_once (&quot;../../../common/miguel_base.inc.php&quot;);
+! include_once(Util::app_Path(&quot;common/control/classes/base_loginbase.php&quot;));
+   
+  class base_loginPlano extends base_loginBase
+--- 39,44 ----
+   
+   // ESTE INCLUDE ELIMINARLO YA QUE ES DE PRUEBAS
+! //include_once ('../../../common/miguel_base.inc.php');
+! include_once(Util::app_Path('common/control/classes/base_loginbase.php'));
+   
+  class base_loginPlano extends base_loginBase
+***************
+*** 62,66 ****
+    	} else {
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!   	   if($ret_sql[0][&quot;password&quot;] == $this-&gt;_encrypt($str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+--- 62,66 ----
+    	} else {
+    	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!   	   if($ret_sql[0]['password'] == $this-&gt;_encrypt($str_userpswd)) {
+    	       $ret_val = true;
+    	   } else {
+
+Index: base_userinfo.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/login/base_userinfo.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_userinfo.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_userinfo.class.php	21 Aug 2004 19:16:31 -0000	1.4
+***************
+*** 40,44 ****
+   */
+   
+! include_once(Util::app_Path(&quot;common/control/classes/base_login.php&quot;));
+   
+  class miguel_UserInfo
+--- 40,44 ----
+   */
+   
+! include_once(Util::app_Path('common/control/classes/base_login.php'));
+   
+  class miguel_UserInfo
+***************
+*** 58,62 ****
+      	} else {
+      	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!     	   if($ret_sql[0][&quot;idUser&quot;] == 1) {
+      	       $ret_val = true;
+      	   } else {
+--- 58,62 ----
+      	} else {
+      	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!     	   if($ret_sql[0]['idUser'] == 1) {
+      	       $ret_val = true;
+      	   } else {
+***************
+*** 83,87 ****
+      	} else {
+      	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!     	   if($ret_sql[0][&quot;password&quot;] == $str_password) {
+      	       $ret_val = true;
+      	   } else {
+--- 83,87 ----
+      	} else {
+      	   //dbg_var($ret_sql[0], __FILE__, __LINE__);
+!     	   if($ret_sql[0]['password'] == $str_password) {
+      	       $ret_val = true;
+      	   } else {
+***************
+*** 102,117 ****
+      {
+      	if($str_user == '') {
+!     	   $ret_val = array ( &quot;user_id&quot;           =&gt; '',
+!                             &quot;name&quot;          =&gt; '',
+!                             &quot;surname&quot;       =&gt; '',
+!                             &quot;username&quot;      =&gt; 'guest',
+!                             &quot;password&quot;      =&gt; '',
+!                             &quot;email&quot;         =&gt; '',
+!                             &quot;statut&quot;        =&gt; '',
+!                             &quot;treatment&quot;     =&gt; '',
+!                             &quot;language&quot;      =&gt; '',
+!                             &quot;theme&quot;         =&gt; '',
+!                             &quot;profile&quot;       =&gt; 'guest',
+!                             &quot;isadmin&quot;       =&gt; false);
+      	} else {
+              $ret_sql = $obj_model-&gt;Select('user',
+--- 102,117 ----
+      {
+      	if($str_user == '') {
+!     	   $ret_val = array ( 'user_id'           =&gt; '',
+!                             'name'          =&gt; '',
+!                             'surname'       =&gt; '',
+!                             'username'      =&gt; 'guest',
+!                             'password'      =&gt; '',
+!                             'email'         =&gt; '',
+!                             'statut'        =&gt; '',
+!                             'treatment'     =&gt; '',
+!                             'language'      =&gt; '',
+!                             'theme'         =&gt; '',
+!                             'profile'       =&gt; 'guest',
+!                             'isadmin'       =&gt; false);
+      	} else {
+              $ret_sql = $obj_model-&gt;Select('user',
+***************
+*** 123,137 ****
+      	   } else {
+          	  //No incluimos informaci&#243;n de la &quot;tabla&quot; o modelo de datos
+!                   $ret_val = array ( &quot;user_id&quot;       =&gt; $ret_sql[0][&quot;user_id&quot;],
+!         	                     &quot;name&quot;          =&gt; $ret_sql[0][&quot;nom&quot;],
+!         	                     &quot;surname&quot;       =&gt; $ret_sql[0][&quot;prenom&quot;],
+!         	                     &quot;username&quot;      =&gt; $ret_sql[0][&quot;username&quot;],
+!         	                     &quot;password&quot;      =&gt; $ret_sql[0][&quot;password&quot;],
+!         	                     &quot;email&quot;         =&gt; $ret_sql[0][&quot;email&quot;],
+!         	                     &quot;statut&quot;        =&gt; $ret_sql[0][&quot;statut&quot;],
+!         	                     &quot;treatment&quot;     =&gt; $ret_sql[0][&quot;idtreatment&quot;],
+!         	                     &quot;language&quot;      =&gt; $ret_sql[0][&quot;language&quot;],
+!                                &quot;theme&quot;         =&gt; $ret_sql[0][&quot;theme&quot;],
+!                                &quot;profile&quot;       =&gt; $ret_sql[0][&quot;profile&quot;]);
+      	   }
+   	  }
+--- 123,137 ----
+      	   } else {
+          	  //No incluimos informaci&#243;n de la &quot;tabla&quot; o modelo de datos
+!                   $ret_val = array ( 'user_id'       =&gt; $ret_sql[0]['user_id'],
+!         	                     'name'          =&gt; $ret_sql[0]['nom'],
+!         	                     'surname'       =&gt; $ret_sql[0]['prenom'],
+!         	                     'username'      =&gt; $ret_sql[0]['username'],
+!         	                     'password'      =&gt; $ret_sql[0]['password'],
+!         	                     'email'         =&gt; $ret_sql[0]['email'],
+!         	                     'statut'        =&gt; $ret_sql[0]['statut'],
+!         	                     'treatment'     =&gt; $ret_sql[0]['idtreatment'],
+!         	                     'language'      =&gt; $ret_sql[0]['language'],
+!                                'theme'         =&gt; $ret_sql[0]['theme'],
+!                                'profile'       =&gt; $ret_sql[0]['profile']);
+      	   }
+   	  }
+***************
+*** 147,152 ****
+      {
+        $arr_userinfo = $this-&gt;getInfo($obj_model, $str_username);
+!       $arr_userinfo[&quot;isadmin&quot;] = $this-&gt;isAdmin($obj_model, $str_username);
+!       base_Controller::setSessionArray(&quot;userinfo&quot;, $arr_userinfo);
+        $ret_val = true;
+      }    
+--- 147,152 ----
+      {
+        $arr_userinfo = $this-&gt;getInfo($obj_model, $str_username);
+!       $arr_userinfo['isadmin'] = $this-&gt;isAdmin($obj_model, $str_username);
+!       base_Controller::setSessionArray('userinfo', $arr_userinfo);
+        $ret_val = true;
+      }    
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000032.html">[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

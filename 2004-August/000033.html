@@ -1,0 +1,712 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/view/classes base_FEImgRadioGroup.class.php,1.1,1.2 base_FERadioGroup.class.php,1.1,1.2 base_FETime.class.php,1.3,1.4 base_calendar.class.php,1.1,1.2 base_formcontent.class.php,1.3,1.4 base_layoutpage.class.php,1.3,1.4 base_submitbutton.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/view/classes%20base_FEImgRadioGroup.class.php%2C1.1%2C1.2%20base_FERadioGroup.class.php%2C1.1%2C1.2%20base_FETime.class.php%2C1.3%2C1.4%20base_calendar.class.php%2C1.1%2C1.2%20base_formcontent.class.php%2C1.3%2C1.4%20base_layoutpage.class.php%2C1.3%2C1.4%20base_submitbutton.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408212006.i7LK6c630022%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000032.html">
+   <LINK REL="Next"  HREF="000034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/view/classes base_FEImgRadioGroup.class.php,1.1,1.2 base_FERadioGroup.class.php,1.1,1.2 base_FETime.class.php,1.3,1.4 base_calendar.class.php,1.1,1.2 base_formcontent.class.php,1.3,1.4 base_layoutpage.class.php,1.3,1.4 base_submitbutton.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/view/classes%20base_FEImgRadioGroup.class.php%2C1.1%2C1.2%20base_FERadioGroup.class.php%2C1.1%2C1.2%20base_FETime.class.php%2C1.3%2C1.4%20base_calendar.class.php%2C1.1%2C1.2%20base_formcontent.class.php%2C1.3%2C1.4%20base_layoutpage.class.php%2C1.3%2C1.4%20base_submitbutton.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408212006.i7LK6c630022%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/view/classes base_FEImgRadioGroup.class.php,1.1,1.2 base_FERadioGroup.class.php,1.1,1.2 base_FETime.class.php,1.3,1.4 base_calendar.class.php,1.1,1.2 base_formcontent.class.php,1.3,1.4 base_layoutpage.class.php,1.3,1.4 base_submitbutton.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 22:06:38 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000032.html">[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000034.html">[Migueloo-cvs] migueloo/modules/gettext/gl_ES/help_html - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/view/classes
+In directory sheep:/tmp/cvs-serv23939/andromeda/view/classes
+
+Modified Files:
+	base_FEImgRadioGroup.class.php base_FERadioGroup.class.php 
+	base_FETime.class.php base_calendar.class.php 
+	base_formcontent.class.php base_layoutpage.class.php 
+	base_submitbutton.class.php 
+Log Message:
+Uso correcto de las comillas dobles
+
+Index: base_FEImgRadioGroup.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_FEImgRadioGroup.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** base_FEImgRadioGroup.class.php	6 Aug 2004 10:23:10 -0000	1.1
+--- base_FEImgRadioGroup.class.php	21 Aug 2004 20:06:35 -0000	1.2
+***************
+*** 79,99 ****
+      function _get_index_element($index) {
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes[&quot;type&quot;] = &quot;radio&quot;;
+  
+          //list($name, $value) = each($this-&gt;_data_list[$index]);
+  		
+!         $attributes[&quot;value&quot;] = $index + 1;
+  
+          if (($value == $this-&gt;get_value()))
+!             $attributes[] = &quot;checked&quot;;
+  
+          $tag = new INPUTtag($attributes);
+  
+          //now build the href so we can click on it.
+!         //$attr[&quot;class&quot;] =&quot;form_link&quot;;
+!         //$attr[&quot;href&quot;] = &quot;javascript:void(0)&quot;;
+!         //$js = &quot;javascript: function check(item){item.click();} &quot;.
+          //      &quot;check(&quot;.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+!         //$attr[&quot;onclick&quot;] = $js;
+  
+          $href = new Atag($attr, $value);
+--- 79,99 ----
+      function _get_index_element($index) {
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes['type'] = 'radio';
+  
+          //list($name, $value) = each($this-&gt;_data_list[$index]);
+  		
+!         $attributes['value'] = $index + 1;
+  
+          if (($value == $this-&gt;get_value()))
+!             $attributes[] = 'checked';
+  
+          $tag = new INPUTtag($attributes);
+  
+          //now build the href so we can click on it.
+!         //$attr['class'] ='form_link';
+!         //$attr['href'] = 'javascript:void(0)';
+!         //$js = 'javascript: function check(item){item.click();} '.
+          //      &quot;check(&quot;.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+!         //$attr['onclick'] = $js;
+  
+          $href = new Atag($attr, $value);
+***************
+*** 104,106 ****
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 104,106 ----
+      }
+  }
+! ?&gt;
+
+Index: base_FERadioGroup.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_FERadioGroup.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** base_FERadioGroup.class.php	6 Aug 2004 10:23:10 -0000	1.1
+--- base_FERadioGroup.class.php	21 Aug 2004 20:06:35 -0000	1.2
+***************
+*** 114,135 ****
+      function _get_index_element($index, $img) {
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes[&quot;type&quot;] = &quot;radio&quot;;
+  
+          list($name, $value) = each($this-&gt;_data_list[$index]);
+!         $attributes[&quot;value&quot;] = $value;
+  
+  
+          if (($value == $this-&gt;get_value()))
+!             $attributes[] = &quot;checked&quot;;
+  
+          $tag = new INPUTtag($attributes);
+  
+          //now build the href so we can click on it.
+!         $attr[&quot;class&quot;] =&quot;form_link&quot;;
+!         $attr[&quot;href&quot;] = &quot;javascript:void(0)&quot;;
+!         $js = &quot;javascript: function check(item){item.click();} &quot;.
+                //&quot;check(&quot;.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+! 			 &quot;check(&quot;.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+!         $attr[&quot;onclick&quot;] = $js;
+  
+          $href = new Atag($attr, $name);
+--- 114,135 ----
+      function _get_index_element($index, $img) {
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes['type'] = 'radio';
+  
+          list($name, $value) = each($this-&gt;_data_list[$index]);
+!         $attributes['value'] = $value;
+  
+  
+          if (($value == $this-&gt;get_value()))
+!             $attributes[] = 'checked';
+  
+          $tag = new INPUTtag($attributes);
+  
+          //now build the href so we can click on it.
+!         $attr['class'] ='form_link';
+!         $attr['href'] = 'javascript:void(0)';
+!         $js = 'javascript: function check(item){item.click();} '.
+                //&quot;check(&quot;.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+! 			 'check('.$this-&gt;get_element_name().&quot;.item($index));&quot;;
+!         $attr['onclick'] = $js;
+  
+          $href = new Atag($attr, $name);
+
+Index: base_FETime.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_FETime.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_FETime.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_FETime.class.php	21 Aug 2004 20:06:35 -0000	1.4
+***************
+*** 154,159 ****
+  
+  //         we make sure that the date is valid
+!         if ($value[&quot;hour&quot;] &lt; 0 || $value[&quot;hour&quot;] &gt; 23 ||$value[&quot;minute&quot;] &lt; 0 || $value[&quot;minute&quot;] &gt; 59) {
+!             $this-&gt;set_error_message(&quot;Invalid date&quot;);
+              return FALSE;
+          }
+--- 154,159 ----
+  
+  //         we make sure that the date is valid
+!         if ($value['hour'] &lt; 0 || $value['hour'] &gt; 23 ||$value['minute'] &lt; 0 || $value['minute'] &gt; 59) {
+!             $this-&gt;set_error_message('Invalid date');
+              return FALSE;
+          }
+***************
+*** 204,206 ****
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 204,206 ----
+      }
+  }
+! ?&gt;
+
+Index: base_calendar.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_calendar.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** base_calendar.class.php	6 Aug 2004 10:23:10 -0000	1.1
+--- base_calendar.class.php	21 Aug 2004 20:06:35 -0000	1.2
+***************
+*** 14,18 ****
+   * must have the BaseWidget
+   */
+! require_once( $phphtmllib.&quot;/widgets/BaseWidget.inc&quot;);
+  /**
+   * This class builds a calendar.
+--- 14,18 ----
+   * must have the BaseWidget
+   */
+! require_once( $phphtmllib.'/widgets/BaseWidget.inc');
+  /**
+   * This class builds a calendar.
+***************
+*** 76,80 ****
+  	* @param array $locale - The language in which the calendar should be showed
+  	*/
+! 	function Calendar( $width = &quot;150&quot;, $date, $locale = array(&quot;English&quot;,&quot;En&quot;)) {
+  		if (isset($_REQUEST['CalendarDate'])) {
+  			$this-&gt;_date = $_REQUEST['CalendarDate'];
+--- 76,80 ----
+  	* @param array $locale - The language in which the calendar should be showed
+  	*/
+! 	function Calendar( $width = '150', $date, $locale = array('English','En')) {
+  		if (isset($_REQUEST['CalendarDate'])) {
+  			$this-&gt;_date = $_REQUEST['CalendarDate'];
+***************
+*** 85,89 ****
+  		setlocale (LC_TIME, $locale);
+  		// First one is known sunday etc.
+! 		$this-&gt;_DayNames = array(ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,2,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,3,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,4,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,5,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,6,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,7,2003))),ucfirst(strftime(&quot;%a&quot;,mktime(0,0,0,11,8,2003))));
+  	}
+  
+--- 85,89 ----
+  		setlocale (LC_TIME, $locale);
+  		// First one is known sunday etc.
+! 		$this-&gt;_DayNames = array(ucfirst(strftime('%a',mktime(0,0,0,11,2,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,3,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,4,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,5,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,6,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,7,2003))),ucfirst(strftime('%a',mktime(0,0,0,11,8,2003))));
+  	}
+  
+***************
+*** 145,150 ****
+  		} else {
+  			// Get year
+! 			$year = date(&quot;Y&quot;,$this-&gt;_date);
+! 			$data_table = html_table(&quot;&quot;,1,1,5);
+  
+  			// Setting the previous &amp; next year
+--- 145,150 ----
+  		} else {
+  			// Get year
+! 			$year = date('Y',$this-&gt;_date);
+! 			$data_table = html_table('',1,1,5);
+  
+  			// Setting the previous &amp; next year
+***************
+*** 153,160 ****
+  			// Extracting query string
+  			if (isset($_SERVER['QUERY_STRING'])) {
+! 				if (substr($_SERVER['QUERY_STRING'],0,12) == &quot;CalendarDate&quot;) {
+  					$query_string = substr($_SERVER['QUERY_STRING'],23);
+  				} else {
+! 					if ($_SERVER['QUERY_STRING'] != &quot;&quot;) $query_string = &quot;&amp;&quot; . $_SERVER['QUERY_STRING'];
+  				}
+  			}
+--- 153,160 ----
+  			// Extracting query string
+  			if (isset($_SERVER['QUERY_STRING'])) {
+! 				if (substr($_SERVER['QUERY_STRING'],0,12) == 'CalendarDate') {
+  					$query_string = substr($_SERVER['QUERY_STRING'],23);
+  				} else {
+! 					if ($_SERVER['QUERY_STRING'] != '') $query_string = '&amp;' . $_SERVER['QUERY_STRING'];
+  				}
+  			}
+***************
+*** 164,172 ****
+  
+  			// Add header
+! 			$data_table-&gt;set_class(&quot;PHP_calendar&quot;);
+  			$data_table-&gt;set_default_col_attributes(array('align' =&gt; 'center','valign' =&gt; 'baseline'));
+  			$t_td = html_td('PHP_calendarHeader', 'center', $year);
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 2));
+! 			$data_table-&gt;add_row(html_td('PHP_calendarHeader', 'center', html_a($prevYear, &quot;&lt;&lt;&quot;)), $t_td,html_td('PHP_calendarHeader', 'center', html_a($nextYear, &quot;&gt;&gt;&quot;)));
+  
+  			// adding months
+--- 164,172 ----
+  
+  			// Add header
+! 			$data_table-&gt;set_class('PHP_calendar');
+  			$data_table-&gt;set_default_col_attributes(array('align' =&gt; 'center','valign' =&gt; 'baseline'));
+  			$t_td = html_td('PHP_calendarHeader', 'center', $year);
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 2));
+! 			$data_table-&gt;add_row(html_td('PHP_calendarHeader', 'center', html_a($prevYear, '&lt;&lt;')), $t_td,html_td('PHP_calendarHeader', 'center', html_a($nextYear, '&gt;&gt;')));
+  
+  			// adding months
+***************
+*** 178,182 ****
+  					$this-&gt;_date = mktime(0,0,0,$month++,1, $year);
+  					$Cell = html_td(NULL, 'center', $this-&gt;_DoMonth());
+! 					$Cell-&gt;set_tag_attribute(&quot;valign&quot;,&quot;top&quot;);
+  					$Row-&gt;add($Cell);
+  				}
+--- 178,182 ----
+  					$this-&gt;_date = mktime(0,0,0,$month++,1, $year);
+  					$Cell = html_td(NULL, 'center', $this-&gt;_DoMonth());
+! 					$Cell-&gt;set_tag_attribute('valign','top');
+  					$Row-&gt;add($Cell);
+  				}
+***************
+*** 199,209 ****
+  
+  		// Get month and year
+! 		$month = date(&quot;m&quot;,$this-&gt;_date);
+! 		$year = date(&quot;Y&quot;,$this-&gt;_date);
+  
+  		$daysInMonth = $this-&gt;_getDaysInMonth($month, $year);
+! 		$first = date(&quot;w&quot;,mktime(12, 0, 0, $month, 1, $year));
+  
+! 		$monthName = strftime(&quot;%b&quot;,$this-&gt;_date);
+  
+  		if (!$this-&gt;_ShowYear) {
+--- 199,209 ----
+  
+  		// Get month and year
+! 		$month = date('m',$this-&gt;_date);
+! 		$year = date('Y',$this-&gt;_date);
+  
+  		$daysInMonth = $this-&gt;_getDaysInMonth($month, $year);
+! 		$first = date('w',mktime(12, 0, 0, $month, 1, $year));
+  
+! 		$monthName = strftime('%b',$this-&gt;_date);
+  
+  		if (!$this-&gt;_ShowYear) {
+***************
+*** 218,225 ****
+  		// Extracting query string
+  		if (isset($_SERVER['QUERY_STRING'])) {
+! 			if (substr($_SERVER['QUERY_STRING'],0,12) == &quot;CalendarDate&quot;) {
+  				$query_string = substr($_SERVER['QUERY_STRING'],23);
+  			} else {
+! 				if ($_SERVER['QUERY_STRING'] != &quot;&quot;) $query_string = &quot;&amp;&quot; . $_SERVER['QUERY_STRING'];
+  			}
+  		}
+--- 218,225 ----
+  		// Extracting query string
+  		if (isset($_SERVER['QUERY_STRING'])) {
+! 			if (substr($_SERVER['QUERY_STRING'],0,12) == 'CalendarDate') {
+  				$query_string = substr($_SERVER['QUERY_STRING'],23);
+  			} else {
+! 				if ($_SERVER['QUERY_STRING'] != '') $query_string = '&amp;' . $_SERVER['QUERY_STRING'];
+  			}
+  		}
+***************
+*** 229,243 ****
+  
+  		// Add header
+! 		$data_table-&gt;set_class(&quot;PHP_calendar&quot;);
+  		$data_table-&gt;set_default_col_attributes(array('align' =&gt; 'center'));
+  		$t_td = html_td('PHP_calendarHeader', 'center', $header);
+  		if (!$this-&gt;_ShowYear) {
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 5));
+! 			$data_table-&gt;add_row(html_td('PHP_calendarHeader', NULL, html_a($prevMonth, &quot;&lt;&lt;&quot;)), $t_td,html_td('PHP_calendarHeader', NULL, html_a($nextMonth, &quot;&gt;&gt;&quot;)));
+  		} else {
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 7));
+  			$data_table-&gt;add_row($t_td);
+  		}
+! 		$t_tr = html_tr(&quot;PHP_calendarHeaderWeekdays&quot;,html_td(NULL, &quot;center&quot;,  $this-&gt;_DayNames[($this-&gt;StartDay)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+1)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+2)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+3)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+4)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+5)%7]),html_td(NULL, &quot;center&quot;, $this-&gt;_DayNames[($this-&gt;StartDay+6)%7]));
+  		$data_table-&gt;add_row($t_tr);
+  
+--- 229,243 ----
+  
+  		// Add header
+! 		$data_table-&gt;set_class('PHP_calendar');
+  		$data_table-&gt;set_default_col_attributes(array('align' =&gt; 'center'));
+  		$t_td = html_td('PHP_calendarHeader', 'center', $header);
+  		if (!$this-&gt;_ShowYear) {
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 5));
+! 			$data_table-&gt;add_row(html_td('PHP_calendarHeader', NULL, html_a($prevMonth, '&lt;&lt;')), $t_td,html_td('PHP_calendarHeader', NULL, html_a($nextMonth, '&gt;&gt;')));
+  		} else {
+  			$t_td-&gt;set_tag_attributes(array('colspan' =&gt; 7));
+  			$data_table-&gt;add_row($t_td);
+  		}
+! 		$t_tr = html_tr('PHP_calendarHeaderWeekdays',html_td(NULL, 'center',  $this-&gt;_DayNames[($this-&gt;StartDay)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+1)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+2)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+3)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+4)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+5)%7]),html_td(NULL, 'center', $this-&gt;_DayNames[($this-&gt;StartDay+6)%7]));
+  		$data_table-&gt;add_row($t_tr);
+  
+***************
+*** 253,260 ****
+  
+  			for ($i = 0; $i &lt; 7; $i++) {
+! 				if ($year == $today[&quot;year&quot;] &amp;&amp; $month == $today[&quot;mon&quot;] &amp;&amp; $d == $today[&quot;mday&quot;]) {
+! 					$class = &quot;PHP_calendarToday&quot;;
+  				} else {
+! 					$class = &quot;PHP_calendar&quot;;
+  				}
+  				if ($d &gt; 0 &amp;&amp; $d &lt;= $daysInMonth) {
+--- 253,260 ----
+  
+  			for ($i = 0; $i &lt; 7; $i++) {
+! 				if ($year == $today['year'] &amp;&amp; $month == $today['mon'] &amp;&amp; $d == $today['mday']) {
+! 					$class = 'PHP_calendarToday';
+  				} else {
+! 					$class = 'PHP_calendar';
+  				}
+  				if ($d &gt; 0 &amp;&amp; $d &lt;= $daysInMonth) {
+***************
+*** 262,266 ****
+  					$link = $this-&gt;GetLink($d,$month,$year);
+  					// checking if event
+! 					if ($this-&gt;DayIsEvent(mktime(0,0,0,$month,$d,$year))) $class .= &quot;Event&quot;;
+  
+  
+--- 262,266 ----
+  					$link = $this-&gt;GetLink($d,$month,$year);
+  					// checking if event
+! 					if ($this-&gt;DayIsEvent(mktime(0,0,0,$month,$d,$year))) $class .= 'Event';
+  
+  
+***************
+*** 269,278 ****
+  						$objLink-&gt;set_tag_attribute('target', 'parent_popup');
+  						//$objLink-&gt;set_tag_attribute('onMouseUp', 'window.close()');
+! 						$t_row-&gt;add(html_td(&quot;$class&quot;,&quot;center&quot;,$objLink));
+  					} else {
+! 						$t_row-&gt;add(html_td(&quot;$class&quot;,&quot;center&quot;,$d));
+  					}
+  				} else {
+! 					$t_row-&gt;add(&quot;&nbsp;&quot;);
+  				}
+  				$d++;
+--- 269,278 ----
+  						$objLink-&gt;set_tag_attribute('target', 'parent_popup');
+  						//$objLink-&gt;set_tag_attribute('onMouseUp', 'window.close()');
+! 						$t_row-&gt;add(html_td(&quot;$class&quot;,'center',$objLink));
+  					} else {
+! 						$t_row-&gt;add(html_td(&quot;$class&quot;,'center',$d));
+  					}
+  				} else {
+! 					$t_row-&gt;add('&nbsp;');
+  				}
+  				$d++;
+***************
+*** 326,358 ****
+  	function user_setup() {
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarHeader&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;color&quot; =&gt; &quot;#db1c1c&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarHeaderWeekdays&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;color&quot; =&gt; &quot;#db1c1c&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendar&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;color&quot; =&gt; &quot;#3363b7&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarToday&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;background-color&quot; =&gt; &quot;#fffa00&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarEvent&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;color&quot; =&gt; &quot;#3363b7&quot;,
+! 							 &quot;font-weight&quot; =&gt; &quot;bold&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarTodayEvent&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;background-color&quot; =&gt; &quot;#fffa00&quot;,
+! 							  &quot;font-weight&quot; =&gt; &quot;bold&quot;) );
+  
+! 		$this-&gt;add_entry(&quot;.PHP_calendarlink&quot;, &quot;&quot;,
+! 						 array(&quot;font-size&quot; =&gt; &quot;12px&quot;,
+! 							 &quot;color&quot; =&gt; &quot;#db1c1c&quot;) );
+  	}
+  }
+--- 326,358 ----
+  	function user_setup() {
+  
+! 		$this-&gt;add_entry('.PHP_calendarHeader', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'color' =&gt; '#db1c1c') );
+  
+! 		$this-&gt;add_entry('.PHP_calendarHeaderWeekdays', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'color' =&gt; '#db1c1c') );
+  
+! 		$this-&gt;add_entry('.PHP_calendar', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'color' =&gt; '#3363b7') );
+  
+! 		$this-&gt;add_entry('.PHP_calendarToday', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'background-color' =&gt; '#fffa00') );
+  
+! 		$this-&gt;add_entry('.PHP_calendarEvent', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'color' =&gt; '#3363b7',
+! 							 'font-weight' =&gt; 'bold') );
+  
+! 		$this-&gt;add_entry('.PHP_calendarTodayEvent', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'background-color' =&gt; '#fffa00',
+! 							  'font-weight' =&gt; 'bold') );
+  
+! 		$this-&gt;add_entry('.PHP_calendarlink', '',
+! 						 array('font-size' =&gt; '12px',
+! 							 'color' =&gt; '#db1c1c') );
+  	}
+  }
+
+Index: base_formcontent.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_formcontent.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_formcontent.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_formcontent.class.php	21 Aug 2004 20:06:35 -0000	1.4
+***************
+*** 104,108 ****
+  	   $phpcode .= ');';
+  	   
+! 	   //echo &quot;&lt;pre&gt;&quot;; print_r($newparams); echo $phpcode; echo &quot;&lt;/pre&gt;&quot;;
+  	   $elem = eval($phpcode);
+  	   $elem-&gt;set_label_text($newparams[0]);
+--- 104,108 ----
+  	   $phpcode .= ');';
+  	   
+! 	   //echo '&lt;pre&gt;'; print_r($newparams); echo $phpcode; echo '&lt;/pre&gt;';
+  	   $elem = eval($phpcode);
+  	   $elem-&gt;set_label_text($newparams[0]);
+***************
+*** 116,120 ****
+  	    $button-&gt;set_style_attribute('id');
+  	    $button-&gt;set_attribute('loc');
+! 	    $button-&gt;onClick(&quot;disable=false&quot;);
+  	   
+  	    return($button);
+--- 116,120 ----
+  	    $button-&gt;set_style_attribute('id');
+  	    $button-&gt;set_attribute('loc');
+! 	    $button-&gt;onClick('disable=false');
+  	   
+  	    return($button);
+***************
+*** 133,141 ****
+      {
+  	    $label = $this-&gt;_getShowElement($name, $tab_index, $label, $text, $element);
+!         $elem = html_td(&quot;&quot;, $align, $label);
+!         //$elem-&gt;set_id(&quot;identification&quot;);
+  	
+  	    return($elem);
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 133,141 ----
+      {
+  	    $label = $this-&gt;_getShowElement($name, $tab_index, $label, $text, $element);
+!         $elem = html_td('', $align, $label);
+!         //$elem-&gt;set_id('identification');
+  	
+  	    return($elem);
+      }
+  }
+! ?&gt;
+
+Index: base_layoutpage.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_layoutpage.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_layoutpage.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_layoutpage.class.php	21 Aug 2004 20:06:35 -0000	1.4
+***************
+*** 35,39 ****
+   *
+   */
+! include_once(Util::base_Path(&quot;view/includes.inc.php&quot;));
+  
+  /**
+--- 35,39 ----
+   *
+   */
+! include_once(Util::base_Path('view/includes.inc.php'));
+  
+  /**
+***************
+*** 128,132 ****
+  
+  
+! 		$file_name = Util::app_Path($str_moduleName.'/view/classes/'.strtolower($str_className).&quot;.class.php&quot;);
+  		
+  		/*
+--- 128,132 ----
+  
+  
+! 		$file_name = Util::app_Path($str_moduleName.'/view/classes/'.strtolower($str_className).'.class.php');
+  		
+  		/*
+***************
+*** 187,191 ****
+  				$path_action = Util::format_URLPath($str_url, $str_param);
+  				$link = html_a($path_action);
+! 				//$link = html_a(&quot;#&quot;,&quot;&quot;);
+                  $link-&gt;add(html_img(Theme::getThemeImagePath($str_image), null, null, null, $str_image_text));
+                  /*
+--- 187,191 ----
+  				$path_action = Util::format_URLPath($str_url, $str_param);
+  				$link = html_a($path_action);
+! 				//$link = html_a('#','');
+                  $link-&gt;add(html_img(Theme::getThemeImagePath($str_image), null, null, null, $str_image_text));
+                  /*
+***************
+*** 197,202 ****
+  
+                  $path_action = Util::format_URLPath($str_url, $str_param);
+!                 $link-&gt;set_tag_attribute(&quot;onClick&quot;, &quot;javascript:newWin('&quot;.$path_action.&quot;', &quot;.$int_w.&quot;, &quot;.$int_h.&quot;, &quot;.$int_x.&quot;, &quot;.$int_y.&quot;)&quot;);
+! 				$link-&gt;set_tag_attribute(&quot;onClick&quot;, &quot;javascript:ponerIframe('&quot;.$path_action.&quot;')&quot;);
+  				*/
+  				$link-&gt;set_tag_attribute('target', 'myFrame');
+--- 197,202 ----
+  
+                  $path_action = Util::format_URLPath($str_url, $str_param);
+!                 $link-&gt;set_tag_attribute('onClick', &quot;javascript:newWin('&quot;.$path_action.&quot;', &quot;.$int_w.&quot;, &quot;.$int_h.&quot;, &quot;.$int_x.&quot;, &quot;.$int_y.&quot;)&quot;);
+! 				$link-&gt;set_tag_attribute('onClick', &quot;javascript:ponerIframe('&quot;.$path_action.&quot;')&quot;);
+  				*/
+  				$link-&gt;set_tag_attribute('target', 'myFrame');
+***************
+*** 300,304 ****
+          //Incluimos el API de phpgacl
+          //define('ADODB_DIR', MIGUELBASE_ADODB);
+!                include_once(Util::base_Path(&quot;include/gacl/gacl.class.php&quot;));
+  
+          //Probar el sistema de cache: &#191;para qu&#233;? ADOdb cacheado ya.
+--- 300,304 ----
+          //Incluimos el API de phpgacl
+          //define('ADODB_DIR', MIGUELBASE_ADODB);
+!                include_once(Util::base_Path('include/gacl/gacl.class.php'));
+  
+          //Probar el sistema de cache: &#191;para qu&#233;? ADOdb cacheado ya.
+
+Index: base_submitbutton.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/view/classes/base_submitbutton.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_submitbutton.class.php	6 Aug 2004 10:23:10 -0000	1.3
+--- base_submitbutton.class.php	21 Aug 2004 20:06:35 -0000	1.4
+***************
+*** 70,76 ****
+  
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes[&quot;type&quot;] = &quot;submit&quot;;
+  
+!         $attributes[&quot;value&quot;] = $this-&gt;get_value();
+  
+          $tag = new INPUTtag($attributes);
+--- 70,76 ----
+  
+          $attributes = $this-&gt;_build_element_attributes();
+!         $attributes['type'] = 'submit';
+  
+!         $attributes['value'] = $this-&gt;get_value();
+  
+          $tag = new INPUTtag($attributes);
+***************
+*** 79,81 ****
+      }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 79,81 ----
+      }
+  }
+! ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000032.html">[Migueloo-cvs] migueloo/modules/andromeda/view includes.inc.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000034.html">[Migueloo-cvs] migueloo/modules/gettext/gl_ES/help_html - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#33">[ date ]</a>
+              <a href="thread.html#33">[ thread ]</a>
+              <a href="subject.html#33">[ subject ]</a>
+              <a href="author.html#33">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

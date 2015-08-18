@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/ddbb%20base_ddbbdata.class.php%2C1.4%2C1.5&In-Reply-To=%3C200408211909.i7LJ9O629084%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000031.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/ddbb%20base_ddbbdata.class.php%2C1.4%2C1.5&In-Reply-To=%3C200408211909.i7LJ9O629084%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:09:24 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000031.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/ddbb
+In directory sheep:/tmp/cvs-serv22355
+
+Modified Files:
+	base_ddbbdata.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: base_ddbbdata.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/ddbb/base_ddbbdata.class.php,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** base_ddbbdata.class.php	15 Aug 2004 15:08:25 -0000	1.4
+--- base_ddbbdata.class.php	21 Aug 2004 19:09:22 -0000	1.5
+***************
+*** 122,126 ****
+  
+                          if($this-&gt;ado_con-&gt;ErrorMsg() != '' ) {
+!                             $this-&gt;_setError(Session::getContextValue('ddbbSgbd').&quot; :: &quot;.$this-&gt;ado_con-&gt;ErrorMsg());
+                          }
+                  }
+--- 122,126 ----
+  
+                          if($this-&gt;ado_con-&gt;ErrorMsg() != '' ) {
+!                             $this-&gt;_setError(Session::getContextValue('ddbbSgbd').' :: '.$this-&gt;ado_con-&gt;ErrorMsg());
+                          }
+                  }
+***************
+*** 207,211 ****
+                  $this-&gt;table = $table;
+  
+!                 $this-&gt;_validateSelectData($table, &quot;count(*)&quot;, $cond);
+                  if ($this-&gt;hasError()) {
+                          return 0;
+--- 207,211 ----
+                  $this-&gt;table = $table;
+  
+!                 $this-&gt;_validateSelectData($table, 'count(*)', $cond);
+                  if ($this-&gt;hasError()) {
+                          return 0;
+***************
+*** 216,220 ****
+  
+                  $ret_val = $this-&gt;_exec($sql_query);
+!                 //echo &quot;&lt;pre&gt;&quot;; print_r($ret_val); echo &quot;&lt;/pre&gt;&quot;;
+                  return ($ret_val[0][0]);
+            }
+--- 216,220 ----
+  
+                  $ret_val = $this-&gt;_exec($sql_query);
+!                 //echo '&lt;pre&gt;'; print_r($ret_val); echo '&lt;/pre&gt;';
+                  return ($ret_val[0][0]);
+            }
+***************
+*** 233,237 ****
+                    $this-&gt;table = $table;
+  
+!                   $sql_query = &quot;insert into &quot;.$table;
+  
+                    if ($fields != '') {
+--- 233,237 ----
+                    $this-&gt;table = $table;
+  
+!                   $sql_query = 'insert into '.$table;
+  
+                    if ($fields != '') {
+***************
+*** 271,275 ****
+                  $this-&gt;table = $table;
+  
+!                   $sql_query = &quot;delete from &quot;.$table;
+  
+                    if ($cond != '') {
+--- 271,275 ----
+                  $this-&gt;table = $table;
+  
+!                   $sql_query = 'delete from '.$table;
+  
+                    if ($cond != '') {
+***************
+*** 303,307 ****
+                  $this-&gt;table = $table;
+  
+!                   $sql_query = &quot;update &quot;.$table.&quot; set &quot;.$this-&gt;_formatUpdateTarget ($fields, $values) ;
+  
+                  if ($this-&gt;hasError()) {
+--- 303,307 ----
+                  $this-&gt;table = $table;
+  
+!                   $sql_query = 'update '.$table.' set '.$this-&gt;_formatUpdateTarget ($fields, $values) ;
+  
+                  if ($this-&gt;hasError()) {
+***************
+*** 359,363 ****
+  
+                  $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$table);
+!                 $fields = explode(&quot;,&quot;, $fields);
+  
+                  for ($i=0; $i &lt; count($fields);$i++) {
+--- 359,363 ----
+  
+                  $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$table);
+!                 $fields = explode(',', $fields);
+  
+                  for ($i=0; $i &lt; count($fields);$i++) {
+***************
+*** 387,391 ****
+                  } else {
+                          $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                         $fields = explode(&quot;,&quot;, $fields);
+  
+                          if(!is_array($this-&gt;table)){
+--- 387,391 ----
+                  } else {
+                          $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                         $fields = explode(',', $fields);
+  
+                          if(!is_array($this-&gt;table)){
+***************
+*** 395,399 ****
+                          } else {
+                                  for ($i=0; $i &lt; count($fields);$i++) {
+!                                         list($item_table, $item_field) = explode(&quot;.&quot;, $fields[$i], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+--- 395,399 ----
+                          } else {
+                                  for ($i=0; $i &lt; count($fields);$i++) {
+!                                         list($item_table, $item_field) = explode('.', $fields[$i], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+***************
+*** 418,422 ****
+                  if ($cond !='') {
+                          $cond= ereg_replace(&quot;[[:space:]]+&quot;,' ',$cond);
+!                         $elem = explode(&quot; &quot;, $cond);
+                          //Debug::oneVar($cond, __FILE__, __LINE__);
+                          for($i=0;$i&lt;count($elem);$i = $i+4) {
+--- 418,422 ----
+                  if ($cond !='') {
+                          $cond= ereg_replace(&quot;[[:space:]]+&quot;,' ',$cond);
+!                         $elem = explode(' ', $cond);
+                          //Debug::oneVar($cond, __FILE__, __LINE__);
+                          for($i=0;$i&lt;count($elem);$i = $i+4) {
+***************
+*** 434,438 ****
+                                          $elem[$i+2]        = &quot;'&quot;.$elem[$i+2].&quot;'&quot;;
+                                  } else {
+!                                         list($item_table, $item_field) = explode(&quot;.&quot;, $elem[$i], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+--- 434,438 ----
+                                          $elem[$i+2]        = &quot;'&quot;.$elem[$i+2].&quot;'&quot;;
+                                  } else {
+!                                         list($item_table, $item_field) = explode('.', $elem[$i], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+***************
+*** 442,446 ****
+                                          }
+  
+!                                         list($item_table, $item_field) = explode(&quot;.&quot;, $elem[$i+2], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+--- 442,446 ----
+                                          }
+  
+!                                         list($item_table, $item_field) = explode('.', $elem[$i+2], 2);
+                                          if(is_null($item_field)){
+                                                  $item_field = $item_table;
+***************
+*** 458,462 ****
+                                  }
+                          }
+!                         $sel_cond = &quot; where &quot;.implode(' ', $elem);
+                  } else {
+                          $sel_cond = '';
+--- 458,462 ----
+                                  }
+                          }
+!                         $sel_cond = ' where '.implode(' ', $elem);
+                  } else {
+                          $sel_cond = '';
+***************
+*** 474,478 ****
+                  if ($fields !='') {
+                          //$fields= ereg_replace(&quot;[[:space:]]+&quot;,' ',$fields);
+!                         $elem = explode(&quot; &quot;, $fields);
+                          //Debug::oneVar($cond, __FILE__, __LINE__);
+                          for($i=0;$i&lt;count($elem);$i++) {
+--- 474,478 ----
+                  if ($fields !='') {
+                          //$fields= ereg_replace(&quot;[[:space:]]+&quot;,' ',$fields);
+!                         $elem = explode(' ', $fields);
+                          //Debug::oneVar($cond, __FILE__, __LINE__);
+                          for($i=0;$i&lt;count($elem);$i++) {
+***************
+*** 481,486 ****
+                      $elem[$i]         = $this-&gt;table.'.'.$elem[$i];
+                                  } else {
+!                                     if(strchr($elem[$i],&quot;.&quot;)){
+!                                            list($item_table, $item_field) = explode(&quot;.&quot;, $elem[$i], 2);
+                                          } else {
+                                             $item_table = '';
+--- 481,486 ----
+                      $elem[$i]         = $this-&gt;table.'.'.$elem[$i];
+                                  } else {
+!                                     if(strchr($elem[$i],'.')){
+!                                            list($item_table, $item_field) = explode('.', $elem[$i], 2);
+                                          } else {
+                                             $item_table = '';
+***************
+*** 509,513 ****
+                          if(!is_array($fields)){
+                                  //$fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                                 $fields = explode(&quot;,&quot;, $fields);
+                          }
+  
+--- 509,513 ----
+                          if(!is_array($fields)){
+                                  //$fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                                 $fields = explode(',', $fields);
+                          }
+  
+***************
+*** 531,535 ****
+                  } else {
+                          $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                         $fields = explode(&quot;,&quot;, $fields);
+  
+                          for ($i=0; $i &lt; count($fields);$i++) {
+--- 531,535 ----
+                  } else {
+                          $fields= ereg_replace(&quot;[[:space:]]+&quot;,'',$fields);
+!                         $fields = explode(',', $fields);
+  
+                          for ($i=0; $i &lt; count($fields);$i++) {
+***************
+*** 544,548 ****
+                          if(!is_array($values) ){
+                                  $values= ereg_replace(&quot;[[:space:]]+&quot;,'',$values);
+!                                 $values = explode(&quot;,&quot;, $values);
+                          }
+                  }
+--- 544,548 ----
+                          if(!is_array($values) ){
+                                  $values= ereg_replace(&quot;[[:space:]]+&quot;,'',$values);
+!                                 $values = explode(',', $values);
+                          }
+                  }
+***************
+*** 605,607 ****
+            }
+  }
+! ?&gt;
+\ No newline at end of file
+--- 605,607 ----
+            }
+  }
+! ?&gt;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000031.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/login base_login.class.php,1.3,1.4 base_loginldap.class.php,1.3,1.4 base_loginmcrypt.class.php,1.3,1.4 base_loginmd5.class.php,1.3,1.4 base_loginplano.class.php,1.3,1.4 base_userinfo.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

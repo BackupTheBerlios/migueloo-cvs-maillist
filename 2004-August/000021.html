@@ -1,0 +1,1021 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/model/classes/fs fileDisplayLib.inc.php,1.3,1.4 fileManageLib.inc.php,1.3,1.4 filetools.class.php,1.3,1.4 miguel_dirtemp.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/fs%20fileDisplayLib.inc.php%2C1.3%2C1.4%20fileManageLib.inc.php%2C1.3%2C1.4%20filetools.class.php%2C1.3%2C1.4%20miguel_dirtemp.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ54628963%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/model/classes/fs fileDisplayLib.inc.php,1.3,1.4 fileManageLib.inc.php,1.3,1.4 filetools.class.php,1.3,1.4 miguel_dirtemp.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/model/classes/fs%20fileDisplayLib.inc.php%2C1.3%2C1.4%20fileManageLib.inc.php%2C1.3%2C1.4%20filetools.class.php%2C1.3%2C1.4%20miguel_dirtemp.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ54628963%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/model/classes/fs fileDisplayLib.inc.php,1.3,1.4 fileManageLib.inc.php,1.3,1.4 filetools.class.php,1.3,1.4 miguel_dirtemp.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:04 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_model.class.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000024.html">[Migueloo-cvs] migueloo/modules/alumnPage index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/fs
+In directory sheep:/tmp/cvs-serv22200/modules/andromeda/model/classes/fs
+
+Modified Files:
+	fileDisplayLib.inc.php fileManageLib.inc.php 
+	filetools.class.php miguel_dirtemp.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: fileDisplayLib.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/fs/fileDisplayLib.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** fileDisplayLib.inc.php	6 Aug 2004 10:23:09 -0000	1.3
+--- fileDisplayLib.inc.php	21 Aug 2004 19:05:02 -0000	1.4
+***************
+*** 81,133 ****
+  	/*** Tables initiliasation ***/
+  	if (!$type || !$image) {
+!                 $type['text'] = array( &quot;txt&quot; );
+! 		$type['word'      ] = array(&quot;doc&quot;, &quot;dot&quot;, &quot;rtf&quot;, &quot;mcw&quot;, &quot;wps&quot;, &quot;sxw&quot;, &quot;txt&quot; );
+! 		$type['web'       ] = array( &quot;htm&quot;, &quot;html&quot;, &quot;htx&quot;, &quot;xml&quot;, &quot;xsl&quot;);
+!                 $type['web_css'] = array(&quot;css&quot;);
+!                 $type['web_php'] = array(&quot;php&quot;, &quot;php3&quot;, &quot;phps&quot;, &quot;php3s&quot;);
+!                 $type['web_pl'] = array(&quot;pl&quot;, &quot;pls&quot;);
+!                 $type['web_js'] = array(&quot;js&quot;);
+!                 $type['web_flash'] = array(&quot;swf&quot;);
+!                 $type['image_jpg'] = array(&quot;png&quot;, &quot;jpg&quot;, &quot;jpeg&quot; );
+!                 $type['image_bmp'] = array(&quot;bmp&quot;);
+!                 $type['image_gif'] = array(&quot;gif&quot;);
+! 		$type['audio'     ] = array(&quot;wav&quot;, &quot;mp2&quot;, &quot;mp4&quot;, &quot;vqf&quot;, &quot;ogg&quot;);
+!                 $type['audio_mp3'] = array(&quot;mp3&quot;);
+!                 $type['audio_mid'] = array(&quot;mid&quot;, &quot;midi&quot;);
+! 		$type['excel'     ] = array(&quot;sxc&quot;, &quot;stc&quot;, &quot;sdc&quot;, &quot;vor&quot;, &quot;xls&quot;, &quot;xlt&quot;, &quot;xls&quot;, &quot;xlt&quot;);
+! 		$type['compressed'] = array(&quot;zip&quot;, &quot;tar&quot;, &quot;gz&quot;, &quot;gz&quot;, &quot;bz&quot;, &quot;bz2&quot;);
+!                 $type['compressed_rar'] = array(&quot;rar&quot;);
+! 		$type['code'      ] = array(&quot;cpp&quot;, &quot;c&quot;, &quot;java&quot; );
+! 		$type['acrobat'   ] = array(&quot;pdf&quot;, &quot;ps&quot;);
+! 		$type['powerpoint'] = array(&quot;ppt&quot;, &quot;pps&quot;, &quot;sxi&quot;, &quot;sti&quot;, &quot;sda&quot;, &quot;sdd&quot;);
+!                 $type['video_avi'] = array(&quot;avi&quot;);
+!                 $type['video_mpeg'] = array(&quot;mpg&quot;, &quot;mpeg&quot;);
+!                 $type['video_mov'] = array(&quot;mov&quot;);
+!                 $type['video_ram'] = array(&quot;ram&quot;);
+  
+!                 $image['text'] = &quot;mime_txt.png&quot;;
+! 		$image['word'      ] = &quot;mime_doc.png&quot;;
+! 		$image['web'       ] = &quot;mime_html.png&quot;;
+!                 $image['web_css'] = &quot;mime_css.png&quot;;
+!                 $image['web_php'] = &quot;mime_php.png&quot;;
+!                 $image['web_pl'] = &quot;mime_pl.png&quot;;
+!                 $image['web_js'] = &quot;mime_js.png&quot;;
+!                 $image['web_flash'] = &quot;mime_flash.png&quot;;
+! 		$image['image_jpg'     ] = &quot;mime_jpg.png&quot;;
+!                 $image['image_bmp'] = &quot;mime_bmp.png&quot;;
+!                 $image['image_gif'] = &quot;mime_gif.png&quot;; 
+! 		$image['audio'     ] = &quot;mime_wav.png&quot;;
+!                 $image['audio_mp3'] = &quot;mime_mp3.png&quot;;
+!                 $image['audio_mid'] = &quot;mime_mid.png&quot;;
+! 		$image['excel'     ] = &quot;mime_xls.png&quot;;
+! 		$image['compressed'] = &quot;mime_zip.png&quot;;
+!                 $image['compressed_rar'] = &quot;mime_rar.png&quot;;
+! 		$image['code'      ] = &quot;mime_exe.png&quot;;
+! 		$image['acrobat'   ] = &quot;mime_pdf.png&quot;;
+! 		$image['powerpoint'] = &quot;mime_ppt.png&quot;;
+!                 $image['video_avi'] = &quot;mime_avi.png&quot;;
+!                 $image['video_mpeg'] = &quot;mime_mpeg.png&quot;;
+!                 $image['video_mov'] = &quot;mime_mov.png&quot;;
+!                 $image['video_ram'] = &quot;mime_ram.png&quot;;
+  	}
+  
+--- 81,133 ----
+  	/*** Tables initiliasation ***/
+  	if (!$type || !$image) {
+!                 $type['text'] = array( 'txt' );
+! 		$type['word'      ] = array('doc', 'dot', 'rtf', 'mcw', 'wps', 'sxw', 'txt' );
+! 		$type['web'       ] = array( 'htm', 'html', 'htx', 'xml', 'xsl');
+!                 $type['web_css'] = array('css');
+!                 $type['web_php'] = array('php', 'php3', 'phps', 'php3s');
+!                 $type['web_pl'] = array('pl', 'pls');
+!                 $type['web_js'] = array('js');
+!                 $type['web_flash'] = array('swf');
+!                 $type['image_jpg'] = array('png', 'jpg', 'jpeg' );
+!                 $type['image_bmp'] = array('bmp');
+!                 $type['image_gif'] = array('gif');
+! 		$type['audio'     ] = array('wav', 'mp2', 'mp4', 'vqf', 'ogg');
+!                 $type['audio_mp3'] = array('mp3');
+!                 $type['audio_mid'] = array('mid', 'midi');
+! 		$type['excel'     ] = array('sxc', 'stc', 'sdc', 'vor', 'xls', 'xlt', 'xls', 'xlt');
+! 		$type['compressed'] = array('zip', 'tar', 'gz', 'gz', 'bz', 'bz2');
+!                 $type['compressed_rar'] = array('rar');
+! 		$type['code'      ] = array('cpp', 'c', 'java' );
+! 		$type['acrobat'   ] = array('pdf', 'ps');
+! 		$type['powerpoint'] = array('ppt', 'pps', 'sxi', 'sti', 'sda', 'sdd');
+!                 $type['video_avi'] = array('avi');
+!                 $type['video_mpeg'] = array('mpg', 'mpeg');
+!                 $type['video_mov'] = array('mov');
+!                 $type['video_ram'] = array('ram');
+  
+!                 $image['text'] = 'mime_txt.png';
+! 		$image['word'      ] = 'mime_doc.png';
+! 		$image['web'       ] = 'mime_html.png';
+!                 $image['web_css'] = 'mime_css.png';
+!                 $image['web_php'] = 'mime_php.png';
+!                 $image['web_pl'] = 'mime_pl.png';
+!                 $image['web_js'] = 'mime_js.png';
+!                 $image['web_flash'] = 'mime_flash.png';
+! 		$image['image_jpg'     ] = 'mime_jpg.png';
+!                 $image['image_bmp'] = 'mime_bmp.png';
+!                 $image['image_gif'] = 'mime_gif.png'; 
+! 		$image['audio'     ] = 'mime_wav.png';
+!                 $image['audio_mp3'] = 'mime_mp3.png';
+!                 $image['audio_mid'] = 'mime_mid.png';
+! 		$image['excel'     ] = 'mime_xls.png';
+! 		$image['compressed'] = 'mime_zip.png';
+!                 $image['compressed_rar'] = 'mime_rar.png';
+! 		$image['code'      ] = 'mime_exe.png';
+! 		$image['acrobat'   ] = 'mime_pdf.png';
+! 		$image['powerpoint'] = 'mime_ppt.png';
+!                 $image['video_avi'] = 'mime_avi.png';
+!                 $image['video_mpeg'] = 'mime_mpeg.png';
+!                 $image['video_mov'] = 'mime_mov.png';
+!                 $image['video_ram'] = 'mime_ram.png';
+  	}
+  
+***************
+*** 143,147 ****
+  	}
+  
+! 	return &quot;mime_defaut.png&quot;;
+  }
+  
+--- 143,147 ----
+  	}
+  
+! 	return 'mime_defaut.png';
+  }
+  
+***************
+*** 157,167 ****
+  function format_file_size($fileSize) {
+  	if($fileSize &gt;= 1073741824) {
+! 		$fileSize = round($fileSize / 1073741824 * 100) / 100 . &quot;g&quot;;
+  	} elseif($fileSize &gt;= 1048576) {
+! 		$fileSize = round($fileSize / 1048576 * 100) / 100 . &quot;m&quot;;
+  	} elseif($fileSize &gt;= 1024) {
+! 		$fileSize = round($fileSize / 1024 * 100) / 100 . &quot;k&quot;;
+  	} else {
+! 		$fileSize = $fileSize . &quot;b&quot;;
+  	}
+  
+--- 157,167 ----
+  function format_file_size($fileSize) {
+  	if($fileSize &gt;= 1073741824) {
+! 		$fileSize = round($fileSize / 1073741824 * 100) / 100 . 'g';
+  	} elseif($fileSize &gt;= 1048576) {
+! 		$fileSize = round($fileSize / 1048576 * 100) / 100 . 'm';
+  	} elseif($fileSize &gt;= 1024) {
+! 		$fileSize = round($fileSize / 1024 * 100) / 100 . 'k';
+  	} else {
+! 		$fileSize = $fileSize . 'b';
+  	}
+  
+***************
+*** 181,185 ****
+  function format_date($fileDate)
+  {
+! 	return date(&quot;d.m.Y&quot;, $fileDate);
+  }
+  
+--- 181,185 ----
+  function format_date($fileDate)
+  {
+! 	return date('d.m.Y', $fileDate);
+  }
+  
+***************
+*** 196,200 ****
+  function format_url($filePath)
+  {
+! 	$stringArray = explode(&quot;/&quot;, $filePath);
+  
+  	for ($i = 0; $i &lt; sizeof($stringArray); $i++) {
+--- 196,200 ----
+  function format_url($filePath)
+  {
+! 	$stringArray = explode('/', $filePath);
+  
+  	for ($i = 0; $i &lt; sizeof($stringArray); $i++) {
+***************
+*** 202,206 ****
+  	}
+  
+! 	return implode(&quot;/&quot;,$stringArray);
+  }
+  
+--- 202,206 ----
+  	}
+  
+! 	return implode('/',$stringArray);
+  }
+  
+
+Index: fileManageLib.inc.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/fs/fileManageLib.inc.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** fileManageLib.inc.php	6 Aug 2004 10:23:09 -0000	1.3
+--- fileManageLib.inc.php	21 Aug 2004 19:05:02 -0000	1.4
+***************
+*** 36,52 ****
+   // Antonio F. Cano &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">antoniofcano at telefonica.net</A>&gt;
+   // Se pasa la tabla de trabajo como parametro
+! function update_db_info($dbTable, $action, $oldPath, $newPath=&quot;&quot;)
+  {
+  	/*** DELETE ***/
+! 	if ($action == &quot;delete&quot;)
+  	{
+! 		$query = &quot;DELETE FROM &quot; . $dbTable . &quot;
+  		WHERE path LIKE \&quot;&quot;.$oldPath.&quot;%\&quot;&quot;;
+  	}
+  
+  	/*** UPDATE ***/
+! 	if ($action == &quot;update&quot;)
+  	{
+! 		$query = &quot;UPDATE &quot; . $dbTable . &quot;
+  		SET path = CONCAT(\&quot;&quot;.$newPath.&quot;\&quot;, SUBSTRING(path, LENGTH(\&quot;&quot;.$oldPath.&quot;\&quot;)+1) )
+  		WHERE path LIKE \&quot;&quot;.$oldPath.&quot;%\&quot;&quot;;
+--- 36,52 ----
+   // Antonio F. Cano &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">antoniofcano at telefonica.net</A>&gt;
+   // Se pasa la tabla de trabajo como parametro
+! function update_db_info($dbTable, $action, $oldPath, $newPath='')
+  {
+  	/*** DELETE ***/
+! 	if ($action == 'delete')
+  	{
+! 		$query = 'DELETE FROM ' . $dbTable . &quot;
+  		WHERE path LIKE \&quot;&quot;.$oldPath.&quot;%\&quot;&quot;;
+  	}
+  
+  	/*** UPDATE ***/
+! 	if ($action == 'update')
+  	{
+! 		$query = 'UPDATE ' . $dbTable . &quot;
+  		SET path = CONCAT(\&quot;&quot;.$newPath.&quot;\&quot;, SUBSTRING(path, LENGTH(\&quot;&quot;.$oldPath.&quot;\&quot;)+1) )
+  		WHERE path LIKE \&quot;&quot;.$oldPath.&quot;%\&quot;&quot;;
+***************
+*** 143,147 ****
+  		while ($element = readdir($handle) )
+  		{
+! 			if ( $element == &quot;.&quot; || $element == &quot;..&quot;)
+  			{
+  				continue;	// skip current and parent directories
+--- 143,147 ----
+  		while ($element = readdir($handle) )
+  		{
+! 			if ( $element == '.' || $element == '..')
+  			{
+  				continue;	// skip current and parent directories
+***************
+*** 153,157 ****
+  			elseif ( is_dir ($element) )
+  			{
+! 				$dirToRemove[] = $dirPath.&quot;/&quot;.$element;
+  			}
+  		}
+--- 153,157 ----
+  			elseif ( is_dir ($element) )
+  			{
+! 				$dirToRemove[] = $dirPath.'/'.$element;
+  			}
+  		}
+***************
+*** 187,191 ****
+  	$oldFileName = basename($filePath);
+  
+! 	if (check_name_exist($path.&quot;/&quot;.$newFileName)
+  		&amp;&amp; $newFileName != $oldFileName)
+  	{
+--- 187,191 ----
+  	$oldFileName = basename($filePath);
+  
+! 	if (check_name_exist($path.'/'.$newFileName)
+  		&amp;&amp; $newFileName != $oldFileName)
+  	{
+***************
+*** 198,202 ****
+  			&amp;&amp; ereg(&quot;[[:print:]]+\.([[:alnum:]]+)$&quot;, $olFileName, $extension))
+  		{
+! 			$newFileName .= &quot;.&quot;.$extension[1];
+  		}
+  		
+--- 198,202 ----
+  			&amp;&amp; ereg(&quot;[[:print:]]+\.([[:alnum:]]+)$&quot;, $olFileName, $extension))
+  		{
+! 			$newFileName .= '.'.$extension[1];
+  		}
+  		
+***************
+*** 237,241 ****
+  	{
+  		$fileName = basename($source);
+! 		if ( check_name_exist($target.&quot;/&quot;.$fileName) )
+  		{
+  			return false;
+--- 237,241 ----
+  	{
+  		$fileName = basename($source);
+! 		if ( check_name_exist($target.'/'.$fileName) )
+  		{
+  			return false;
+***************
+*** 245,249 ****
+  			if ( is_file($source) )
+  			{
+! 				copy($source , $target.&quot;/&quot;.$fileName);
+  				unlink($source);
+  				return true;
+--- 245,249 ----
+  			if ( is_file($source) )
+  			{
+! 				copy($source , $target.'/'.$fileName);
+  				unlink($source);
+  				return true;
+***************
+*** 253,257 ****
+  			{
+  				// check to not copy the directory inside itself
+! 				if (ereg(&quot;^&quot;.$source.&quot;*&quot;, $target))
+  				{
+  					return false;
+--- 253,257 ----
+  			{
+  				// check to not copy the directory inside itself
+! 				if (ereg('^'.$source.'*', $target))
+  				{
+  					return false;
+***************
+*** 288,293 ****
+  	// extract directory name - create it at destination - update destination trail
+  	$dirName = basename($origDirPath);
+! 	mkdir ($destination.&quot;/&quot;.$dirName, 0775);
+! 	$destinationTrail = $destination.&quot;/&quot;.$dirName;
+  
+  	chdir ($origDirPath) ;
+--- 288,293 ----
+  	// extract directory name - create it at destination - update destination trail
+  	$dirName = basename($origDirPath);
+! 	mkdir ($destination.'/'.$dirName, 0775);
+! 	$destinationTrail = $destination.'/'.$dirName;
+  
+  	chdir ($origDirPath) ;
+***************
+*** 296,300 ****
+  	while ($element = readdir($handle) )
+  	{
+! 		if ( $element == &quot;.&quot; || $element == &quot;..&quot;)
+  		{
+  			continue; // skip the current and parent directories
+--- 296,300 ----
+  	while ($element = readdir($handle) )
+  	{
+! 		if ( $element == '.' || $element == '..')
+  		{
+  			continue; // skip the current and parent directories
+***************
+*** 302,311 ****
+  		elseif ( is_file($element) )
+  		{
+! 			copy($element, $destinationTrail.&quot;/&quot;.$element);
+  			unlink($element) ;
+  		}
+  		elseif ( is_dir($element) )
+  		{
+! 			$dirToCopy[] = $origDirPath.&quot;/&quot;.$element;
+  		}
+  	}
+--- 302,311 ----
+  		elseif ( is_file($element) )
+  		{
+! 			copy($element, $destinationTrail.'/'.$element);
+  			unlink($element) ;
+  		}
+  		elseif ( is_dir($element) )
+  		{
+! 			$dirToCopy[] = $origDirPath.'/'.$element;
+  		}
+  	}
+***************
+*** 351,356 ****
+  	while ($element = readdir($handle) )
+  	{
+! 		if ( $element == &quot;.&quot; || $element == &quot;..&quot;) continue;	// skip the current and parent directories
+! 		if ( is_dir($element) )	 $dirArray[] = $path.&quot;/&quot;.$element;
+  	}
+  
+--- 351,356 ----
+  	while ($element = readdir($handle) )
+  	{
+! 		if ( $element == '.' || $element == '..') continue;	// skip the current and parent directories
+! 		if ( is_dir($element) )	 $dirArray[] = $path.'/'.$element;
+  	}
+  
+***************
+*** 368,372 ****
+  	}
+  
+! 	chdir(&quot;..&quot;) ;
+  
+  	return $dirArray ;
+--- 368,372 ----
+  	}
+  
+! 	chdir('..') ;
+  
+  	return $dirArray ;
+***************
+*** 411,417 ****
+  {
+      //Aadido por Fernando Acero Martin
+!     include_once(&quot;../lang/english/trad4all.inc.php&quot;);
+      include_once(&quot;../lang/$language/trad4all.inc.php&quot;);
+!     include_once(&quot;../lang/english/document.inc.php&quot;);
+      include_once(&quot;../lang/$language/document.inc.php&quot;);
+      //Fin del aadido
+--- 411,417 ----
+  {
+      //Aadido por Fernando Acero Martin
+!     include_once('../lang/english/trad4all.inc.php');
+      include_once(&quot;../lang/$language/trad4all.inc.php&quot;);
+!     include_once('../lang/english/document.inc.php');
+      include_once(&quot;../lang/$language/document.inc.php&quot;);
+      //Fin del aadido
+***************
+*** 439,447 ****
+  			/* compute de the display tab */
+  
+! 			$tab = &quot;&quot;;					// $tab reinitialisation
+! 			$depth = substr_count($pathValue, &quot;/&quot;);		// The number of nombre '/' indicates the directory deepness
+  			for ($h=0; $h&lt;$depth; $h++)
+  			{
+! 				$tab .= &quot;&nbsp;&amp;nbsp&quot;;
+  			}
+  			$dialogBox .= &quot;&lt;option value=\&quot;$pathValue\&quot;&gt;$tab&gt;$dirname\n&quot;;
+--- 439,447 ----
+  			/* compute de the display tab */
+  
+! 			$tab = '';					// $tab reinitialisation
+! 			$depth = substr_count($pathValue, '/');		// The number of nombre '/' indicates the directory deepness
+  			for ($h=0; $h&lt;$depth; $h++)
+  			{
+! 				$tab .= '&nbsp;&amp;nbsp';
+  			}
+  			$dialogBox .= &quot;&lt;option value=\&quot;$pathValue\&quot;&gt;$tab&gt;$dirname\n&quot;;
+***************
+*** 463,467 ****
+   * @param  - path (string) - directory path of the one to index
+   */
+! function form_upload($webDir, $pathServer, $language, $submitGroupWorkUrl=&quot;&quot;, $extended=true, $zip=false)
+  {
+      //Aadido por Fernando Acero Martin
+--- 463,467 ----
+   * @param  - path (string) - directory path of the one to index
+   */
+! function form_upload($webDir, $pathServer, $language, $submitGroupWorkUrl='', $extended=true, $zip=false)
+  {
+      //Aadido por Fernando Acero Martin
+***************
+*** 496,503 ****
+  		//Indetec: Utilizamos el formulario de Document.php, ajustando las variables.
+  		if ( !isset($titreFile) ) {
+! 			$titreFile =&quot;&quot;;
+  		}
+  		if ( !isset($commentFile) ) {
+! 			$commentFile =&quot;&quot;;
+  		}
+  
+--- 496,503 ----
+  		//Indetec: Utilizamos el formulario de Document.php, ajustando las variables.
+  		if ( !isset($titreFile) ) {
+! 			$titreFile ='';
+  		}
+  		if ( !isset($commentFile) ) {
+! 			$commentFile ='';
+  		}
+  
+***************
+*** 603,611 ****
+  		$dirId = $fileManage-&gt;dirList[$i]['id'];
+  		$dspDirName = htmlentities( $dirName );
+! 		$cmdDirName = rawurlencode($fileManage-&gt;getDir() . $curDirpath . &quot;/&quot; . $dirPath);
+  		$dirComment = $fileManage-&gt;dirList[$i]['comment'];
+  		$dirVisibility = $fileManage-&gt;dirList[$i]['visibility'];
+  
+! 		if ( $dirVisibility == &quot;i&quot; ) {
+  			$style=&quot; class=\&quot;invisible\&quot;&quot;;
+  			if ( !$is_adminOfCourse ) {
+--- 603,611 ----
+  		$dirId = $fileManage-&gt;dirList[$i]['id'];
+  		$dspDirName = htmlentities( $dirName );
+! 		$cmdDirName = rawurlencode($fileManage-&gt;getDir() . $curDirpath . '/' . $dirPath);
+  		$dirComment = $fileManage-&gt;dirList[$i]['comment'];
+  		$dirVisibility = $fileManage-&gt;dirList[$i]['visibility'];
+  
+! 		if ( $dirVisibility == 'i' ) {
+  			$style=&quot; class=\&quot;invisible\&quot;&quot;;
+  			if ( !$is_adminOfCourse ) {
+***************
+*** 614,618 ****
+  		}
+  		else {
+! 			$style=&quot;&quot;;
+  		}
+  
+--- 614,618 ----
+  		}
+  		else {
+! 			$style='';
+  		}
+  
+***************
+*** 681,690 ****
+  		$size        = format_file_size( $fileManage-&gt;fileList[$i]['size'] );
+  		$date        = format_date( $fileManage-&gt;fileList[$i]['date'] );
+! 		$pathFileName = format_url( $GLOBALS[currentCourseID] . &quot;/&quot; . $fileManage-&gt;modName . $fileManage-&gt;fileList[$i]['path'] );
+  		$dspFileName = htmlentities( $fileManage-&gt;fileList[$i]['titre'] );
+  		$commentFile = $fileManage-&gt;fileList[$i]['comment'];
+  		$visibilityStatus = $fileManage-&gt;fileList[$i]['visibility'];
+  
+! 		if ( $fileManage-&gt;modName != &quot;document&quot; ) {
+  			$lockStatus = $fileManage-&gt;fileList[$i]['lock'];
+  			$UIDFile = $fileManage-&gt;fileList[$i]['uid'];
+--- 681,690 ----
+  		$size        = format_file_size( $fileManage-&gt;fileList[$i]['size'] );
+  		$date        = format_date( $fileManage-&gt;fileList[$i]['date'] );
+! 		$pathFileName = format_url( $GLOBALS[currentCourseID] . '/' . $fileManage-&gt;modName . $fileManage-&gt;fileList[$i]['path'] );
+  		$dspFileName = htmlentities( $fileManage-&gt;fileList[$i]['titre'] );
+  		$commentFile = $fileManage-&gt;fileList[$i]['comment'];
+  		$visibilityStatus = $fileManage-&gt;fileList[$i]['visibility'];
+  
+! 		if ( $fileManage-&gt;modName != 'document' ) {
+  			$lockStatus = $fileManage-&gt;fileList[$i]['lock'];
+  			$UIDFile = $fileManage-&gt;fileList[$i]['uid'];
+***************
+*** 695,699 ****
+  
+  		//Indetec: Elige el estilo de la tupla en funci&#195;&#179;n d la visibilidad y el bloqueo.
+! 		if ($visibilityStatus == &quot;i&quot;) {
+  			$style=&quot; class=\&quot;invisible\&quot;&quot;;
+  			//Si no somos administradores o due&#195;&#177;os y es una tupla invisible pasamos a la siguiente
+--- 695,699 ----
+  
+  		//Indetec: Elige el estilo de la tupla en funci&#195;&#179;n d la visibilidad y el bloqueo.
+! 		if ($visibilityStatus == 'i') {
+  			$style=&quot; class=\&quot;invisible\&quot;&quot;;
+  			//Si no somos administradores o due&#195;&#177;os y es una tupla invisible pasamos a la siguiente
+***************
+*** 764,768 ****
+  		echo &quot;&lt;/tr&gt;\n&quot;;
+  		/*** comments ***/
+! 		if ( $commentFile != &quot;&quot; ) {
+  			$commentFile = htmlentities($commentFile);
+  			$commentFile = nl2br($commentFile);
+--- 764,768 ----
+  		echo &quot;&lt;/tr&gt;\n&quot;;
+  		/*** comments ***/
+! 		if ( $commentFile != '' ) {
+  			$commentFile = htmlentities($commentFile);
+  			$commentFile = nl2br($commentFile);
+
+Index: filetools.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/fs/filetools.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** filetools.class.php	6 Aug 2004 10:23:09 -0000	1.3
+--- filetools.class.php	21 Aug 2004 19:05:02 -0000	1.4
+***************
+*** 20,27 ****
+  	function replace_dangerous_char($string)
+  	{
+! 		$search[]=&quot;\/&quot;; $replace[]=&quot;-&quot;;
+! 		$search[]=&quot;\\&quot;; $replace[]=&quot;-&quot;;
+! 		$search[]=&quot;\|&quot;; $replace[]=&quot;-&quot;;
+! 		$search[]=&quot;\&quot;&quot;; $replace[]=&quot;&quot;;
+  
+  		foreach($search as $key=&gt;$char ) {
+--- 20,27 ----
+  	function replace_dangerous_char($string)
+  	{
+! 		$search[]=&quot;\/&quot;; $replace[]='-';
+! 		$search[]=&quot;\\&quot;; $replace[]='-';
+! 		$search[]=&quot;\|&quot;; $replace[]='-';
+! 		$search[]=&quot;\&quot;&quot;; $replace[]='';
+  
+  		foreach($search as $key=&gt;$char ) {
+***************
+*** 45,53 ****
+  	function php2phps ($fileName)
+  	{
+! 		$fileName = ereg_replace(&quot;.php$&quot;, &quot;.phps&quot;, $fileName);
+  		//Antonio: Other scripts extensions
+! 		$fileName = ereg_replace(&quot;.phtml&quot;, &quot;.phps&quot;, $fileName);
+! 		$fileName = ereg_replace(&quot;.asp&quot;, &quot;.asps&quot;, $fileName);
+! 		$fileName = ereg_replace(&quot;.pl&quot;, &quot;.pls&quot;, $fileName);
+  		return $fileName;
+  	}
+--- 45,53 ----
+  	function php2phps ($fileName)
+  	{
+! 		$fileName = ereg_replace('.php$', '.phps', $fileName);
+  		//Antonio: Other scripts extensions
+! 		$fileName = ereg_replace('.phtml', '.phps', $fileName);
+! 		$fileName = ereg_replace('.asp', '.asps', $fileName);
+! 		$fileName = ereg_replace('.pl', '.pls', $fileName);
+  		return $fileName;
+  	}
+***************
+*** 100,104 ****
+  
+  		while ( $element = @readdir($handle) ) {
+! 			if ( $element == &quot;.&quot; || $element == &quot;..&quot;) {
+  				continue; // skip the current and parent directories
+  			}
+--- 100,104 ----
+  
+  		while ( $element = @readdir($handle) ) {
+! 			if ( $element == '.' || $element == '..') {
+  				continue; // skip the current and parent directories
+  			}
+***************
+*** 107,111 ****
+  			}
+  			if ( @is_dir($element) ) {
+! 				$dirList[] = $dirPath . &quot;/&quot; . $element;
+  			}
+  		}
+--- 107,111 ----
+  			}
+  			if ( @is_dir($element) ) {
+! 				$dirList[] = $dirPath . '/' . $element;
+  			}
+  		}
+***************
+*** 150,181 ****
+  			static $mimeType = array();
+  
+! 			$mimeType[] = &quot;application/msword&quot;;		$extension[] =&quot;.doc&quot;;
+! 			$mimeType[] = &quot;application/rtf&quot;;		$extension[] =&quot;.rtf&quot;;
+! 			$mimeType[] = &quot;application/vnd.ms-powerpoint&quot;;	$extension[] =&quot;.ppt&quot;;
+! 			$mimeType[] = &quot;application/vnd.ms-excel&quot;;	$extension[] =&quot;.xls&quot;;
+! 			$mimeType[] = &quot;application/pdf&quot;;		$extension[] =&quot;.pdf&quot;;
+! 			$mimeType[] = &quot;application/postscript&quot;;		$extension[] =&quot;.ps&quot;;
+! 			$mimeType[] = &quot;application/mac-binhex40&quot;;	$extension[] =&quot;.hqx&quot;;
+! 			$mimeType[] = &quot;application/x-gzip&quot;;		$extension[] =&quot;tar.gz&quot;;
+! 			$mimeType[] = &quot;application/x-shockwave-flash&quot;;	$extension[] =&quot;.swf&quot;;
+! 			$mimeType[] = &quot;application/x-stuffit&quot;;		$extension[] =&quot;.sit&quot;;
+! 			$mimeType[] = &quot;application/x-tar&quot;;		$extension[] =&quot;.tar&quot;;
+! 			$mimeType[] = &quot;application/zip&quot;;		$extension[] =&quot;.zip&quot;;
+! 			$mimeType[] = &quot;application/x-tar&quot;;		$extension[] =&quot;.tar&quot;;
+! 			$mimeType[] = &quot;text/html&quot;;			$extension[] =&quot;.htm&quot;;
+! 			$mimeType[] = &quot;text/plain&quot;;			$extension[] =&quot;.txt&quot;;
+! 			$mimeType[] = &quot;text/rtf&quot;;			$extension[] =&quot;.rtf&quot;;
+! 			$mimeType[] = &quot;image/gif&quot;;			$extension[] =&quot;.gif&quot;;
+! 			$mimeType[] = &quot;image/jpeg&quot;;			$extension[] =&quot;.jpg&quot;;
+! 			$mimeType[] = &quot;image/png&quot;;			$extension[] =&quot;.png&quot;;
+! 			$mimeType[] = &quot;audio/midi&quot;;			$extension[] =&quot;.mid&quot;;
+! 			$mimeType[] = &quot;audio/mpeg&quot;;			$extension[] =&quot;.mp3&quot;;
+! 			$mimeType[] = &quot;audio/x-aiff&quot;;			$extension[] =&quot;.aif&quot;;
+! 			$mimeType[] = &quot;audio/x-pn-realaudio&quot;;		$extension[] =&quot;.rm&quot;;
+! 			$mimeType[] = &quot;audio/x-pn-realaudio-plugin&quot;;	$extension[] =&quot;.rpm&quot;;
+! 			$mimeType[] = &quot;audio/x-wav&quot;;			$extension[] =&quot;.wav&quot;;
+! 			$mimeType[] = &quot;video/mpeg&quot;;			$extension[] =&quot;.mpg&quot;;
+! 			$mimeType[] = &quot;video/quicktime&quot;;		$extension[] =&quot;.mov&quot;;
+! 			$mimeType[] = &quot;video/x-msvideo&quot;;		$extension[] =&quot;.avi&quot;;
+  
+  
+--- 150,181 ----
+  			static $mimeType = array();
+  
+! 			$mimeType[] = 'application/msword';		$extension[] ='.doc';
+! 			$mimeType[] = 'application/rtf';		$extension[] ='.rtf';
+! 			$mimeType[] = 'application/vnd.ms-powerpoint';	$extension[] ='.ppt';
+! 			$mimeType[] = 'application/vnd.ms-excel';	$extension[] ='.xls';
+! 			$mimeType[] = 'application/pdf';		$extension[] ='.pdf';
+! 			$mimeType[] = 'application/postscript';		$extension[] ='.ps';
+! 			$mimeType[] = 'application/mac-binhex40';	$extension[] ='.hqx';
+! 			$mimeType[] = 'application/x-gzip';		$extension[] ='tar.gz';
+! 			$mimeType[] = 'application/x-shockwave-flash';	$extension[] ='.swf';
+! 			$mimeType[] = 'application/x-stuffit';		$extension[] ='.sit';
+! 			$mimeType[] = 'application/x-tar';		$extension[] ='.tar';
+! 			$mimeType[] = 'application/zip';		$extension[] ='.zip';
+! 			$mimeType[] = 'application/x-tar';		$extension[] ='.tar';
+! 			$mimeType[] = 'text/html';			$extension[] ='.htm';
+! 			$mimeType[] = 'text/plain';			$extension[] ='.txt';
+! 			$mimeType[] = 'text/rtf';			$extension[] ='.rtf';
+! 			$mimeType[] = 'image/gif';			$extension[] ='.gif';
+! 			$mimeType[] = 'image/jpeg';			$extension[] ='.jpg';
+! 			$mimeType[] = 'image/png';			$extension[] ='.png';
+! 			$mimeType[] = 'audio/midi';			$extension[] ='.mid';
+! 			$mimeType[] = 'audio/mpeg';			$extension[] ='.mp3';
+! 			$mimeType[] = 'audio/x-aiff';			$extension[] ='.aif';
+! 			$mimeType[] = 'audio/x-pn-realaudio';		$extension[] ='.rm';
+! 			$mimeType[] = 'audio/x-pn-realaudio-plugin';	$extension[] ='.rpm';
+! 			$mimeType[] = 'audio/x-wav';			$extension[] ='.wav';
+! 			$mimeType[] = 'video/mpeg';			$extension[] ='.mpg';
+! 			$mimeType[] = 'video/quicktime';		$extension[] ='.mov';
+! 			$mimeType[] = 'video/x-msvideo';		$extension[] ='.avi';
+  
+  
+***************
+*** 275,279 ****
+  
+  			while ($element = @readdir($handle) ) {
+! 				if ( $element == &quot;.&quot; || $element == &quot;..&quot;) {
+  					continue;	// skip current and parent directories
+  				} elseif ( @is_file($element) ) {
+--- 275,279 ----
+  
+  			while ($element = @readdir($handle) ) {
+! 				if ( $element == '.' || $element == '..') {
+  					continue;	// skip current and parent directories
+  				} elseif ( @is_file($element) ) {
+***************
+*** 281,285 ****
+  				}
+  				elseif ( @is_dir ($element) ) {
+! 					$dirToRemove[] = $dirPath.&quot;/&quot;.$element;
+  				}
+  			}
+--- 281,285 ----
+  				}
+  				elseif ( @is_dir ($element) ) {
+! 					$dirToRemove[] = $dirPath.'/'.$element;
+  				}
+  			}
+***************
+*** 314,318 ****
+  		$oldFileName = basename($filePath);
+  
+! 		if ( $this-&gt;check_name_exist( $path . &quot;/&quot; . $newFileName )
+  			&amp;&amp; $newFileName != $oldFileName) {
+  			return false;
+--- 314,318 ----
+  		$oldFileName = basename($filePath);
+  
+! 		if ( $this-&gt;check_name_exist( $path . '/' . $newFileName )
+  			&amp;&amp; $newFileName != $oldFileName) {
+  			return false;
+***************
+*** 322,326 ****
+  				&amp;&amp; ereg(&quot;[[:print:]]+\.([[:alnum:]]+)$&quot;, $olFileName, $extension)) {
+  
+! 				$newFileName .= &quot;.&quot; . $extension[1];
+  			}
+  			/*** Prevent file name with php extension ***/
+--- 322,326 ----
+  				&amp;&amp; ereg(&quot;[[:print:]]+\.([[:alnum:]]+)$&quot;, $olFileName, $extension)) {
+  
+! 				$newFileName .= '.' . $extension[1];
+  			}
+  			/*** Prevent file name with php extension ***/
+***************
+*** 353,361 ****
+  		if ( check_name_exist($source) ) {
+  			$fileName = basename($source);
+! 			if ( check_name_exist($target.&quot;/&quot;.$fileName) ) {
+  				return false;
+  			} else {	/*** File case ***/
+  				if ( @is_file($source) ) {
+! 					@copy($source , $target.&quot;/&quot;.$fileName);
+  					@unlink($source);
+  					return true;
+--- 353,361 ----
+  		if ( check_name_exist($source) ) {
+  			$fileName = basename($source);
+! 			if ( check_name_exist($target.'/'.$fileName) ) {
+  				return false;
+  			} else {	/*** File case ***/
+  				if ( @is_file($source) ) {
+! 					@copy($source , $target.'/'.$fileName);
+  					@unlink($source);
+  					return true;
+***************
+*** 364,368 ****
+  				elseif ( @is_dir($source)) {
+  					// check to not copy the directory inside itself
+! 					if ( ereg(&quot;^&quot;.$source, $target) ) {
+  						return false;
+  
+--- 364,368 ----
+  				elseif ( @is_dir($source)) {
+  					// check to not copy the directory inside itself
+! 					if ( ereg('^'.$source, $target) ) {
+  						return false;
+  
+***************
+*** 391,396 ****
+  		// extract directory name - create it at destination - update destination trail
+  		$dirName = basename($origDirPath);
+! 		@mkdir ($destination.&quot;/&quot;.$dirName, 0775);
+! 		$destinationTrail = $destination.&quot;/&quot;.$dirName;
+  
+  		@chdir ($origDirPath) ;
+--- 391,396 ----
+  		// extract directory name - create it at destination - update destination trail
+  		$dirName = basename($origDirPath);
+! 		@mkdir ($destination.'/'.$dirName, 0775);
+! 		$destinationTrail = $destination.'/'.$dirName;
+  
+  		@chdir ($origDirPath) ;
+***************
+*** 398,408 ****
+  
+  		while ($element = @readdir($handle) ) {
+! 			if ( $element == &quot;.&quot; || $element == &quot;..&quot;) {
+  				continue; // skip the current and parent directories
+  			} elseif ( @is_file($element) ) {
+! 				@copy($element, $destinationTrail.&quot;/&quot;.$element);
+  				@unlink($element) ;
+  			} elseif ( @is_dir($element) ) {
+! 				$dirToCopy[] = $origDirPath.&quot;/&quot;.$element;
+  			}
+  		}
+--- 398,408 ----
+  
+  		while ($element = @readdir($handle) ) {
+! 			if ( $element == '.' || $element == '..') {
+  				continue; // skip the current and parent directories
+  			} elseif ( @is_file($element) ) {
+! 				@copy($element, $destinationTrail.'/'.$element);
+  				@unlink($element) ;
+  			} elseif ( @is_dir($element) ) {
+! 				$dirToCopy[] = $origDirPath.'/'.$element;
+  			}
+  		}
+
+Index: miguel_dirtemp.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/model/classes/fs/miguel_dirtemp.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** miguel_dirtemp.class.php	6 Aug 2004 10:23:09 -0000	1.3
+--- miguel_dirtemp.class.php	21 Aug 2004 19:05:02 -0000	1.4
+***************
+*** 44,60 ****
+    	02/09/2003 00:40 - Initial release
+  */
+! include_once (Util::app_Path(&quot;common/control/classes/miguel_Error.class.php&quot;));
+  
+  class miguel_DirTemp extends miguel_Error
+  {
+! 	var $name = &quot;&quot;;
+! 	var $dirBase = &quot;&quot;;
+  
+! 	function miguel_DirTemp ( $strDirBase = &quot;&quot;)
+  	{
+  		//Set a prime seed for random nums
+  		srand( (double)microtime()*7919 );
+  
+! 		$this-&gt;name = &quot;&quot;;
+  		$this-&gt;dirBase = $strDirBase;
+  
+--- 44,60 ----
+    	02/09/2003 00:40 - Initial release
+  */
+! include_once (Util::app_Path('common/control/classes/miguel_Error.class.php'));
+  
+  class miguel_DirTemp extends miguel_Error
+  {
+! 	var $name = '';
+! 	var $dirBase = '';
+  
+! 	function miguel_DirTemp ( $strDirBase = '')
+  	{
+  		//Set a prime seed for random nums
+  		srand( (double)microtime()*7919 );
+  
+! 		$this-&gt;name = '';
+  		$this-&gt;dirBase = $strDirBase;
+  
+***************
+*** 75,79 ****
+  	function getDirTemp()
+  	{
+! 		return ( $this-&gt;dirBase . &quot;/&quot; . $this-&gt;name );
+  	}
+  
+--- 75,79 ----
+  	function getDirTemp()
+  	{
+! 		return ( $this-&gt;dirBase . '/' . $this-&gt;name );
+  	}
+  
+***************
+*** 98,105 ****
+  	}
+  
+! 	function deleteName($dirPath=&quot;&quot;)
+  	{
+! 		if ( $dirPath == &quot;&quot; ) {
+! 			$dirPath = $this-&gt;dirBase . &quot;/&quot; . $this-&gt;name;
+  		}
+                  /* Try to remove the directory. If it can not manage to remove it,
+--- 98,105 ----
+  	}
+  
+! 	function deleteName($dirPath='')
+  	{
+! 		if ( $dirPath == '' ) {
+! 			$dirPath = $this-&gt;dirBase . '/' . $this-&gt;name;
+  		}
+                  /* Try to remove the directory. If it can not manage to remove it,
+***************
+*** 111,116 ****
+                    $handle = @opendir($dirPath) ;
+                    while ($element = @readdir($handle) ) {
+! 		      $elementPath = $dirPath . &quot;/&quot; . $element;
+!                       if ( $element == &quot;.&quot; || $element == &quot;..&quot;) {
+                           continue;       // skip current and parent directories
+                        } elseif ( @is_file($elementPath) ) {
+--- 111,116 ----
+                    $handle = @opendir($dirPath) ;
+                    while ($element = @readdir($handle) ) {
+! 		      $elementPath = $dirPath . '/' . $element;
+!                       if ( $element == '.' || $element == '..') {
+                           continue;       // skip current and parent directories
+                        } elseif ( @is_file($elementPath) ) {
+***************
+*** 136,140 ****
+  		//Read data from a file in temp folder
+  		if (@is_file($file)) {
+! 			if (($fp = fopen($file,&quot;rb&quot;))) {
+  				$file_content = fread($fp, filesize($file));
+  				fclose($fp);
+--- 136,140 ----
+  		//Read data from a file in temp folder
+  		if (@is_file($file)) {
+! 			if (($fp = fopen($file,'rb'))) {
+  				$file_content = fread($fp, filesize($file));
+  				fclose($fp);
+***************
+*** 151,155 ****
+  	{
+  		//Write data in a file in temp folder
+! 		if (($fp = fopen($this-&gt;getDirTemp().'/'.$filename,&quot;wb&quot;))) {
+  			fwrite($fp, $data);
+  			fclose($fp);
+--- 151,155 ----
+  	{
+  		//Write data in a file in temp folder
+! 		if (($fp = fopen($this-&gt;getDirTemp().'/'.$filename,'wb'))) {
+  			fwrite($fp, $data);
+  			fclose($fp);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_model.class.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000024.html">[Migueloo-cvs] migueloo/modules/alumnPage index.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/include/error/control/classes base_cerror.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/include/error/control/classes%20base_cerror.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ53628946%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/include/error/control/classes base_cerror.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/include/error/control/classes%20base_cerror.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ53628946%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/include/error/control/classes base_cerror.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:03 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error index.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error/view/classes base_verror.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/include/error/control/classes
+In directory sheep:/tmp/cvs-serv22200/modules/andromeda/include/error/control/classes
+
+Modified Files:
+	base_cerror.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: base_cerror.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/include/error/control/classes/base_cerror.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_cerror.class.php	6 Aug 2004 10:38:42 -0000	1.3
+--- base_cerror.class.php	21 Aug 2004 19:05:01 -0000	1.4
+***************
+*** 73,81 ****
+  	function processPetition() 
+  	{
+! 		//$this-&gt;addNavElement(Util::format_URLPath($this-&gt;url), &quot;Volver&quot;);
+! 		//$this-&gt;addNavElement(Util::format_URLPath(&quot;base/include/error/index.php&quot;), &quot;Error&quot;);
+! 		$this-&gt;setPageTitle(&quot;miguel Error Page&quot;);
+! 		$this-&gt;setMessage(&quot;Detectado un error.&quot;);
+! 		$this-&gt;setHelp(&quot;&quot;);
+  		
+  		$this-&gt;setViewVariable('str_error', $this-&gt;str_error);
+--- 73,81 ----
+  	function processPetition() 
+  	{
+! 		//$this-&gt;addNavElement(Util::format_URLPath($this-&gt;url), 'Volver');
+! 		//$this-&gt;addNavElement(Util::format_URLPath('base/include/error/index.php'), 'Error');
+! 		$this-&gt;setPageTitle('miguel Error Page');
+! 		$this-&gt;setMessage('Detectado un error.');
+! 		$this-&gt;setHelp('');
+  		
+  		$this-&gt;setViewVariable('str_error', $this-&gt;str_error);
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error index.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[Migueloo-cvs] migueloo/modules/andromeda/include/error/view/classes base_verror.class.php,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/view/classes%20miguel_renameform.class.php%2CNONE%2C1.1%20miguel_vfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630966%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2</H1>
+    <B>antoniofcano</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/filemanager/view/classes%20miguel_renameform.class.php%2CNONE%2C1.1%20miguel_vfilemanager.class.php%2C1.1%2C1.2&In-Reply-To=%3C200408121133.i7CBXv630966%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/filemanager/view/classes miguel_renameform.class.php,NONE,1.1 miguel_vfilemanager.class.php,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 12 13:33:57 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[Migueloo-cvs] migueloo/doc/sql filemanager.sql,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/filemanager/view/classes
+In directory sheep:/tmp/cvs-serv27819/view/classes
+
+Modified Files:
+	miguel_vfilemanager.class.php 
+Added Files:
+	miguel_renameform.class.php 
+Log Message:
+Added first version of Rename, Visible, Lock and Share operations
+
+
+--- NEW FILE: miguel_renameform.class.php ---
+&lt;?php
+/*
+      +----------------------------------------------------------------------+
+      | miguel base                                                          |
+      +----------------------------------------------------------------------+
+      | Copyright (c) 2003, miguel Development Team                          |
+      +----------------------------------------------------------------------+
+      |   This program is free software; you can redistribute it and/or      |
+      |   modify it under the terms of the GNU General Public License        |
+      |   as published by the Free Software Foundation; either version 2     |
+      |   of the License, or (at your option) any later version.             |
+      |                                                                      |
+      |   This program is distributed in the hope that it will be useful,    |
+      |   but WITHOUT ANY WARRANTY; without even the implied warranty of     |
+      |   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the      |
+      |   GNU General Public License for more details.                       |
+      |                                                                      |
+      |   You should have received a copy of the GNU General Public License  |
+      |   along with this program; if not, write to the Free Software        |
+      |   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA          |
+      |   02111-1307, USA. The GNU GPL license is also available through     |
+      |   the world-wide-web at <A HREF="http://www.gnu.org/copyleft/gpl.html">http://www.gnu.org/copyleft/gpl.html</A>         |
+      +----------------------------------------------------------------------+
+      | Authors: Antonio F. Cano Damas  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">antonio at igestec.com</A>  &gt;              |
+      |          miguel Development Team                                     |
+      |                       &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">e-learning-desarrollo at listas.hispalinux.es</A>&gt;   |      
+      +----------------------------------------------------------------------+
+*/
+/**
+ * Esta clase se encarga de gestionar el formulario para accesos
+ * de usuarios a la plataforma miguel
+ *
+ * @author  Antonio F. Cano Damas  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">antonio at igestec.com</A>&gt;
+ * @author miguel development team &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">e-learning-desarrollo at listas.hispalinux.es</A>&gt;     
+ * @package miguel filemanager
+ * @version 1.0.0
+ */
+include_once (Util::app_Path(&quot;common/view/classes/miguel_formcontent.class.php&quot;));
+
+class miguel_renameForm extends miguel_FormContent
+{
+    function form_init_elements() 
+    {
+        $this-&gt;add_element($this-&gt;_formatElem(&quot;FEText&quot;, agt(&quot;Nuevo nombre&quot;), &quot;newName&quot;, FALSE, &quot;100&quot;));
+
+	$submit = $this-&gt;_formatElem(&quot;base_SubmitButton&quot;, &quot;Aceptar&quot;, &quot;submit&quot;, agt(&quot;Aceptar&quot;));
+	$submit-&gt;set_attribute('class','p'); 
+	$submit-&gt;set_attribute('accesskey','e');               
+	$this-&gt;add_element($submit);
+	
+	$this-&gt;add_hidden_element(&quot;id&quot;); 
+        $this-&gt;add_hidden_element(&quot;tp&quot;);
+        $this-&gt;add_hidden_element(&quot;status&quot;);
+    }
+
+    function form_init_data() 
+    {
+        $this-&gt;set_hidden_element_value(&quot;id&quot;, $this-&gt;getViewVariable('id') );
+        $this-&gt;set_hidden_element_value(&quot;tp&quot;, $this-&gt;getViewVariable('tp') );
+        $this-&gt;set_hidden_element_value(&quot;status&quot;, 'rename' );
+        $this-&gt;set_element_value(&quot;Nuevo nombre&quot;, $this-&gt;getViewVariable('oldName'));
+		return;
+    }
+
+    function form() 
+    {
+        $table = &amp;html_table($this-&gt;_width,0,3);
+        $table-&gt;set_class(&quot;mainInterfaceWidth&quot;);
+        //$table-&gt;set_style(&quot;border: 1px solid&quot;);
+        
+        $table-&gt;add_row($this-&gt;_tableRow(&quot;Nuevo nombre&quot;));
+
+        $elem = html_td('ptabla03', '', container($this-&gt;element_form(&quot;Aceptar&quot;)));
+	$elem-&gt;set_tag_attribute('colspan','9');
+        $table-&gt;add_row($elem);      
+
+        return $table;
+    }
+}
+
+?&gt;
+
+Index: miguel_vfilemanager.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/filemanager/view/classes/miguel_vfilemanager.class.php,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** miguel_vfilemanager.class.php	9 Aug 2004 21:45:36 -0000	1.1
+--- miguel_vfilemanager.class.php	12 Aug 2004 11:33:55 -0000	1.2
+***************
+*** 78,87 ****
+                                  //Debug::oneVar($arr_data[$i], __FILE__, __LINE__);
+                                  $table-&gt;add($this-&gt;addDocumentInfo($arr_data[$i]['folder_id'],
+!                                                                                         $arr_data[$i]['folder_name'],
+!                                                                                         $arr_data[$i]['folder_date'],
+!                                                                                         $arr_data[$i]['folder_autor'],
+!                                                                                         0,
+!                                                                                         $arr_data[$i]['folder_count_element'],
+!                                                                                         true));
+                          }
+                          //$bol_hasFolders = true;
+--- 78,89 ----
+                                  //Debug::oneVar($arr_data[$i], __FILE__, __LINE__);
+                                  $table-&gt;add($this-&gt;addDocumentInfo($arr_data[$i]['folder_id'],
+!                                                                    $arr_data[$i]['folder_name'],
+!                                                                    $arr_data[$i]['folder_date'],
+!                                                                    $arr_data[$i]['folder_autor'],
+!                                                                    0,
+!                                                                    $arr_data[$i]['folder_count_element'],
+!                                                                    $arr_data[$i]['folder_visible'],
+!                                                                    1,1,
+!                                                                    true));
+                          }
+                          //$bol_hasFolders = true;
+***************
+*** 94,104 ****
+                  if ($arr_data[0]['document_name'] != null) {
+                          for ($i=0; $i&lt;count($arr_data); $i++) {
+-                                 //Debug::oneVar($arr_data[$i], __FILE__, __LINE__);
+                                  $table-&gt;add($this-&gt;addDocumentInfo($arr_data[$i]['document_id'],
+!                                                                                         $arr_data[$i]['document_name'],
+!                                                                                         $arr_data[$i]['document_date'],
+!                                                                                         $arr_data[$i]['document_autor'],
+!                                                                                         0,
+!                                                                                         $arr_data[$i]['document_size']));
+                          }
+                  } /*else {
+--- 96,108 ----
+                  if ($arr_data[0]['document_name'] != null) {
+                          for ($i=0; $i&lt;count($arr_data); $i++) {
+                                  $table-&gt;add($this-&gt;addDocumentInfo($arr_data[$i]['document_id'],
+!                                                                    $arr_data[$i]['document_name'],
+!                                                                    $arr_data[$i]['document_date'],
+!                                                                    $arr_data[$i]['document_autor'],
+!                                                                    0,
+!                                                                    $arr_data[$i]['document_size'],
+!                                                                    $arr_data[$i]['document_visible'],
+!                                                                    $arr_data[$i]['document_lock'],
+!                                                                    $arr_data[$i]['document_share']));
+                          }
+                  } /*else {
+***************
+*** 115,122 ****
+                  $folder_parent_id = $this-&gt;getViewVariable('folder_parent_id');
+                  if($folder_parent_id != 0 ){
+!                         $link = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id, 'folder_id=' . $folder_parent_id),
+!                                                                                                                 Theme::getThemeImagePath('img_carpeta_up.png'), agt('Subir'), 15, 12); //filemanager/parentdir.png
+!                         //$image = Theme::getThemeImage(&quot;filemanager/parentdir.png&quot;); //img_carpeta.jpg //boton_arriba.gif
+!                         //$link = html_a(Util::format_URLPath('filemanager/index.php', 'folder_id=' . $folder_parent_id), $image, null, '_top');
+                  } else {
+                          $link = _HTML_SPACE;
+--- 119,124 ----
+                  $folder_parent_id = $this-&gt;getViewVariable('folder_parent_id');
+                  if($folder_parent_id != 0 ){
+!                         $link = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',&quot;folder_id=$folder_parent_id&quot;),
+!                                                                         Theme::getThemeImagePath('filemanager/parentdir.png'), agt('Subir'),15,12);
+                  } else {
+                          $link = _HTML_SPACE;
+***************
+*** 135,138 ****
+--- 137,145 ----
+                  $elem8 = html_td('ptabla02', &quot;&quot;, _HTML_SPACE);
+                  $elem9 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
++                 $elem10 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
++                 $elem11 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
++                 $elem12 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
++                 $elem13 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
++                 $elem14 = html_td('ptabla02', &quot;&quot;,_HTML_SPACE);
+  
+                  $elem1-&gt;set_tag_attribute('width', '1%');
+***************
+*** 145,148 ****
+--- 152,160 ----
+                  $elem8-&gt;set_tag_attribute('width', '1%');
+                  $elem9-&gt;set_tag_attribute('width', '1%');
++                 $elem10-&gt;set_tag_attribute('width', '1%');
++                 $elem11-&gt;set_tag_attribute('width', '1%');
++                 $elem12-&gt;set_tag_attribute('width', '1%');
++                 $elem13-&gt;set_tag_attribute('width', '1%');
++                 $elem14-&gt;set_tag_attribute('width', '1%');
+  
+                  $row-&gt;add($elem1);
+***************
+*** 155,163 ****
+                  $row-&gt;add($elem8);
+                  $row-&gt;add($elem9);
+! 
+                  return $row;
+          }
+  
+!         function addDocumentInfo($_id, $_name, $_date, $_owner, $_downs, $_size, $_folder = false)
+          {
+                  $row = html_tr();
+--- 167,179 ----
+                  $row-&gt;add($elem8);
+                  $row-&gt;add($elem9);
+!                 $row-&gt;add($elem10);
+!                 $row-&gt;add($elem11);
+!                 $row-&gt;add($elem12);
+!                 $row-&gt;add($elem13);
+!                 $row-&gt;add($elem14);
+                  return $row;
+          }
+  
+!         function addDocumentInfo($_id, $_name, $_date, $_owner, $_downs, $_size, $_visible=1, $_lock=1, $_share=1, $_folder = false)
+          {
+                  $row = html_tr();
+***************
+*** 167,171 ****
+                  if($_folder){
+                          $link = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',&quot;folder_id=$_id&quot;),
+!                                                                                                                 Theme::getThemeImagePath('img_carpeta.jpg'), agt('Entrar'));
+                  } else {
+                          include_once (Util::app_Path(&quot;filemanager/include/classes/filedisplay.class.php&quot;));
+--- 183,187 ----
+                  if($_folder){
+                          $link = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',&quot;folder_id=$_id&quot;),
+!                                                                         Theme::getThemeImagePath('filemanager/folder.png'), agt('Entrar'));
+                  } else {
+                          include_once (Util::app_Path(&quot;filemanager/include/classes/filedisplay.class.php&quot;));
+***************
+*** 197,200 ****
+--- 213,217 ----
+                  $elem8-&gt;set_tag_attribute('align', 'center');
+  
++                 //----------------- COMMON OPERATIONS ------------------------------
+                  $_fid = $this-&gt;getViewVariable('folder_id');
+  
+***************
+*** 205,212 ****
+                  }
+                  $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
+!                                                                                                                 Theme::getThemeImagePath('boton_papelera.gif'), agt('Borrar'));
+!                 $elem9 = html_td('ptabla03', '', $img); //eliminar.jpg //html_img(Theme::getThemeImagePath('boton_papelera.gif'))
+                  $elem9-&gt;set_tag_attribute('align', 'center');
+  
+                  $row-&gt;add($elem1);
+                  $row-&gt;add($elem2);
+--- 222,308 ----
+                  }
+                  $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
+!                                          Theme::getThemeImagePath('filemanager/delete.png'), agt('Borrar'));
+!                 $elem9 = html_td('ptabla03', '', $img);
+                  $elem9-&gt;set_tag_attribute('align', 'center');
+  
++                 $_fid = $this-&gt;getViewVariable('folder_id');
++ 
++                 if($_folder){
++                         $status = 'oldName='.$_name.'&amp;operation_id=rename&amp;tp=f&amp;id=';
++                 } else {
++                         $status = 'oldName='.$_name.'&amp;operation_id=rename&amp;tp=d&amp;id=';
++                 }
++                 $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
++                                          Theme::getThemeImagePath('filemanager/rename.png'), agt('Renombrar'));
++                 $elem10 = html_td('ptabla03', '', $img); 
++                 $elem10-&gt;set_tag_attribute('align', 'center');
++ 
++                 if($_folder){
++                         $status = 'folder_id='.$_fid.'&amp;operation_id=move&amp;tp=f&amp;id=';
++                 } else {
++                         $status = 'folder_id='.$_fid.'&amp;operation_id=move&amp;tp=d&amp;id=';
++                 }
++                 $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
++                                          Theme::getThemeImagePath('filemanager/move.png'), agt('Mover'));
++                 $elem11 = html_td('ptabla03', '', $img); 
++                 $elem11-&gt;set_tag_attribute('align', 'center');
++                 if ($_visible == 0) {
++                     $status= 'visible';
++                     $icon='invisible.png';
++                     $tooltip='Visible';
++                 } else {
++                     $status='invisible';
++                     $icon='visible.png';
++                     $tooltip='Invisible';
++                 }
++                 if($_folder){
++                         $status = 'status='.$status.'&amp;tp=f&amp;id=';
++                 } else {
++                         $status = 'status='.$status.'&amp;tp=d&amp;id=';
++                 }
++                 $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
++                                          Theme::getThemeImagePath('filemanager/'.$icon), agt($tooltip));
++                 $elem12 = html_td('ptabla03', '', $img); 
++                 $elem12-&gt;set_tag_attribute('align', 'center');
++ 
++                 if( !$_folder ) {
++                     if ($_lock == 0) {
++                         $status= 'lock';
++                         $icon='lock.png';
++                         $tooltip='Bloquear';
++                     } else {
++                         $status='unlock';
++                         $icon='unlock.png';
++                         $tooltip='Desbloqear';
++                     }
++                     $status = 'status='.$status.'&amp;id=';
++                     $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
++                                              Theme::getThemeImagePath('filemanager/'.$icon), agt($tooltip));
++ 
++                     $elem13 = html_td('ptabla03', '', $img);
++                     $elem13-&gt;set_tag_attribute('align', 'center');
++                     if ($_share == 0) {
++                         $status= 'share';
++                         $icon='invisible.png';
++                         $tooltip='Compartir';
++                     } else {
++                         $status='unshare';
++                         $icon='visible.png';
++                         $tooltip='No compartir';
++                     }
++                     $status = 'status='.$status.'&amp;id=';
++                     $img = $this-&gt;imag_alone(Util::format_URLPath('filemanager/index.php',$status.$_id),
++                                              Theme::getThemeImagePath('filemanager/'.$icon), agt($tooltip));
++ 
++                     $elem14 = html_td('ptabla03', '', $img);
++                     $elem14-&gt;set_tag_attribute('align', 'center');
++                 } else {
++                     $link = _HTML_SPACE;
++                     $elem13 = html_td('ptabla03', '', $link);
++                     $elem13-&gt;set_tag_attribute('align', 'center');
++                     $elem14 = html_td('ptabla03', '', $link);
++                     $elem14-&gt;set_tag_attribute('align', 'center');
++                 }
++                 //--------------------- ADD OPERATIONS INTO TR CONTAINET -----------------
+                  $row-&gt;add($elem1);
+                  $row-&gt;add($elem2);
+***************
+*** 218,222 ****
+                  $row-&gt;add($elem8);
+                  $row-&gt;add($elem9);
+! 
+                  return $row;
+          }
+--- 314,322 ----
+                  $row-&gt;add($elem8);
+                  $row-&gt;add($elem9);
+!                 $row-&gt;add($elem10);
+!                 $row-&gt;add($elem11);
+!                 $row-&gt;add($elem12);
+!                 $row-&gt;add($elem13);
+!                 $row-&gt;add($elem14);
+                  return $row;
+          }
+***************
+*** 232,235 ****
+--- 332,344 ----
+                                          $ret_val = $this-&gt;addForm('filemanager', 'miguel_submitFileForm');
+                                          break;
++                                 case 'rename':
++                                         $ret_val = $this-&gt;addForm('filemanager', 'miguel_renameForm');
++                                         break; 
++                                 case 'move':
++                                         $ret_val = $this-&gt;addForm('filemanager', 'miguel_moveForm');
++                                         break;
++                                 case 'comment':
++                                         $ret_val = $this-&gt;addForm('filemanager', 'miguel_submitFileForm');
++                                         break;  
+                          }
+                  } else {
+***************
+*** 269,274 ****
+          //$table-&gt;add_row(html_td('ptabla03', '', $this-&gt;init_content() ));
+          $table-&gt;add_row(html_td('ptabla03', '', _HTML_SPACE));
+!                 $table-&gt;add_row($this-&gt;_operationForm());
+!                 $table-&gt;add_row(html_td('ptabla03', '', _HTML_SPACE));
+          $table-&gt;add_row(html_td('ptabla01pie', '', $title));
+  
+--- 378,383 ----
+          //$table-&gt;add_row(html_td('ptabla03', '', $this-&gt;init_content() ));
+          $table-&gt;add_row(html_td('ptabla03', '', _HTML_SPACE));
+!         $table-&gt;add_row($this-&gt;_operationForm());
+!         $table-&gt;add_row(html_td('ptabla03', '', _HTML_SPACE));
+          $table-&gt;add_row(html_td('ptabla01pie', '', $title));
+  
+***************
+*** 277,281 ****
+  
+      function right_block()
+!         {
+                  //Crea el contenedor del right_block
+                  $main = container();
+--- 386,390 ----
+  
+      function right_block()
+!     {
+                  //Crea el contenedor del right_block
+                  $main = container();
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[Migueloo-cvs] migueloo/modules/filemanager/control/classes miguel_cfilemanager.class.php,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[Migueloo-cvs] migueloo/doc/sql filemanager.sql,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>

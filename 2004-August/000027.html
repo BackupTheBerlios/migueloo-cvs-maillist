@@ -1,0 +1,402 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/migueloo-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/control/classes%20base_controller.class.php%2C1.3%2C1.4%20registry.class.php%2C1.3%2C1.4%20session.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5W628981%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000030.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4</H1>
+    <B>luisllorente</B> 
+    <A HREF="mailto:migueloo-cvs%40lists.berlios.de?Subject=Re%3A%20%5BMigueloo-cvs%5D%20migueloo/modules/andromeda/control/classes%20base_controller.class.php%2C1.3%2C1.4%20registry.class.php%2C1.3%2C1.4%20session.class.php%2C1.3%2C1.4&In-Reply-To=%3C200408211905.i7LJ5W628981%40bat.berlios.de%3E"
+       TITLE="[Migueloo-cvs] migueloo/modules/andromeda/control/classes base_controller.class.php,1.3,1.4 registry.class.php,1.3,1.4 session.class.php,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Aug 21 21:05:32 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[Migueloo-cvs] migueloo/modules/alumnPage/view/classes miguel_valumnpage.class.php,1.3,1.4
+</A></li>
+        <LI>Next message: <A HREF="000030.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/migueloo/migueloo/modules/andromeda/control/classes
+In directory sheep:/tmp/cvs-serv22200/modules/andromeda/control/classes
+
+Modified Files:
+	base_controller.class.php registry.class.php session.class.php 
+Log Message:
+Uso correcto de las comillas dobles y peque&#241;as traducciones a ingl&#233;s
+
+Index: base_controller.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/control/classes/base_controller.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** base_controller.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- base_controller.class.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 357,361 ****
+      function processPetition()
+      {
+!     	$arr_menuElem[]= array (&quot;url&quot; =&gt; app_URLPath(&quot;index.php&quot;), &quot;name&quot; =&gt; Session::getValue(&quot;siteName&quot;));
+      }
+  
+--- 357,361 ----
+      function processPetition()
+      {
+!     	$arr_menuElem[]= array ('url' =&gt; app_URLPath('index.php'), 'name' =&gt; Session::getValue('siteName'));
+      }
+  
+***************
+*** 367,373 ****
+      {	
+      	$ret_val = '';
+!         //include_once(Util::base_Path(&quot;view/classes/miguel_VPage.class.php&quot;));
+!         if(file_exists(Util::app_Path($this-&gt;str_moduleName.'/view/classes/'.strtolower($this-&gt;str_viewClass).&quot;.class.php&quot;))) {
+!             include (Util::app_Path($this-&gt;str_moduleName.'/view/classes/'.strtolower($this-&gt;str_viewClass).&quot;.class.php&quot;));
+              $obj_view = new $this-&gt;str_viewClass($this-&gt;str_pageTitle, $this-&gt;arr_commarea);
+  		}
+--- 367,373 ----
+      {	
+      	$ret_val = '';
+!         //include_once(Util::base_Path('view/classes/miguel_VPage.class.php'));
+!         if(file_exists(Util::app_Path($this-&gt;str_moduleName.'/view/classes/'.strtolower($this-&gt;str_viewClass).'.class.php'))) {
+!             include (Util::app_Path($this-&gt;str_moduleName.'/view/classes/'.strtolower($this-&gt;str_viewClass).'.class.php'));
+              $obj_view = new $this-&gt;str_viewClass($this-&gt;str_pageTitle, $this-&gt;arr_commarea);
+  		}
+***************
+*** 389,394 ****
+  	function giveControl($moduleName, $class)
+  	{
+! 		if(file_exists(Util::app_Path($moduleName.'/control/classes/'.strtolower($class).&quot;.class.php&quot;))) {
+!             include (Util::app_Path($moduleName.'/control/classes/'.strtolower($class).&quot;.class.php&quot;));
+              $new_control = new $class();
+  		}
+--- 389,394 ----
+  	function giveControl($moduleName, $class)
+  	{
+! 		if(file_exists(Util::app_Path($moduleName.'/control/classes/'.strtolower($class).'.class.php'))) {
+!             include (Util::app_Path($moduleName.'/control/classes/'.strtolower($class).'.class.php'));
+              $new_control = new $class();
+  		}
+***************
+*** 408,412 ****
+      function log($message, $priority)
+      {	
+!     	include_once(Util::base_Path(&quot;include/classes/loghandler.class.php&quot;));
+    		LogHandler::log($message, $this-&gt;str_moduleName.'_controller', $priority);
+      }
+--- 408,412 ----
+      function log($message, $priority)
+      {	
+!     	include_once(Util::base_Path('include/classes/loghandler.class.php'));
+    		LogHandler::log($message, $this-&gt;str_moduleName.'_controller', $priority);
+      }
+
+Index: registry.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/control/classes/registry.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** registry.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- registry.class.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 411,415 ****
+      function listThemes()
+      {
+!         include_once(Util::base_Path(&quot;include/classes/theme.class.php&quot;));
+  
+          return Theme::getActiveThemes();
+--- 411,415 ----
+      function listThemes()
+      {
+!         include_once(Util::base_Path('include/classes/theme.class.php'));
+  
+          return Theme::getActiveThemes();
+
+Index: session.class.php
+===================================================================
+RCS file: /cvsroot/migueloo/migueloo/modules/andromeda/control/classes/session.class.php,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** session.class.php	6 Aug 2004 10:31:13 -0000	1.3
+--- session.class.php	21 Aug 2004 19:04:59 -0000	1.4
+***************
+*** 70,76 ****
+      {	
+          //Parametros de tratamiento de errores
+!         ini_set(&quot;display_errors&quot;, &quot;On&quot;);
+!         //ini_set(&quot;display_startup_errors&quot;, &quot;Off&quot;);
+!         ini_set(&quot;log_errors&quot;, &quot;Off&quot;);
+  
+  		include_once(Util::base_Path('include/classes/errorhandler.class.php'));
+--- 70,76 ----
+      {	
+          //Parametros de tratamiento de errores
+!         ini_set('display_errors', 'On');
+!         //ini_set('display_startup_errors', 'Off');
+!         ini_set('log_errors', 'Off');
+  
+  		include_once(Util::base_Path('include/classes/errorhandler.class.php'));
+***************
+*** 79,92 ****
+  		$str_name = session_name();
+  
+! 		if ($str_name != &quot;MIGUEL_BASE&quot;) {
+! 			session_name(&quot;MIGUEL_BASE&quot;);
+  		}
+  
+  		//Parametros de sesion
+! 		ini_set(&quot;session.save_handler&quot;, &quot;files&quot;);
+! 		ini_set(&quot;session.use_cookies&quot;, 0);
+  
+  		if(MIGUELBASE_SESSION_DIR != ''){
+!         	ini_set(&quot;session.save_path&quot;, MIGUELBASE_SESSION_DIR);
+          }
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40200) {
+--- 79,92 ----
+  		$str_name = session_name();
+  
+! 		if ($str_name != 'MIGUEL_BASE') {
+! 			session_name('MIGUEL_BASE');
+  		}
+  
+  		//Parametros de sesion
+! 		ini_set('session.save_handler', 'files');
+! 		ini_set('session.use_cookies', 0);
+  
+  		if(MIGUELBASE_SESSION_DIR != ''){
+!         	ini_set('session.save_path', MIGUELBASE_SESSION_DIR);
+          }
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40200) {
+***************
+*** 94,104 ****
+  		}
+  
+!         ini_set(&quot;session.use_trans_sid&quot;, 0);
+!         ini_set(&quot;session.gc_probability&quot;, 100);
+  
+          //Parametros para transferencia de ficheros
+! 		ini_set(&quot;file_uploads&quot;, &quot;On&quot;);
+! 		ini_set(&quot;upload_tmp_dir&quot;, MIGUELBASE_CACHE_DIR);
+!         ini_set(&quot;upload_max_filesize&quot;, &quot;2M&quot;);
+  
+  		if(!session_id()){
+--- 94,104 ----
+  		}
+  
+!         ini_set('session.use_trans_sid', 0);
+!         ini_set('session.gc_probability', 100);
+  
+          //Parametros para transferencia de ficheros
+! 		ini_set('file_uploads', 'On');
+! 		ini_set('upload_tmp_dir', MIGUELBASE_CACHE_DIR);
+!         ini_set('upload_max_filesize', '2M');
+  
+  		if(!session_id()){
+***************
+*** 141,154 ****
+      {
+          if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION[&quot;CONTEXT&quot;])){
+!    				$arr_context = $_SESSION[&quot;CONTEXT&quot;];
+     				$_SESSION = array();
+!    				$_SESSION[&quot;CONTEXT&quot;] = $arr_context;
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS[&quot;CONTEXT&quot;])){
+!    				$arr_context = $HTTP_SESSION_VARS[&quot;CONTEXT&quot;];
+     				$HTTP_SESSION_VARS = array();
+!    				$HTTP_SESSION_VARS[&quot;CONTEXT&quot;] = $arr_context;
+     			}
+      	}
+--- 141,154 ----
+      {
+          if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION['CONTEXT'])){
+!    				$arr_context = $_SESSION['CONTEXT'];
+     				$_SESSION = array();
+!    				$_SESSION['CONTEXT'] = $arr_context;
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS['CONTEXT'])){
+!    				$arr_context = $HTTP_SESSION_VARS['CONTEXT'];
+     				$HTTP_SESSION_VARS = array();
+!    				$HTTP_SESSION_VARS['CONTEXT'] = $arr_context;
+     			}
+      	}
+***************
+*** 164,173 ****
+      	$ret_val = null;
+      	if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+!    				$ret_val = $_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)];
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+!    				$ret_val = $HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)];
+     			}
+      	}
+--- 164,173 ----
+      	$ret_val = null;
+      	if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION['MIGUEL_'.strtoupper($str_var)])){
+!    				$ret_val = $_SESSION['MIGUEL_'.strtoupper($str_var)];
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)])){
+!    				$ret_val = $HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)];
+     			}
+      	}
+***************
+*** 183,189 ****
+      {
+      	if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			$_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)] = $mix_value;
+      	} else {
+!    			$HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)] = $mix_value;
+      	}
+      }
+--- 183,189 ----
+      {
+      	if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			$_SESSION['MIGUEL_'.strtoupper($str_var)] = $mix_value;
+      	} else {
+!    			$HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)] = $mix_value;
+      	}
+      }
+***************
+*** 198,206 ****
+          $ret_val = false;
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			if(isset($_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+  				$ret_val = true;
+  			}
+      	} else {
+! 			if(isset($HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+  				$ret_val = true;
+  			}
+--- 198,206 ----
+          $ret_val = false;
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			if(isset($_SESSION['MIGUEL_'.strtoupper($str_var)])){
+  				$ret_val = true;
+  			}
+      	} else {
+! 			if(isset($HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)])){
+  				$ret_val = true;
+  			}
+***************
+*** 217,225 ****
+      {
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			//$_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)] = null;
+! 			unset($_SESSION[&quot;MIGUEL_&quot;.strtoupper($str_var)]);
+  		} else {
+! 			//$HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)] = null;
+! 			unset( $HTTP_SESSION_VARS[&quot;MIGUEL_&quot;.strtoupper($str_var)]);
+  		}
+      }
+--- 217,225 ----
+      {
+  		if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+! 			//$_SESSION['MIGUEL_'.strtoupper($str_var)] = null;
+! 			unset($_SESSION['MIGUEL_'.strtoupper($str_var)]);
+  		} else {
+! 			//$HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)] = null;
+! 			unset( $HTTP_SESSION_VARS['MIGUEL_'.strtoupper($str_var)]);
+  		}
+      }
+***************
+*** 235,244 ****
+  		$ret_val = null;
+          if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION[&quot;CONTEXT&quot;][&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+!    				$ret_val = $_SESSION[&quot;CONTEXT&quot;][&quot;MIGUEL_&quot;.strtoupper($str_var)];
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS[&quot;CONTEXT&quot;][&quot;MIGUEL_&quot;.strtoupper($str_var)])){
+!    				$ret_val = $HTTP_SESSION_VARS[&quot;CONTEXT&quot;][&quot;MIGUEL_&quot;.strtoupper($str_var)];
+     			}
+      	}
+--- 235,244 ----
+  		$ret_val = null;
+          if (MIGUELBASE_PHP_INT_VERSION &gt;= 40006) {
+!    			if(isset($_SESSION['CONTEXT']['MIGUEL_'.strtoupper($str_var)])){
+!    				$ret_val = $_SESSION['CONTEXT']['MIGUEL_'.strtoupper($str_var)];
+     			}
+      	} else {
+!     		if(isset($HTTP_SESSION_VARS['CONTEXT']['MIGUEL_'.strtoupper($str_var)])){
+!    				$ret_val = $HTTP_SESSION_VARS['CONTEXT']['MIGUEL_'.strtoupper($str_var)];
+     			}
+      	}
+***************
+*** 287,291 ****
+  		  $this-&gt;_processXMLInitData($conf_file);
+  		} else {
+! 				$this-&gt;_setError(&quot;miguel_Controller:: miguel no est&#225; configurado&quot;);
+  		}
+  	}
+--- 287,291 ----
+  		  $this-&gt;_processXMLInitData($conf_file);
+  		} else {
+! 				$this-&gt;_setError('miguel_Controller:: miguel no est&#225; configurado');
+  		}
+  	}
+***************
+*** 314,318 ****
+  
+  		for ($i=0; $i &lt; $xml_root-&gt;numChildren(); $i++) {
+! 			$_SESSION[&quot;CONTEXT&quot;][&quot;MIGUEL_&quot;.strtoupper($xml_elements[$i]-&gt;name())] = $xml_elements[$i]-&gt;getValue();
+  		}
+  
+--- 314,318 ----
+  
+  		for ($i=0; $i &lt; $xml_root-&gt;numChildren(); $i++) {
+! 			$_SESSION['CONTEXT']['MIGUEL_'.strtoupper($xml_elements[$i]-&gt;name())] = $xml_elements[$i]-&gt;getValue();
+  		}
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[Migueloo-cvs] migueloo/modules/alumnPage/view/classes miguel_valumnpage.class.php,1.3,1.4
+</A></li>
+	<LI>Next message: <A HREF="000030.html">[Migueloo-cvs] migueloo/modules/andromeda/model/classes/ddbb base_ddbbdata.class.php,1.4,1.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/migueloo-cvs">More information about the Migueloo-cvs
+mailing list</a><br>
+</body></html>
